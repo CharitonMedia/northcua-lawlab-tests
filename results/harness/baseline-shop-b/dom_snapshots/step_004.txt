@@ -1,0 +1,15 @@
+1 label "Category filterAllLampChair"
+2 combobox "Category filterAllLampChair" value="All"
+3 label "In stock only"
+4 checkbox "In stock only" value="on" checked=false
+5 label "SortSKUPrice ascending"
+6 combobox "SortSKUPrice ascending" value="sku"
+7 radio "Select Folding chair" value="C12" checked=false
+8 radio "Select Desk lamp" value="L17" checked=true
+9 radio "Select Studio lamp" value="L42" checked=false
+10 label "Quantity"
+11 spinbutton "Quantity" value="2"
+12 label "DeliveryStandardExpress"
+13 combobox "DeliveryStandardExpress" value="Standard"
+14 button "Place test order"
+15 status "Saved shop: {"sku":"L17","quantity":"2","delivery":"Standard","total":49}"

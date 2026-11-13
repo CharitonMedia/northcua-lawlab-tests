@@ -1,0 +1,30 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/baseline-shop-b/screenshots/tool_1794612822911327152.png",
+  "output_path": "results/harness/baseline-shop-b/screenshots/tool_1794612825616970130_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "click",
+      "render_mode": "click",
+      "badge_text": "",
+      "primary_point": {
+        "x": 226,
+        "y": 652
+      },
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "single",
+      "metadata": {
+        "arguments": {
+          "x": 226,
+          "y": 652,
+          "ref": "14"
+        }
+      }
+    },
+    "web_action": "click_ref",
+    "source_observation_id": "post-fill_ref-1794612822852527178"
+  }
+}

@@ -9,3 +9,10 @@ __pycache__/
 *.gguf
 *.safetensors
 node_modules/
+
+*.mp4
+*.mov
+*.zip
+*.tar.gz
+dist/
+build/

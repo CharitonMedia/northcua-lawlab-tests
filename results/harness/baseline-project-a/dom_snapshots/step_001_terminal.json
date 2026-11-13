@@ -1,0 +1,188 @@
+{
+  "url": "http://127.0.0.1:18878/project/baseline-project-a",
+  "title": "NorthCUA project test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "link \"Reopen saved project\" [ref=@e1]\nlabel \"Project name\" [ref=@e2]\ntextbox \"Project name\" [ref=@e3]\nlabel \"CategoryResearchDesignOperations\" [ref=@e4]\ncombobox \"CategoryResearchDesignOperations\" [ref=@e5]\nlabel \"PriorityLowNormalHigh\" [ref=@e6]\ncombobox \"PriorityLowNormalHigh\" [ref=@e7]\nlabel \"Start date\" [ref=@e8]\ntextbox \"Start date\" [ref=@e9]\nlabel \"Budget\" [ref=@e10]\nspinbutton \"Budget\" [ref=@e11]\nlabel \"Notes\" [ref=@e12]\ntextbox \"Notes\" [ref=@e13]\nlabel \"Enable notifications\" [ref=@e14]\ncheckbox \"Enable notifications\" [ref=@e15]\nbutton \"Save project\" [ref=@e16]",
+  "elements": [
+    {
+      "ref_id": "e1",
+      "role": "link",
+      "name": "Reopen saved project",
+      "text": "Reopen saved project",
+      "tag": "a",
+      "attributes": {
+        "href": ""
+      }
+    },
+    {
+      "ref_id": "e2",
+      "role": "label",
+      "name": "Project name",
+      "text": "Project name",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e3",
+      "role": "textbox",
+      "name": "Project name",
+      "text": "Ember",
+      "tag": "input",
+      "attributes": {
+        "value": "Ember"
+      }
+    },
+    {
+      "ref_id": "e4",
+      "role": "label",
+      "name": "CategoryResearchDesignOperations",
+      "text": "CategoryResearchDesignOperations",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e5",
+      "role": "combobox",
+      "name": "CategoryResearchDesignOperations",
+      "text": "Design",
+      "tag": "select",
+      "attributes": {
+        "value": "Design"
+      }
+    },
+    {
+      "ref_id": "e6",
+      "role": "label",
+      "name": "PriorityLowNormalHigh",
+      "text": "PriorityLowNormalHigh",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e7",
+      "role": "combobox",
+      "name": "PriorityLowNormalHigh",
+      "text": "High",
+      "tag": "select",
+      "attributes": {
+        "value": "High"
+      }
+    },
+    {
+      "ref_id": "e8",
+      "role": "label",
+      "name": "Start date",
+      "text": "Start date",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e9",
+      "role": "textbox",
+      "name": "Start date",
+      "text": "",
+      "tag": "input",
+      "attributes": {
+        "type": "date"
+      }
+    },
+    {
+      "ref_id": "e10",
+      "role": "label",
+      "name": "Budget",
+      "text": "Budget",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e11",
+      "role": "spinbutton",
+      "name": "Budget",
+      "text": "1250",
+      "tag": "input",
+      "attributes": {
+        "type": "number",
+        "value": "1250"
+      }
+    },
+    {
+      "ref_id": "e12",
+      "role": "label",
+      "name": "Notes",
+      "text": "Notes",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e13",
+      "role": "textbox",
+      "name": "Notes",
+      "text": "Prototype review",
+      "tag": "textarea",
+      "attributes": {
+        "value": "Prototype review"
+      }
+    },
+    {
+      "ref_id": "e14",
+      "role": "label",
+      "name": "Enable notifications",
+      "text": "Enable notifications",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e15",
+      "role": "checkbox",
+      "name": "Enable notifications",
+      "text": "on",
+      "tag": "input",
+      "attributes": {
+        "type": "checkbox",
+        "value": "on",
+        "checked": true
+      }
+    },
+    {
+      "ref_id": "e16",
+      "role": "button",
+      "name": "Save project",
+      "text": "Save project",
+      "tag": "button",
+      "attributes": {}
+    }
+  ],
+  "raw": {
+    "backend": "playwright",
+    "url": "http://127.0.0.1:18878/project/baseline-project-a",
+    "title": "NorthCUA project test",
+    "frame_count": 1,
+    "frame_errors": [],
+    "frame_meta": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/project/baseline-project-a",
+        "ref_count": 16,
+        "visited": 32,
+        "truncated": false,
+        "fallback": ""
+      }
+    ],
+    "snapshot_eval_timeout_seconds": 8.0,
+    "snapshot_max_refs": null,
+    "snapshot_max_visited": null,
+    "snapshot_fallback_max_refs": 512,
+    "fallback_used": false,
+    "truncated": false,
+    "visible_text_frames": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/project/baseline-project-a",
+        "text": "Project planner Reopen saved project Project name Category Research Design Operations Priority Low Normal High Start date Budget Notes Enable notifications Save project",
+        "chars": 168,
+        "truncated": false
+      }
+    ],
+    "snapshot_visible_text_max_chars": 12000
+  }
+}

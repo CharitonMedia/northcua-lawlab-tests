@@ -1,0 +1,9 @@
+{
+  "test_model_container": "stopped",
+  "browser_fixture": "stopped",
+  "capture_proxy": "stopped",
+  "ssh_tunnel": "closed",
+  "rtx3090_memory_after_mib": 1,
+  "existing_qwen_and_webui": "still running",
+  "note": "Only temporary experiment processes were stopped; test evidence is preserved."
+}

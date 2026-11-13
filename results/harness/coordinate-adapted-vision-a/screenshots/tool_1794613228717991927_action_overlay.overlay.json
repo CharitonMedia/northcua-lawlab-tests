@@ -1,0 +1,29 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/coordinate-adapted-vision-a/screenshots/tool_1794613226605956405.png",
+  "output_path": "results/harness/coordinate-adapted-vision-a/screenshots/tool_1794613228717991927_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "click",
+      "render_mode": "click",
+      "badge_text": "",
+      "primary_point": {
+        "x": 443,
+        "y": 474
+      },
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "single",
+      "metadata": {
+        "arguments": {
+          "x": 443,
+          "y": 474
+        }
+      }
+    },
+    "web_action": "click_point",
+    "source_observation_id": "initial-coordinate-adapted-vision-a-1794613226558330230"
+  }
+}

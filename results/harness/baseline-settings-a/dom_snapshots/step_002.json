@@ -1,0 +1,116 @@
+{
+  "url": "http://127.0.0.1:18878/settings/baseline-settings-a",
+  "title": "NorthCUA settings test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "1 button \"Display\"\n2 button \"Notifications\"\n3 link \"Reload saved settings\"\n4 label \"ThemeLightDark\"\n5 combobox \"ThemeLightDark\" value=\"Dark\"\n6 label \"LanguageEnglishSpanishFrench\"\n7 combobox \"LanguageEnglishSpanishFrench\" value=\"English\"\n8 label \"Date formatMM/DD/YYYYYYYY-MM-DD\"\n9 combobox \"Date formatMM/DD/YYYYYYYY-MM-DD\" value=\"MM/DD/YYYY\"\n10 label \"Time zoneAmerica/New_YorkUTCEurope/London\"\n11 combobox \"Time zoneAmerica/New_YorkUTCEurope/London\" value=\"America/New_York\"\n12 button \"Save settings\"",
+  "elements": [
+    {
+      "ref_id": "1",
+      "role": "button",
+      "name": "Display",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "2",
+      "role": "button",
+      "name": "Notifications",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "3",
+      "role": "link",
+      "name": "Reload saved settings",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "4",
+      "role": "label",
+      "name": "ThemeLightDark",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "5",
+      "role": "combobox",
+      "name": "ThemeLightDark",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "Dark"
+      }
+    },
+    {
+      "ref_id": "6",
+      "role": "label",
+      "name": "LanguageEnglishSpanishFrench",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "7",
+      "role": "combobox",
+      "name": "LanguageEnglishSpanishFrench",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "English"
+      }
+    },
+    {
+      "ref_id": "8",
+      "role": "label",
+      "name": "Date formatMM/DD/YYYYYYYY-MM-DD",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "9",
+      "role": "combobox",
+      "name": "Date formatMM/DD/YYYYYYYY-MM-DD",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "MM/DD/YYYY"
+      }
+    },
+    {
+      "ref_id": "10",
+      "role": "label",
+      "name": "Time zoneAmerica/New_YorkUTCEurope/London",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "11",
+      "role": "combobox",
+      "name": "Time zoneAmerica/New_YorkUTCEurope/London",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "America/New_York"
+      }
+    },
+    {
+      "ref_id": "12",
+      "role": "button",
+      "name": "Save settings",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    }
+  ],
+  "raw": {
+    "source": "post_action_observation_bundle",
+    "observation_id": "post-select_option_ref-1794612766571559151"
+  }
+}

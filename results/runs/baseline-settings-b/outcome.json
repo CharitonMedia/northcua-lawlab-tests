@@ -1,0 +1,53 @@
+{
+  "run_id": "baseline-settings-b",
+  "case_id": "settings-b",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/settings/baseline-settings-b",
+    "--query",
+    "Set workspace theme Dark, language Spanish, date format YYYY-MM-DD and time zone Europe/London. Under Notifications, disable the weekly newsletter and enable autosave reminders. Save and reload the saved settings, then check all six values. Use only visible controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "baseline-settings-b",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794612830.163527,
+  "wall_seconds": 82.2792534828186,
+  "exit_code": 1,
+  "timed_out": false,
+  "expected": {
+    "theme": "Dark",
+    "language": "Spanish",
+    "date_format": "YYYY-MM-DD",
+    "timezone": "Europe/London",
+    "newsletter": false,
+    "autosave": true
+  },
+  "actual": {
+    "theme": "Dark",
+    "language": "Spanish",
+    "date_format": "YYYY-MM-DD",
+    "timezone": "Europe/London",
+    "autosave": true,
+    "newsletter": false
+  },
+  "checks": {
+    "theme": true,
+    "language": true,
+    "date_format": true,
+    "timezone": true,
+    "newsletter": true,
+    "autosave": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/baseline-settings-b/video/9ceabd9828f5405e4084575d9c8f5507.webm"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "project-b",
+  "task": "project",
+  "prompt": "Create project Atlas, category Operations, priority Normal, start date January 15, 2027, budget 875.50, notes 'Check supply list'. Leave notifications OFF. Save, reopen the saved project, and verify all values. Use only normal visible browser controls. When filling an HTML date input, pass its value in YYYY-MM-DD format.",
+  "expected": {
+    "name": "Atlas",
+    "category": "Operations",
+    "priority": "Normal",
+    "start": "2027-01-15",
+    "budget": "875.50",
+    "notes": "Check supply list",
+    "notifications": false
+  }
+}

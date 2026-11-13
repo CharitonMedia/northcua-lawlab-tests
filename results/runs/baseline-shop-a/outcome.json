@@ -1,0 +1,47 @@
+{
+  "run_id": "baseline-shop-a",
+  "case_id": "shop-a",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/shop/baseline-shop-a",
+    "--query",
+    "Find the least expensive in-stock lamp. Order 3 of it with Express delivery using the normal visible browser controls. Submit the test order and report its SKU and final total. Do not buy an unavailable item.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "baseline-shop-a",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794612739.446669,
+  "wall_seconds": 20.404059648513794,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "sku": "L17",
+    "quantity": "3",
+    "delivery": "Express",
+    "total": 81.0
+  },
+  "actual": {
+    "sku": "L17",
+    "quantity": "3",
+    "delivery": "Express",
+    "total": 81.0
+  },
+  "checks": {
+    "sku": true,
+    "quantity": true,
+    "delivery": true,
+    "total": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/baseline-shop-a/video/ea1640abdc30222b74cfca39ac54dcd1.webm"
+  ]
+}

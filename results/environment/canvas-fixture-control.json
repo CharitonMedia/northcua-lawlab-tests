@@ -1,0 +1,34 @@
+{
+  "type": "scripted fixture validation; not a model task result",
+  "canvas_bounds": {
+    "x": 140,
+    "y": 145.109375,
+    "width": 1002,
+    "height": 472
+  },
+  "receipt": {
+    "task": "vision",
+    "data": {
+      "sequence": [
+        "teal-hexagon",
+        "purple-circle"
+      ],
+      "click_count": 2,
+      "clicks": [
+        {
+          "x": 299.4011976047904,
+          "y": 328.49278336864404,
+          "viewport_x": 440,
+          "viewport_y": 475
+        },
+        {
+          "x": 698.6027944111777,
+          "y": 328.49278336864404,
+          "viewport_x": 840,
+          "viewport_y": 475
+        }
+      ]
+    },
+    "saved_at_unix": 1794613219.7554467
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "run_id": "visual-probe-vision-a",
+  "case_id": "vision-a",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/vision/visual-probe-vision-a",
+    "--query",
+    "Click the TEAL HEXAGON first, then the PURPLE CIRCLE on the visual target board. Use normal browser pointing actions. Stop after those two clicks and report the recorded sequence.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "visual-probe-vision-a",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794613156.1832998,
+  "wall_seconds": 12.889363050460815,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "sequence": [
+      "teal-hexagon",
+      "purple-circle"
+    ],
+    "click_count": 2
+  },
+  "actual": {},
+  "checks": {
+    "sequence": false,
+    "click_count": false
+  },
+  "independent_saved_state_pass": false,
+  "video_files": [
+    "results/runs/visual-probe-vision-a/video/96c004beaeca4bc0ae6fca90ba48a90b.webm"
+  ]
+}

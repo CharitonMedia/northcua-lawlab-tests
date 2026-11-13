@@ -1,0 +1,61 @@
+{
+  "run_id": "coordinate-adapted-vision-a",
+  "case_id": "vision-a",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/vision/coordinate-adapted-vision-a",
+    "--query",
+    "Click the TEAL HEXAGON first, then the PURPLE CIRCLE on the visual target board. Use normal browser pointing actions. Stop after those two clicks and report the recorded sequence.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "coordinate-adapted-vision-a",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794613222.4799588,
+  "wall_seconds": 12.791462421417236,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "sequence": [
+      "teal-hexagon",
+      "purple-circle"
+    ],
+    "click_count": 2
+  },
+  "actual": {
+    "sequence": [
+      "teal-hexagon",
+      "purple-circle"
+    ],
+    "click_count": 2,
+    "clicks": [
+      {
+        "x": 302.3952095808383,
+        "y": 327.4970206567797,
+        "viewport_x": 443,
+        "viewport_y": 474
+      },
+      {
+        "x": 700.5988023952095,
+        "y": 327.4970206567797,
+        "viewport_x": 842,
+        "viewport_y": 474
+      }
+    ]
+  },
+  "checks": {
+    "sequence": true,
+    "click_count": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/coordinate-adapted-vision-a/video/02cc32c7d8bf74789314efc65aceb38f.webm"
+  ]
+}

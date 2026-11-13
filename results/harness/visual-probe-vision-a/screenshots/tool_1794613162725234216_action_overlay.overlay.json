@@ -1,0 +1,29 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/visual-probe-vision-a/screenshots/tool_1794613160634990984.png",
+  "output_path": "results/harness/visual-probe-vision-a/screenshots/tool_1794613162725234216_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "click",
+      "render_mode": "click",
+      "badge_text": "",
+      "primary_point": {
+        "x": 346,
+        "y": 658
+      },
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "single",
+      "metadata": {
+        "arguments": {
+          "x": 346,
+          "y": 658
+        }
+      }
+    },
+    "web_action": "click_point",
+    "source_observation_id": "initial-visual-probe-vision-a-1794613160593707280"
+  }
+}

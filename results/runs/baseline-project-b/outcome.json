@@ -1,0 +1,48 @@
+{
+  "run_id": "baseline-project-b",
+  "case_id": "project-b",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/project/baseline-project-b",
+    "--query",
+    "Create project Atlas, category Operations, priority Normal, start date January 15, 2027, budget 875.50, notes 'Check supply list'. Leave notifications OFF. Save, reopen the saved project, and verify all values. Use only normal visible browser controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "baseline-project-b",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794612799.413403,
+  "wall_seconds": 13.691851377487183,
+  "exit_code": 1,
+  "timed_out": false,
+  "expected": {
+    "name": "Atlas",
+    "category": "Operations",
+    "priority": "Normal",
+    "start": "2027-01-15",
+    "budget": "875.50",
+    "notes": "Check supply list",
+    "notifications": false
+  },
+  "actual": {},
+  "checks": {
+    "name": false,
+    "category": false,
+    "priority": false,
+    "start": false,
+    "budget": false,
+    "notes": false,
+    "notifications": false
+  },
+  "independent_saved_state_pass": false,
+  "video_files": [
+    "results/runs/baseline-project-b/video/fd140d9795e827e94b0de8360fd2c00f.webm"
+  ]
+}

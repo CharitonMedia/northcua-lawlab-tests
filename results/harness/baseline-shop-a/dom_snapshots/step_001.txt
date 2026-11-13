@@ -1,0 +1,24 @@
+Page:
+title: NorthCUA shop test
+url: http://127.0.0.1:18878/shop/baseline-shop-a
+
+Interactive refs:
+label "Category filterAllLampChair" [ref=@e1]
+combobox "Category filterAllLampChair" [ref=@e2]
+label "In stock only" [ref=@e3]
+checkbox "In stock only" [ref=@e4]
+label "SortSKUPrice ascending" [ref=@e5]
+combobox "SortSKUPrice ascending" [ref=@e6]
+radio "Select Folding chair" [ref=@e7]
+radio "Select Pocket lamp" [ref=@e8]
+radio "Select Desk lamp" [ref=@e9]
+radio "Select Studio lamp" [ref=@e10]
+label "Quantity" [ref=@e11]
+spinbutton "Quantity" [ref=@e12]
+label "DeliveryStandardExpress" [ref=@e13]
+combobox "DeliveryStandardExpress" [ref=@e14]
+button "Place test order" [ref=@e15]
+
+Visible page text:
+[main frame]
+Supply shop Category filter All Lamp Chair In stock only Sort SKU Price ascending Select SKU Product Category Price Stock C12 Folding chair Chair $18.00 In stock L11 Pocket lamp Lamp $9.95 Unavailable L17 Desk lamp Lamp $24.50 In stock L42 Studio lamp Lamp $32.00 In stock Quantity Delivery Standard Express Place test order

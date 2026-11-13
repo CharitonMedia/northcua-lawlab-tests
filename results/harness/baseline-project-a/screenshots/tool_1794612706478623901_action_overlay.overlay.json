@@ -1,0 +1,25 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706364883012.png",
+  "output_path": "results/harness/baseline-project-a/screenshots/tool_1794612706478623901_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "type",
+      "render_mode": "badge",
+      "badge_text": "Type: 1250",
+      "primary_point": null,
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "",
+      "metadata": {
+        "arguments": {
+          "text": "1250"
+        }
+      }
+    },
+    "web_action": "fill_ref",
+    "source_observation_id": "post-select_option_ref-1794612706304660239"
+  }
+}

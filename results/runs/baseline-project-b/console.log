@@ -1,0 +1,68 @@
+┌─ NorthCUA Web Agent ─────────────────────────────────────────────────────────────────┐
+│ [1m[34mRun[0m                                                                                  │
+│   Session: baseline-project-b                                                        │
+│   Trace Dir: results/harness/baseline-project-b                                      │
+│   Query: Create project Atlas, category Operations, priority Normal, start date      │
+│   January 15, 2027, budget 875.50, notes 'Check supply list'. Leave notifications    │
+│   OFF. Save, reopen the saved project, and verify all values. Use only normal        │
+│   visible browser controls.                                                          │
+│   URL: http://127.0.0.1:18878/project/baseline-project-b                             │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 1[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 1 [[1m[31merror[0m] ─────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   I’ll fill the project form, ensure notifications are off, save it, then reopen     │
+│   the saved project to verify every value.                                           │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/project/baseline-project-b                             │
+│   Observation: NorthCUA project test -                                               │
+│   http://127.0.0.1:18878/project/baseline-project-b                                  │
+│   Summary: web_fill_ref, web_select_option_ref, web_select_option_ref,               │
+│   web_fill_ref, web_fill_ref, web_fill_ref, web_click_ref                            │
+│                                                                                      │
+│ [1m[31mTool[0m                                                                                 │
+│   Model call: web_fill_ref {"ref":3,"text":"Atlas"}                                  │
+│   Model call: web_select_option_ref {"ref":5,"values":["Operations"]}                │
+│   Model call: web_select_option_ref {"ref":7,"values":["Normal"]}                    │
+│   Model call: web_fill_ref {"ref":9,"text":"01/15/2027"}                             │
+│   Model call: web_fill_ref {"ref":11,"text":"875.50"}                                │
+│   Model call: web_fill_ref {"ref":13,"text":"Check supply list"}                     │
+│   Model call: web_click_ref {"ref":16}                                               │
+│   Executed: web_fill_ref [ok]                                                        │
+│   Executed: web_select_option_ref [ok]                                               │
+│   Executed: web_select_option_ref [ok]                                               │
+│   Executed: web_fill_ref [error]                                                     │
+│   Executed: web_fill_ref [ok]                                                        │
+│   Executed: web_fill_ref [ok]                                                        │
+│   Executed: web_click_ref [ok]                                                       │
+│   Tool Summary: web_fill_ref, web_select_option_ref, web_select_option_ref,          │
+│   web_fill_ref, web_fill_ref, web_fill_ref, web_click_ref                            │
+│   Result: error                                                                      │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+┌─ NorthCUA Web Agent Summary ─────────────────────────────────────────────────────────┐
+│ [1m[34mSummary[0m                                                                              │
+│   Status: error                                                                      │
+│   Terminal: tool_error                                                               │
+│   Steps: 1                                                                           │
+│   Success: False                                                                     │
+│   Answer: I’ll fill the project form, ensure notifications are off, save it, then    │
+│   reopen the saved project to verify every value.                                    │
+│   Trace Dir: results/harness/baseline-project-b                                      │
+│   Result JSON: results/harness/baseline-project-b/result.json                        │
+│   Trace: results/harness/baseline-project-b/web_agent_trace.jsonl                    │
+│ [1m[36mDecision[0m                                                                             │
+│   Action: fail                                                                       │
+│   Reason: tool_error                                                                 │
+│   Success: False                                                                     │
+│   Retryable: True                                                                    │
+│   Summary: A web tool execution failed.                                              │
+│   Answer: I’ll fill the project form, ensure notifications are off, save it, then    │
+│   reopen the saved project to verify every value.                                    │
+│ [1m[31mTool Errors[0m                                                                          │
+│   Locator.fill: Error: Malformed value Call log: - waiting for                       │
+│   locator("[data-northcua-web-agent-ref='e9']").first - locator resolved to <input   │
+│   type="date" required="" name="start" data-northcua-web-agent-ref="e9"/> -          │
+│   fill("01/15/2027") - attempting fill action - waiting for element to be visible,   │
+│   enabled and editable                                                               │
+└──────────────────────────────────────────────────────────────────────────────────────┘

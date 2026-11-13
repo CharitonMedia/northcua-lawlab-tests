@@ -1,0 +1,56 @@
+{
+  "run_id": "iso-hint-project-b",
+  "case_id": "project-b",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/project/iso-hint-project-b",
+    "--query",
+    "Create project Atlas, category Operations, priority Normal, start date January 15, 2027, budget 875.50, notes 'Check supply list'. Leave notifications OFF. Save, reopen the saved project, and verify all values. Use only normal visible browser controls. When filling an HTML date input, pass its value in YYYY-MM-DD format.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "iso-hint-project-b",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794612905.0625162,
+  "wall_seconds": 33.879467725753784,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "name": "Atlas",
+    "category": "Operations",
+    "priority": "Normal",
+    "start": "2027-01-15",
+    "budget": "875.50",
+    "notes": "Check supply list",
+    "notifications": false
+  },
+  "actual": {
+    "name": "Atlas",
+    "category": "Operations",
+    "priority": "Normal",
+    "start": "2027-01-15",
+    "budget": "875.50",
+    "notes": "Check supply list",
+    "notifications": false
+  },
+  "checks": {
+    "name": true,
+    "category": true,
+    "priority": true,
+    "start": true,
+    "budget": true,
+    "notes": true,
+    "notifications": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/iso-hint-project-b/video/b929910e9380273af975a043854880af.webm"
+  ]
+}

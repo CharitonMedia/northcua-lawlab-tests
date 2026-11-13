@@ -1,0 +1,48 @@
+{
+  "run_id": "baseline-project-a",
+  "case_id": "project-a",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/project/baseline-project-a",
+    "--query",
+    "Create a project named Ember, category Design, priority High, start date December 1, 2026, budget 1250, notes 'Prototype review'. Enable notifications. Save it, reopen the saved project, and verify every requested value. Use only the normal visible browser controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "baseline-project-a",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794612691.1600535,
+  "wall_seconds": 18.10088014602661,
+  "exit_code": 1,
+  "timed_out": false,
+  "expected": {
+    "name": "Ember",
+    "category": "Design",
+    "priority": "High",
+    "start": "2026-12-01",
+    "budget": "1250",
+    "notes": "Prototype review",
+    "notifications": true
+  },
+  "actual": {},
+  "checks": {
+    "name": false,
+    "category": false,
+    "priority": false,
+    "start": false,
+    "budget": false,
+    "notes": false,
+    "notifications": false
+  },
+  "independent_saved_state_pass": false,
+  "video_files": [
+    "results/runs/baseline-project-a/video/29750e9a17af10ea1ca88c4cc1c1305a.webm"
+  ]
+}

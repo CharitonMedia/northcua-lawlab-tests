@@ -1,0 +1,13 @@
+1 label "Category filterAllLampChair"
+2 combobox "Category filterAllLampChair" value="Lamp"
+3 label "In stock only"
+4 checkbox "In stock only" value="on" checked=true
+5 label "SortSKUPrice ascending"
+6 combobox "SortSKUPrice ascending" value="sku"
+7 radio "Select Desk lamp" value="L17" checked=true
+8 radio "Select Studio lamp" value="L42" checked=false
+9 label "Quantity"
+10 spinbutton "Quantity" value="3"
+11 label "DeliveryStandardExpress"
+12 combobox "DeliveryStandardExpress" value="Express"
+13 button "Place test order"

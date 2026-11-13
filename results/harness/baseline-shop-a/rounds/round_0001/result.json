@@ -1,0 +1,5218 @@
+{
+  "status": "success",
+  "terminal_status": "completed",
+  "session_id": "baseline-shop-a",
+  "user_query": "Find the least expensive in-stock lamp. Order 3 of it with Express delivery using the normal visible browser controls. Submit the test order and report its SKU and final total. Do not buy an unavailable item.",
+  "round_num": 1,
+  "evaluation_report": {},
+  "evaluation_report_path": "",
+  "evaluation_error": "",
+  "start_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+  "final_answer": "Test order submitted successfully.\n\n- SKU: L17\n- Item: Desk lamp\n- Quantity: 3\n- Delivery: Express\n- Final total: 81 (currency not specified on the page)",
+  "success": true,
+  "steps": [
+    {
+      "step_index": 1,
+      "session_id": "baseline-shop-a",
+      "round_num": 1,
+      "session_step": 1,
+      "runtime_cursor": {
+        "session_id": "baseline-shop-a",
+        "round_num": 1,
+        "round_step": 1,
+        "session_step": 1,
+        "phase": "main",
+        "phase_step": 1
+      },
+      "status": "ok",
+      "assistant_text": "I’ll filter to lamps and in-stock items, then sort by price so the selected lamp is the least expensive available one.",
+      "reasoning": "",
+      "assistant_tool_calls": [
+        {
+          "id": "Ig22w70Obl7I5EJKGO4UR9Ci5kwXLCbU",
+          "name": "web_select_option_ref",
+          "arguments": "{\"ref\": 2, \"values\": [\"Lamp\"]}",
+          "type": "function"
+        },
+        {
+          "id": "7Wu15mKwDmUXebDvUCYKSflJ0fEVFD34",
+          "name": "web_check_ref",
+          "arguments": "{\"ref\": 4}",
+          "type": "function"
+        }
+      ],
+      "tool_summary": "web_select_option_ref, web_check_ref",
+      "tools": [
+        {
+          "action": "select_option_ref",
+          "tool_name": "web_select_option_ref",
+          "tool_input": {
+            "ref": 2,
+            "values": [
+              "Lamp"
+            ]
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Selected option values on 2.",
+            "action": "select_option_ref",
+            "params": {
+              "ref": "2",
+              "values": [
+                "Lamp"
+              ]
+            },
+            "result": {
+              "ref": "2",
+              "values": [
+                "Lamp"
+              ]
+            },
+            "observation": {
+              "observation_id": "post-select_option_ref-1794612746675596853",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+                "title": "NorthCUA shop test"
+              },
+              "snapshot": {
+                "text": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"Lamp\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=false\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Desk lamp\" value=\"L17\" checked=false\n8 radio \"Select Studio lamp\" value=\"L42\" checked=false\n9 label \"Quantity\"\n10 spinbutton \"Quantity\" value=\"1\"\n11 label \"DeliveryStandardExpress\"\n12 combobox \"DeliveryStandardExpress\" value=\"Standard\"\n13 button \"Place test order\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "label",
+                    "label": "Category filterAllLampChair"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "combobox",
+                    "label": "Category filterAllLampChair",
+                    "state": "value=\"Lamp\""
+                  },
+                  {
+                    "ref": "3",
+                    "role": "label",
+                    "label": "In stock only"
+                  },
+                  {
+                    "ref": "4",
+                    "role": "checkbox",
+                    "label": "In stock only",
+                    "state": "value=\"on\" checked=false"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "label",
+                    "label": "SortSKUPrice ascending"
+                  },
+                  {
+                    "ref": "6",
+                    "role": "combobox",
+                    "label": "SortSKUPrice ascending",
+                    "state": "value=\"sku\""
+                  },
+                  {
+                    "ref": "7",
+                    "role": "radio",
+                    "label": "Select Desk lamp",
+                    "state": "value=\"L17\" checked=false"
+                  },
+                  {
+                    "ref": "8",
+                    "role": "radio",
+                    "label": "Select Studio lamp",
+                    "state": "value=\"L42\" checked=false"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "label",
+                    "label": "Quantity"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "spinbutton",
+                    "label": "Quantity",
+                    "state": "value=\"1\""
+                  },
+                  {
+                    "ref": "11",
+                    "role": "label",
+                    "label": "DeliveryStandardExpress"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "combobox",
+                    "label": "DeliveryStandardExpress",
+                    "state": "value=\"Standard\""
+                  },
+                  {
+                    "ref": "13",
+                    "role": "button",
+                    "label": "Place test order"
+                  }
+                ],
+                "ref_count": 13
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "label",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "combobox",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "label",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "checkbox",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "label",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "combobox",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "radio",
+                      "name": "Select Desk lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "radio",
+                      "name": "Select Studio lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 422.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 422.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "label",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 467.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 467.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "spinbutton",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 225.234375,
+                        "y": 467.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 225.234375,
+                        "y": 467.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "label",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 525.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 525.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "combobox",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 220.5,
+                        "y": 525.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 220.5,
+                        "y": 525.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "button",
+                      "name": "Place test order",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 583.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 583.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 1,
+                  "omitted_reason_counts": {
+                    "attribute_disabled": 1
+                  },
+                  "marked_count": 13,
+                  "visible_interactive_count": 13,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "Ig22w70Obl7I5EJKGO4UR9Ci5kwXLCbU"
+        },
+        {
+          "action": "check_ref",
+          "tool_name": "web_check_ref",
+          "tool_input": {
+            "ref": 4
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Checked 4.",
+            "action": "check_ref",
+            "params": {
+              "ref": "4"
+            },
+            "result": {
+              "ref": "4",
+              "checked": true
+            },
+            "observation": {
+              "observation_id": "post-check_ref-1794612747180601321",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+                "title": "NorthCUA shop test"
+              },
+              "snapshot": {
+                "text": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"Lamp\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=true\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Desk lamp\" value=\"L17\" checked=false\n8 radio \"Select Studio lamp\" value=\"L42\" checked=false\n9 label \"Quantity\"\n10 spinbutton \"Quantity\" value=\"1\"\n11 label \"DeliveryStandardExpress\"\n12 combobox \"DeliveryStandardExpress\" value=\"Standard\"\n13 button \"Place test order\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "label",
+                    "label": "Category filterAllLampChair"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "combobox",
+                    "label": "Category filterAllLampChair",
+                    "state": "value=\"Lamp\""
+                  },
+                  {
+                    "ref": "3",
+                    "role": "label",
+                    "label": "In stock only"
+                  },
+                  {
+                    "ref": "4",
+                    "role": "checkbox",
+                    "label": "In stock only",
+                    "state": "value=\"on\" checked=true"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "label",
+                    "label": "SortSKUPrice ascending"
+                  },
+                  {
+                    "ref": "6",
+                    "role": "combobox",
+                    "label": "SortSKUPrice ascending",
+                    "state": "value=\"sku\""
+                  },
+                  {
+                    "ref": "7",
+                    "role": "radio",
+                    "label": "Select Desk lamp",
+                    "state": "value=\"L17\" checked=false"
+                  },
+                  {
+                    "ref": "8",
+                    "role": "radio",
+                    "label": "Select Studio lamp",
+                    "state": "value=\"L42\" checked=false"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "label",
+                    "label": "Quantity"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "spinbutton",
+                    "label": "Quantity",
+                    "state": "value=\"1\""
+                  },
+                  {
+                    "ref": "11",
+                    "role": "label",
+                    "label": "DeliveryStandardExpress"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "combobox",
+                    "label": "DeliveryStandardExpress",
+                    "state": "value=\"Standard\""
+                  },
+                  {
+                    "ref": "13",
+                    "role": "button",
+                    "label": "Place test order"
+                  }
+                ],
+                "ref_count": 13
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "label",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "combobox",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "label",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "checkbox",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "label",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "combobox",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "radio",
+                      "name": "Select Desk lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "radio",
+                      "name": "Select Studio lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "label",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "spinbutton",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "label",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "combobox",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "button",
+                      "name": "Place test order",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 13,
+                  "visible_interactive_count": 13,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "7Wu15mKwDmUXebDvUCYKSflJ0fEVFD34"
+        }
+      ],
+      "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+      "observation": {
+        "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "title": "NorthCUA shop test",
+        "origin": "http://127.0.0.1:18878",
+        "snapshot": "label \"Category filterAllLampChair\" [ref=@e1]\ncombobox \"Category filterAllLampChair\" [ref=@e2]\nlabel \"In stock only\" [ref=@e3]\ncheckbox \"In stock only\" [ref=@e4]\nlabel \"SortSKUPrice ascending\" [ref=@e5]\ncombobox \"SortSKUPrice ascending\" [ref=@e6]\nradio \"Select Folding chair\" [ref=@e7]\nradio \"Select Pocket lamp\" [ref=@e8]\nradio \"Select Desk lamp\" [ref=@e9]\nradio \"Select Studio lamp\" [ref=@e10]\nlabel \"Quantity\" [ref=@e11]\nspinbutton \"Quantity\" [ref=@e12]\nlabel \"DeliveryStandardExpress\" [ref=@e13]\ncombobox \"DeliveryStandardExpress\" [ref=@e14]\nbutton \"Place test order\" [ref=@e15]",
+        "elements": [
+          {
+            "ref_id": "e1",
+            "role": "label",
+            "name": "Category filterAllLampChair",
+            "text": "Category filterAllLampChair",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e2",
+            "role": "combobox",
+            "name": "Category filterAllLampChair",
+            "text": "All",
+            "tag": "select",
+            "attributes": {
+              "value": "All"
+            }
+          },
+          {
+            "ref_id": "e3",
+            "role": "label",
+            "name": "In stock only",
+            "text": "In stock only",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e4",
+            "role": "checkbox",
+            "name": "In stock only",
+            "text": "on",
+            "tag": "input",
+            "attributes": {
+              "type": "checkbox",
+              "value": "on",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e5",
+            "role": "label",
+            "name": "SortSKUPrice ascending",
+            "text": "SortSKUPrice ascending",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e6",
+            "role": "combobox",
+            "name": "SortSKUPrice ascending",
+            "text": "sku",
+            "tag": "select",
+            "attributes": {
+              "value": "sku"
+            }
+          },
+          {
+            "ref_id": "e7",
+            "role": "radio",
+            "name": "Select Folding chair",
+            "text": "C12",
+            "tag": "input",
+            "attributes": {
+              "type": "radio",
+              "value": "C12",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e8",
+            "role": "radio",
+            "name": "Select Pocket lamp",
+            "text": "L11",
+            "tag": "input",
+            "attributes": {
+              "type": "radio",
+              "disabled": "",
+              "value": "L11",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e9",
+            "role": "radio",
+            "name": "Select Desk lamp",
+            "text": "L17",
+            "tag": "input",
+            "attributes": {
+              "type": "radio",
+              "value": "L17",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e10",
+            "role": "radio",
+            "name": "Select Studio lamp",
+            "text": "L42",
+            "tag": "input",
+            "attributes": {
+              "type": "radio",
+              "value": "L42",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e11",
+            "role": "label",
+            "name": "Quantity",
+            "text": "Quantity",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e12",
+            "role": "spinbutton",
+            "name": "Quantity",
+            "text": "1",
+            "tag": "input",
+            "attributes": {
+              "type": "number",
+              "value": "1"
+            }
+          },
+          {
+            "ref_id": "e13",
+            "role": "label",
+            "name": "DeliveryStandardExpress",
+            "text": "DeliveryStandardExpress",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e14",
+            "role": "combobox",
+            "name": "DeliveryStandardExpress",
+            "text": "Standard",
+            "tag": "select",
+            "attributes": {
+              "value": "Standard"
+            }
+          },
+          {
+            "ref_id": "e15",
+            "role": "button",
+            "name": "Place test order",
+            "text": "Place test order",
+            "tag": "button",
+            "attributes": {}
+          }
+        ],
+        "raw": {
+          "backend": "playwright",
+          "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+          "title": "NorthCUA shop test",
+          "frame_count": 1,
+          "frame_errors": [],
+          "frame_meta": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+              "ref_count": 15,
+              "visited": 71,
+              "truncated": false,
+              "fallback": ""
+            }
+          ],
+          "snapshot_eval_timeout_seconds": 8.0,
+          "snapshot_max_refs": null,
+          "snapshot_max_visited": null,
+          "snapshot_fallback_max_refs": 512,
+          "fallback_used": false,
+          "truncated": false,
+          "visible_text_frames": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+              "text": "Supply shop Category filter All Lamp Chair In stock only Sort SKU Price ascending Select SKU Product Category Price Stock C12 Folding chair Chair $18.00 In stock L11 Pocket lamp Lamp $9.95 Unavailable L17 Desk lamp Lamp $24.50 In stock L42 Studio lamp Lamp $32.00 In stock Quantity Delivery Standard Express Place test order",
+              "chars": 324,
+              "truncated": false
+            }
+          ],
+          "snapshot_visible_text_max_chars": 12000
+        }
+      },
+      "error_text": "",
+      "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_001_raw.png",
+      "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_001.txt",
+      "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_001.json",
+      "observation_artifact": {
+        "role": "current",
+        "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_001_raw.png",
+        "annotated_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_001_annotated.png",
+        "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_001.txt",
+        "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_001.json",
+        "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "page_title": "NorthCUA shop test",
+        "observation_id": "initial-baseline-shop-a-1794612743359776134",
+        "settled": true,
+        "settle_reason": "captured",
+        "ref_count": 15,
+        "viewport": {},
+        "metadata": {
+          "source": "web_current_observation",
+          "has_clean_screenshot": true,
+          "has_annotated_screenshot": true,
+          "has_dom_text": true,
+          "has_dom_json": true
+        }
+      },
+      "tool_artifacts": [
+        {
+          "tool_name": "web_select_option_ref",
+          "tool_call_id": "Ig22w70Obl7I5EJKGO4UR9Ci5kwXLCbU",
+          "action": "select_option_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Selected option values on 2.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612746730182419.png",
+          "action_overlay_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612746250316568_action_overlay.png",
+          "som_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612746730856058_som.png",
+          "selected_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612746730182419.png",
+          "post_action_observation_summary": "NorthCUA shop test - http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_title": "NorthCUA shop test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "label",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "combobox",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "label",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "checkbox",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "label",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "combobox",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "radio",
+                "name": "Select Desk lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "radio",
+                "name": "Select Studio lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 422.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 422.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "label",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 467.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 467.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "spinbutton",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 225.234375,
+                  "y": 467.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 225.234375,
+                  "y": 467.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "label",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 525.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 525.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "combobox",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 220.5,
+                  "y": 525.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 220.5,
+                  "y": 525.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "button",
+                "name": "Place test order",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 583.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 583.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 1,
+            "omitted_reason_counts": {
+              "attribute_disabled": 1
+            },
+            "marked_count": 13,
+            "visible_interactive_count": 13,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 1,
+            "invocation_sequence": 1,
+            "candidate_path_count": 6,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_check_ref",
+          "tool_call_id": "7Wu15mKwDmUXebDvUCYKSflJ0fEVFD34",
+          "action": "check_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Checked 4.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612747232449448.png",
+          "action_overlay_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612746781307563_action_overlay.png",
+          "som_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612747233092700_som.png",
+          "selected_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612747232449448.png",
+          "post_action_observation_summary": "NorthCUA shop test - http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_title": "NorthCUA shop test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "label",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "combobox",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "label",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "checkbox",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "label",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "combobox",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "radio",
+                "name": "Select Desk lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "radio",
+                "name": "Select Studio lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "label",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "spinbutton",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "label",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "combobox",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "button",
+                "name": "Place test order",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 13,
+            "visible_interactive_count": 13,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 2,
+            "invocation_sequence": 2,
+            "candidate_path_count": 6,
+            "answer": ""
+          }
+        }
+      ],
+      "observation_metadata": {
+        "web_current_observation_role": "current",
+        "web_current_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_001_raw.png",
+        "web_current_dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_001.txt",
+        "web_current_dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_001.json",
+        "web_current_ref_count": 15,
+        "web_current_settled": true,
+        "web_current_settle_reason": "captured"
+      }
+    },
+    {
+      "step_index": 2,
+      "session_id": "baseline-shop-a",
+      "round_num": 1,
+      "session_step": 2,
+      "runtime_cursor": {
+        "session_id": "baseline-shop-a",
+        "round_num": 1,
+        "round_step": 2,
+        "session_step": 2,
+        "phase": "main",
+        "phase_step": 2
+      },
+      "status": "ok",
+      "assistant_text": "The in-stock lamps are L17 ($24.50) and L42 ($32.00), so L17 is the least expensive. I’ll select it, set quantity to 3, and choose Express delivery.",
+      "reasoning": "",
+      "assistant_tool_calls": [
+        {
+          "id": "luyB9OpwV0SfHO5fjqVqvUhIOrDhveqQ",
+          "name": "web_click_ref",
+          "arguments": "{\"ref\": 7}",
+          "type": "function"
+        },
+        {
+          "id": "HgehpsLtokG3poLQRncTeea0QrcjlJVd",
+          "name": "web_fill_ref",
+          "arguments": "{\"ref\": 10, \"text\": \"3\"}",
+          "type": "function"
+        },
+        {
+          "id": "Wi7xjBUcjD7gxyfOzTfqE2kD93IdLip1",
+          "name": "web_select_option_ref",
+          "arguments": "{\"ref\": 12, \"values\": [\"Express\"]}",
+          "type": "function"
+        }
+      ],
+      "tool_summary": "web_click_ref, web_fill_ref, web_select_option_ref",
+      "tools": [
+        {
+          "action": "click_ref",
+          "tool_name": "web_click_ref",
+          "tool_input": {
+            "ref": 7
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Clicked 7.",
+            "action": "click_ref",
+            "params": {
+              "ref": "7"
+            },
+            "result": {
+              "ref": "7"
+            },
+            "observation": {
+              "observation_id": "post-click_ref-1794612751611977944",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+                "title": "NorthCUA shop test"
+              },
+              "snapshot": {
+                "text": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"Lamp\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=true\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Desk lamp\" value=\"L17\" checked=true\n8 radio \"Select Studio lamp\" value=\"L42\" checked=false\n9 label \"Quantity\"\n10 spinbutton \"Quantity\" value=\"1\"\n11 label \"DeliveryStandardExpress\"\n12 combobox \"DeliveryStandardExpress\" value=\"Standard\"\n13 button \"Place test order\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "label",
+                    "label": "Category filterAllLampChair"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "combobox",
+                    "label": "Category filterAllLampChair",
+                    "state": "value=\"Lamp\""
+                  },
+                  {
+                    "ref": "3",
+                    "role": "label",
+                    "label": "In stock only"
+                  },
+                  {
+                    "ref": "4",
+                    "role": "checkbox",
+                    "label": "In stock only",
+                    "state": "value=\"on\" checked=true"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "label",
+                    "label": "SortSKUPrice ascending"
+                  },
+                  {
+                    "ref": "6",
+                    "role": "combobox",
+                    "label": "SortSKUPrice ascending",
+                    "state": "value=\"sku\""
+                  },
+                  {
+                    "ref": "7",
+                    "role": "radio",
+                    "label": "Select Desk lamp",
+                    "state": "value=\"L17\" checked=true"
+                  },
+                  {
+                    "ref": "8",
+                    "role": "radio",
+                    "label": "Select Studio lamp",
+                    "state": "value=\"L42\" checked=false"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "label",
+                    "label": "Quantity"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "spinbutton",
+                    "label": "Quantity",
+                    "state": "value=\"1\""
+                  },
+                  {
+                    "ref": "11",
+                    "role": "label",
+                    "label": "DeliveryStandardExpress"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "combobox",
+                    "label": "DeliveryStandardExpress",
+                    "state": "value=\"Standard\""
+                  },
+                  {
+                    "ref": "13",
+                    "role": "button",
+                    "label": "Place test order"
+                  }
+                ],
+                "ref_count": 13
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "label",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "combobox",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "label",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "checkbox",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "label",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "combobox",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "radio",
+                      "name": "Select Desk lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "radio",
+                      "name": "Select Studio lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "label",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "spinbutton",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "label",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "combobox",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "button",
+                      "name": "Place test order",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 13,
+                  "visible_interactive_count": 13,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "luyB9OpwV0SfHO5fjqVqvUhIOrDhveqQ"
+        },
+        {
+          "action": "fill_ref",
+          "tool_name": "web_fill_ref",
+          "tool_input": {
+            "ref": 10,
+            "text": "3"
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Filled 10.",
+            "action": "fill_ref",
+            "params": {
+              "ref": "10",
+              "text": "3"
+            },
+            "result": {
+              "ref": "10",
+              "text_length": 1
+            },
+            "observation": {
+              "observation_id": "post-fill_ref-1794612752106225115",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+                "title": "NorthCUA shop test"
+              },
+              "snapshot": {
+                "text": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"Lamp\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=true\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Desk lamp\" value=\"L17\" checked=true\n8 radio \"Select Studio lamp\" value=\"L42\" checked=false\n9 label \"Quantity\"\n10 spinbutton \"Quantity\" value=\"3\"\n11 label \"DeliveryStandardExpress\"\n12 combobox \"DeliveryStandardExpress\" value=\"Standard\"\n13 button \"Place test order\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "label",
+                    "label": "Category filterAllLampChair"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "combobox",
+                    "label": "Category filterAllLampChair",
+                    "state": "value=\"Lamp\""
+                  },
+                  {
+                    "ref": "3",
+                    "role": "label",
+                    "label": "In stock only"
+                  },
+                  {
+                    "ref": "4",
+                    "role": "checkbox",
+                    "label": "In stock only",
+                    "state": "value=\"on\" checked=true"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "label",
+                    "label": "SortSKUPrice ascending"
+                  },
+                  {
+                    "ref": "6",
+                    "role": "combobox",
+                    "label": "SortSKUPrice ascending",
+                    "state": "value=\"sku\""
+                  },
+                  {
+                    "ref": "7",
+                    "role": "radio",
+                    "label": "Select Desk lamp",
+                    "state": "value=\"L17\" checked=true"
+                  },
+                  {
+                    "ref": "8",
+                    "role": "radio",
+                    "label": "Select Studio lamp",
+                    "state": "value=\"L42\" checked=false"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "label",
+                    "label": "Quantity"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "spinbutton",
+                    "label": "Quantity",
+                    "state": "value=\"3\""
+                  },
+                  {
+                    "ref": "11",
+                    "role": "label",
+                    "label": "DeliveryStandardExpress"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "combobox",
+                    "label": "DeliveryStandardExpress",
+                    "state": "value=\"Standard\""
+                  },
+                  {
+                    "ref": "13",
+                    "role": "button",
+                    "label": "Place test order"
+                  }
+                ],
+                "ref_count": 13
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "label",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "combobox",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "label",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "checkbox",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "label",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "combobox",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "radio",
+                      "name": "Select Desk lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "radio",
+                      "name": "Select Studio lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "label",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "spinbutton",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "label",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "combobox",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "button",
+                      "name": "Place test order",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 13,
+                  "visible_interactive_count": 13,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "HgehpsLtokG3poLQRncTeea0QrcjlJVd"
+        },
+        {
+          "action": "select_option_ref",
+          "tool_name": "web_select_option_ref",
+          "tool_input": {
+            "ref": 12,
+            "values": [
+              "Express"
+            ]
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Selected option values on 12.",
+            "action": "select_option_ref",
+            "params": {
+              "ref": "12",
+              "values": [
+                "Express"
+              ]
+            },
+            "result": {
+              "ref": "12",
+              "values": [
+                "Express"
+              ]
+            },
+            "observation": {
+              "observation_id": "post-select_option_ref-1794612752599491377",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+                "title": "NorthCUA shop test"
+              },
+              "snapshot": {
+                "text": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"Lamp\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=true\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Desk lamp\" value=\"L17\" checked=true\n8 radio \"Select Studio lamp\" value=\"L42\" checked=false\n9 label \"Quantity\"\n10 spinbutton \"Quantity\" value=\"3\"\n11 label \"DeliveryStandardExpress\"\n12 combobox \"DeliveryStandardExpress\" value=\"Express\"\n13 button \"Place test order\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "label",
+                    "label": "Category filterAllLampChair"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "combobox",
+                    "label": "Category filterAllLampChair",
+                    "state": "value=\"Lamp\""
+                  },
+                  {
+                    "ref": "3",
+                    "role": "label",
+                    "label": "In stock only"
+                  },
+                  {
+                    "ref": "4",
+                    "role": "checkbox",
+                    "label": "In stock only",
+                    "state": "value=\"on\" checked=true"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "label",
+                    "label": "SortSKUPrice ascending"
+                  },
+                  {
+                    "ref": "6",
+                    "role": "combobox",
+                    "label": "SortSKUPrice ascending",
+                    "state": "value=\"sku\""
+                  },
+                  {
+                    "ref": "7",
+                    "role": "radio",
+                    "label": "Select Desk lamp",
+                    "state": "value=\"L17\" checked=true"
+                  },
+                  {
+                    "ref": "8",
+                    "role": "radio",
+                    "label": "Select Studio lamp",
+                    "state": "value=\"L42\" checked=false"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "label",
+                    "label": "Quantity"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "spinbutton",
+                    "label": "Quantity",
+                    "state": "value=\"3\""
+                  },
+                  {
+                    "ref": "11",
+                    "role": "label",
+                    "label": "DeliveryStandardExpress"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "combobox",
+                    "label": "DeliveryStandardExpress",
+                    "state": "value=\"Express\""
+                  },
+                  {
+                    "ref": "13",
+                    "role": "button",
+                    "label": "Place test order"
+                  }
+                ],
+                "ref_count": 13
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "label",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "combobox",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "label",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "checkbox",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "label",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "combobox",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "radio",
+                      "name": "Select Desk lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "radio",
+                      "name": "Select Studio lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "label",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "spinbutton",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "label",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "combobox",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "button",
+                      "name": "Place test order",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 13,
+                  "visible_interactive_count": 13,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "Wi7xjBUcjD7gxyfOzTfqE2kD93IdLip1"
+        }
+      ],
+      "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+      "observation": {
+        "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "title": "NorthCUA shop test",
+        "origin": "http://127.0.0.1:18878",
+        "snapshot": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"Lamp\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=true\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Desk lamp\" value=\"L17\" checked=false\n8 radio \"Select Studio lamp\" value=\"L42\" checked=false\n9 label \"Quantity\"\n10 spinbutton \"Quantity\" value=\"1\"\n11 label \"DeliveryStandardExpress\"\n12 combobox \"DeliveryStandardExpress\" value=\"Standard\"\n13 button \"Place test order\"",
+        "elements": [
+          {
+            "ref_id": "1",
+            "role": "label",
+            "name": "Category filterAllLampChair",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "2",
+            "role": "combobox",
+            "name": "Category filterAllLampChair",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "Lamp"
+            }
+          },
+          {
+            "ref_id": "3",
+            "role": "label",
+            "name": "In stock only",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "4",
+            "role": "checkbox",
+            "name": "In stock only",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "on",
+              "checked": true
+            }
+          },
+          {
+            "ref_id": "5",
+            "role": "label",
+            "name": "SortSKUPrice ascending",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "6",
+            "role": "combobox",
+            "name": "SortSKUPrice ascending",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "sku"
+            }
+          },
+          {
+            "ref_id": "7",
+            "role": "radio",
+            "name": "Select Desk lamp",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "L17",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "8",
+            "role": "radio",
+            "name": "Select Studio lamp",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "L42",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "9",
+            "role": "label",
+            "name": "Quantity",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "10",
+            "role": "spinbutton",
+            "name": "Quantity",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "1"
+            }
+          },
+          {
+            "ref_id": "11",
+            "role": "label",
+            "name": "DeliveryStandardExpress",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "12",
+            "role": "combobox",
+            "name": "DeliveryStandardExpress",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "Standard"
+            }
+          },
+          {
+            "ref_id": "13",
+            "role": "button",
+            "name": "Place test order",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          }
+        ],
+        "raw": {
+          "source": "post_action_observation_bundle",
+          "observation_id": "post-check_ref-1794612747180601321"
+        }
+      },
+      "error_text": "",
+      "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_002_raw.png",
+      "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_002.txt",
+      "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_002.json",
+      "observation_artifact": {
+        "role": "current",
+        "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_002_raw.png",
+        "annotated_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_002_annotated.png",
+        "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_002.txt",
+        "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_002.json",
+        "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "page_title": "NorthCUA shop test",
+        "observation_id": "post-check_ref-1794612747180601321",
+        "settled": true,
+        "settle_reason": "stable_2_samples",
+        "ref_count": 13,
+        "viewport": {},
+        "metadata": {
+          "source": "web_current_observation",
+          "has_clean_screenshot": true,
+          "has_annotated_screenshot": true,
+          "has_dom_text": true,
+          "has_dom_json": true
+        }
+      },
+      "tool_artifacts": [
+        {
+          "tool_name": "web_click_ref",
+          "tool_call_id": "luyB9OpwV0SfHO5fjqVqvUhIOrDhveqQ",
+          "action": "click_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Clicked 7.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612751664719384.png",
+          "action_overlay_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612751215142851_action_overlay.png",
+          "som_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612751665360843_som.png",
+          "selected_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612751664719384.png",
+          "post_action_observation_summary": "NorthCUA shop test - http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_title": "NorthCUA shop test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "label",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "combobox",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "label",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "checkbox",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "label",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "combobox",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "radio",
+                "name": "Select Desk lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "radio",
+                "name": "Select Studio lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "label",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "spinbutton",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "label",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "combobox",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "button",
+                "name": "Place test order",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 13,
+            "visible_interactive_count": 13,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 3,
+            "invocation_sequence": 1,
+            "candidate_path_count": 9,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_fill_ref",
+          "tool_call_id": "HgehpsLtokG3poLQRncTeea0QrcjlJVd",
+          "action": "fill_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Filled 10.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612752162929864.png",
+          "action_overlay_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612751715299721_action_overlay.png",
+          "som_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612752163511701_som.png",
+          "selected_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612752162929864.png",
+          "post_action_observation_summary": "NorthCUA shop test - http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_title": "NorthCUA shop test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "label",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "combobox",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "label",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "checkbox",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "label",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "combobox",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "radio",
+                "name": "Select Desk lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "radio",
+                "name": "Select Studio lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "label",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "spinbutton",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "label",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "combobox",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "button",
+                "name": "Place test order",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 13,
+            "visible_interactive_count": 13,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 4,
+            "invocation_sequence": 2,
+            "candidate_path_count": 9,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_select_option_ref",
+          "tool_call_id": "Wi7xjBUcjD7gxyfOzTfqE2kD93IdLip1",
+          "action": "select_option_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Selected option values on 12.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612752650583148.png",
+          "action_overlay_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612752212175536_action_overlay.png",
+          "som_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612752651209048_som.png",
+          "selected_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612752650583148.png",
+          "post_action_observation_summary": "NorthCUA shop test - http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_title": "NorthCUA shop test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "label",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "combobox",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "label",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "checkbox",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "label",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "combobox",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "radio",
+                "name": "Select Desk lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "radio",
+                "name": "Select Studio lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "label",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "spinbutton",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "label",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "combobox",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "button",
+                "name": "Place test order",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 13,
+            "visible_interactive_count": 13,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 5,
+            "invocation_sequence": 3,
+            "candidate_path_count": 9,
+            "answer": ""
+          }
+        }
+      ],
+      "observation_metadata": {
+        "web_current_observation_role": "current",
+        "web_current_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_002_raw.png",
+        "web_current_dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_002.txt",
+        "web_current_dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_002.json",
+        "web_current_ref_count": 13,
+        "web_current_settled": true,
+        "web_current_settle_reason": "stable_2_samples"
+      }
+    },
+    {
+      "step_index": 3,
+      "session_id": "baseline-shop-a",
+      "round_num": 1,
+      "session_step": 3,
+      "runtime_cursor": {
+        "session_id": "baseline-shop-a",
+        "round_num": 1,
+        "round_step": 3,
+        "session_step": 3,
+        "phase": "main",
+        "phase_step": 3
+      },
+      "status": "ok",
+      "assistant_text": "The order form now shows L17, quantity 3, and Express delivery. I’ll submit the test order.",
+      "reasoning": "",
+      "assistant_tool_calls": [
+        {
+          "id": "6BmHV9KLt5wjdpxbAojIrwj2jDW6yqRf",
+          "name": "web_click_ref",
+          "arguments": "{\"ref\": 13}",
+          "type": "function"
+        }
+      ],
+      "tool_summary": "web_click_ref",
+      "tools": [
+        {
+          "action": "click_ref",
+          "tool_name": "web_click_ref",
+          "tool_input": {
+            "ref": 13
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Clicked 13.",
+            "action": "click_ref",
+            "params": {
+              "ref": "13"
+            },
+            "result": {
+              "ref": "13"
+            },
+            "observation": {
+              "observation_id": "post-click_ref-1794612755894666074",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+                "title": "NorthCUA shop test"
+              },
+              "snapshot": {
+                "text": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"Lamp\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=true\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Desk lamp\" value=\"L17\" checked=true\n8 radio \"Select Studio lamp\" value=\"L42\" checked=false\n9 label \"Quantity\"\n10 spinbutton \"Quantity\" value=\"3\"\n11 label \"DeliveryStandardExpress\"\n12 combobox \"DeliveryStandardExpress\" value=\"Express\"\n13 button \"Place test order\"\n14 status \"Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "label",
+                    "label": "Category filterAllLampChair"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "combobox",
+                    "label": "Category filterAllLampChair",
+                    "state": "value=\"Lamp\""
+                  },
+                  {
+                    "ref": "3",
+                    "role": "label",
+                    "label": "In stock only"
+                  },
+                  {
+                    "ref": "4",
+                    "role": "checkbox",
+                    "label": "In stock only",
+                    "state": "value=\"on\" checked=true"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "label",
+                    "label": "SortSKUPrice ascending"
+                  },
+                  {
+                    "ref": "6",
+                    "role": "combobox",
+                    "label": "SortSKUPrice ascending",
+                    "state": "value=\"sku\""
+                  },
+                  {
+                    "ref": "7",
+                    "role": "radio",
+                    "label": "Select Desk lamp",
+                    "state": "value=\"L17\" checked=true"
+                  },
+                  {
+                    "ref": "8",
+                    "role": "radio",
+                    "label": "Select Studio lamp",
+                    "state": "value=\"L42\" checked=false"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "label",
+                    "label": "Quantity"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "spinbutton",
+                    "label": "Quantity",
+                    "state": "value=\"3\""
+                  },
+                  {
+                    "ref": "11",
+                    "role": "label",
+                    "label": "DeliveryStandardExpress"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "combobox",
+                    "label": "DeliveryStandardExpress",
+                    "state": "value=\"Express\""
+                  },
+                  {
+                    "ref": "13",
+                    "role": "button",
+                    "label": "Place test order"
+                  },
+                  {
+                    "ref": "14",
+                    "role": "status",
+                    "label": "Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}"
+                  }
+                ],
+                "ref_count": 14
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "label",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 103.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "combobox",
+                      "name": "Category filterAllLampChair",
+                      "bbox_css": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 272.953125,
+                        "y": 103.109375,
+                        "width": 86.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "label",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 161.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "checkbox",
+                      "name": "In stock only",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 167.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "label",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "combobox",
+                      "name": "SortSKUPrice ascending",
+                      "bbox_css": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 186.71875,
+                        "y": 199.109375,
+                        "width": 171.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "radio",
+                      "name": "Select Desk lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 324.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "radio",
+                      "name": "Select Studio lamp",
+                      "bbox_css": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 160.0,
+                        "y": 373.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "label",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 418.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "spinbutton",
+                      "name": "Quantity",
+                      "bbox_css": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 225.234375,
+                        "y": 418.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "label",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 476.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "combobox",
+                      "name": "DeliveryStandardExpress",
+                      "bbox_css": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 220.5,
+                        "y": 476.109375,
+                        "width": 115.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "button",
+                      "name": "Place test order",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 534.109375,
+                        "width": 148.1875,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "14",
+                      "label": "14",
+                      "role": "status",
+                      "name": "Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 592.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 592.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 14,
+                  "visible_interactive_count": 14,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "6BmHV9KLt5wjdpxbAojIrwj2jDW6yqRf"
+        }
+      ],
+      "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+      "observation": {
+        "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "title": "NorthCUA shop test",
+        "origin": "http://127.0.0.1:18878",
+        "snapshot": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"Lamp\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=true\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Desk lamp\" value=\"L17\" checked=true\n8 radio \"Select Studio lamp\" value=\"L42\" checked=false\n9 label \"Quantity\"\n10 spinbutton \"Quantity\" value=\"3\"\n11 label \"DeliveryStandardExpress\"\n12 combobox \"DeliveryStandardExpress\" value=\"Express\"\n13 button \"Place test order\"",
+        "elements": [
+          {
+            "ref_id": "1",
+            "role": "label",
+            "name": "Category filterAllLampChair",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "2",
+            "role": "combobox",
+            "name": "Category filterAllLampChair",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "Lamp"
+            }
+          },
+          {
+            "ref_id": "3",
+            "role": "label",
+            "name": "In stock only",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "4",
+            "role": "checkbox",
+            "name": "In stock only",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "on",
+              "checked": true
+            }
+          },
+          {
+            "ref_id": "5",
+            "role": "label",
+            "name": "SortSKUPrice ascending",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "6",
+            "role": "combobox",
+            "name": "SortSKUPrice ascending",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "sku"
+            }
+          },
+          {
+            "ref_id": "7",
+            "role": "radio",
+            "name": "Select Desk lamp",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "L17",
+              "checked": true
+            }
+          },
+          {
+            "ref_id": "8",
+            "role": "radio",
+            "name": "Select Studio lamp",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "L42",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "9",
+            "role": "label",
+            "name": "Quantity",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "10",
+            "role": "spinbutton",
+            "name": "Quantity",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "3"
+            }
+          },
+          {
+            "ref_id": "11",
+            "role": "label",
+            "name": "DeliveryStandardExpress",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          },
+          {
+            "ref_id": "12",
+            "role": "combobox",
+            "name": "DeliveryStandardExpress",
+            "text": "",
+            "tag": "",
+            "attributes": {
+              "value": "Express"
+            }
+          },
+          {
+            "ref_id": "13",
+            "role": "button",
+            "name": "Place test order",
+            "text": "",
+            "tag": "",
+            "attributes": {}
+          }
+        ],
+        "raw": {
+          "source": "post_action_observation_bundle",
+          "observation_id": "post-select_option_ref-1794612752599491377"
+        }
+      },
+      "error_text": "",
+      "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_003_raw.png",
+      "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_003.txt",
+      "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_003.json",
+      "observation_artifact": {
+        "role": "current",
+        "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_003_raw.png",
+        "annotated_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_003_annotated.png",
+        "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_003.txt",
+        "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_003.json",
+        "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "page_title": "NorthCUA shop test",
+        "observation_id": "post-select_option_ref-1794612752599491377",
+        "settled": true,
+        "settle_reason": "stable_2_samples",
+        "ref_count": 13,
+        "viewport": {},
+        "metadata": {
+          "source": "web_current_observation",
+          "has_clean_screenshot": true,
+          "has_annotated_screenshot": true,
+          "has_dom_text": true,
+          "has_dom_json": true
+        }
+      },
+      "tool_artifacts": [
+        {
+          "tool_name": "web_click_ref",
+          "tool_call_id": "6BmHV9KLt5wjdpxbAojIrwj2jDW6yqRf",
+          "action": "click_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Clicked 13.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612755951174744.png",
+          "action_overlay_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612755498282805_action_overlay.png",
+          "som_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612755951838865_som.png",
+          "selected_image_path": "results/harness/baseline-shop-a/screenshots/tool_1794612755951174744.png",
+          "post_action_observation_summary": "NorthCUA shop test - http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+          "page_title": "NorthCUA shop test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "label",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 103.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "combobox",
+                "name": "Category filterAllLampChair",
+                "bbox_css": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 272.953125,
+                  "y": 103.109375,
+                  "width": 86.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "label",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 161.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "checkbox",
+                "name": "In stock only",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 167.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "label",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "combobox",
+                "name": "SortSKUPrice ascending",
+                "bbox_css": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 186.71875,
+                  "y": 199.109375,
+                  "width": 171.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "radio",
+                "name": "Select Desk lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 324.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "radio",
+                "name": "Select Studio lamp",
+                "bbox_css": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 160.0,
+                  "y": 373.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "label",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 418.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "spinbutton",
+                "name": "Quantity",
+                "bbox_css": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 225.234375,
+                  "y": 418.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "label",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 476.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "combobox",
+                "name": "DeliveryStandardExpress",
+                "bbox_css": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 220.5,
+                  "y": 476.109375,
+                  "width": 115.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "button",
+                "name": "Place test order",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 534.109375,
+                  "width": 148.1875,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "14",
+                "label": "14",
+                "role": "status",
+                "name": "Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 592.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 592.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 14,
+            "visible_interactive_count": 14,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 6,
+            "invocation_sequence": 1,
+            "candidate_path_count": 3,
+            "answer": ""
+          }
+        }
+      ],
+      "observation_metadata": {
+        "web_current_observation_role": "current",
+        "web_current_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_003_raw.png",
+        "web_current_dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_003.txt",
+        "web_current_dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_003.json",
+        "web_current_ref_count": 13,
+        "web_current_settled": true,
+        "web_current_settle_reason": "stable_2_samples"
+      }
+    },
+    {
+      "step_index": 4,
+      "session_id": "baseline-shop-a",
+      "round_num": 1,
+      "session_step": 4,
+      "runtime_cursor": {
+        "session_id": "baseline-shop-a",
+        "round_num": 1,
+        "round_step": 4,
+        "session_step": 4,
+        "phase": "main",
+        "phase_step": 4
+      },
+      "status": "ok",
+      "assistant_text": "Test order submitted successfully.\n\n- SKU: L17\n- Item: Desk lamp\n- Quantity: 3\n- Delivery: Express\n- Final total: 81 (currency not specified on the page)",
+      "reasoning": "",
+      "assistant_tool_calls": [],
+      "tool_summary": "",
+      "tools": [],
+      "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+      "observation": {
+        "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "title": "NorthCUA shop test",
+        "origin": "http://127.0.0.1:18878",
+        "snapshot": "label \"Category filterAllLampChair\" [ref=@e1]\ncombobox \"Category filterAllLampChair\" [ref=@e2]\nlabel \"In stock only\" [ref=@e3]\ncheckbox \"In stock only\" [ref=@e4]\nlabel \"SortSKUPrice ascending\" [ref=@e5]\ncombobox \"SortSKUPrice ascending\" [ref=@e6]\nradio \"Select Desk lamp\" [ref=@e7]\nradio \"Select Studio lamp\" [ref=@e8]\nlabel \"Quantity\" [ref=@e9]\nspinbutton \"Quantity\" [ref=@e10]\nlabel \"DeliveryStandardExpress\" [ref=@e11]\ncombobox \"DeliveryStandardExpress\" [ref=@e12]\nbutton \"Place test order\" [ref=@e13]\nstatus \"Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}\" [ref=@e14]",
+        "elements": [
+          {
+            "ref_id": "e1",
+            "role": "label",
+            "name": "Category filterAllLampChair",
+            "text": "Category filterAllLampChair",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e2",
+            "role": "combobox",
+            "name": "Category filterAllLampChair",
+            "text": "Lamp",
+            "tag": "select",
+            "attributes": {
+              "value": "Lamp"
+            }
+          },
+          {
+            "ref_id": "e3",
+            "role": "label",
+            "name": "In stock only",
+            "text": "In stock only",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e4",
+            "role": "checkbox",
+            "name": "In stock only",
+            "text": "on",
+            "tag": "input",
+            "attributes": {
+              "type": "checkbox",
+              "value": "on",
+              "checked": true
+            }
+          },
+          {
+            "ref_id": "e5",
+            "role": "label",
+            "name": "SortSKUPrice ascending",
+            "text": "SortSKUPrice ascending",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e6",
+            "role": "combobox",
+            "name": "SortSKUPrice ascending",
+            "text": "sku",
+            "tag": "select",
+            "attributes": {
+              "value": "sku"
+            }
+          },
+          {
+            "ref_id": "e7",
+            "role": "radio",
+            "name": "Select Desk lamp",
+            "text": "L17",
+            "tag": "input",
+            "attributes": {
+              "type": "radio",
+              "value": "L17",
+              "checked": true
+            }
+          },
+          {
+            "ref_id": "e8",
+            "role": "radio",
+            "name": "Select Studio lamp",
+            "text": "L42",
+            "tag": "input",
+            "attributes": {
+              "type": "radio",
+              "value": "L42",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e9",
+            "role": "label",
+            "name": "Quantity",
+            "text": "Quantity",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e10",
+            "role": "spinbutton",
+            "name": "Quantity",
+            "text": "3",
+            "tag": "input",
+            "attributes": {
+              "type": "number",
+              "value": "3"
+            }
+          },
+          {
+            "ref_id": "e11",
+            "role": "label",
+            "name": "DeliveryStandardExpress",
+            "text": "DeliveryStandardExpress",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e12",
+            "role": "combobox",
+            "name": "DeliveryStandardExpress",
+            "text": "Express",
+            "tag": "select",
+            "attributes": {
+              "value": "Express"
+            }
+          },
+          {
+            "ref_id": "e13",
+            "role": "button",
+            "name": "Place test order",
+            "text": "Place test order",
+            "tag": "button",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e14",
+            "role": "status",
+            "name": "Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}",
+            "text": "Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}",
+            "tag": "p",
+            "attributes": {}
+          }
+        ],
+        "raw": {
+          "backend": "playwright",
+          "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+          "title": "NorthCUA shop test",
+          "frame_count": 1,
+          "frame_errors": [],
+          "frame_meta": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+              "ref_count": 14,
+              "visited": 55,
+              "truncated": false,
+              "fallback": ""
+            }
+          ],
+          "snapshot_eval_timeout_seconds": 8.0,
+          "snapshot_max_refs": null,
+          "snapshot_max_visited": null,
+          "snapshot_fallback_max_refs": 512,
+          "fallback_used": false,
+          "truncated": false,
+          "visible_text_frames": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+              "text": "Supply shop Category filter All Lamp Chair In stock only Sort SKU Price ascending Select SKU Product Category Price Stock L17 Desk lamp Lamp $24.50 In stock L42 Studio lamp Lamp $32.00 In stock Quantity Delivery Standard Express Place test order Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}",
+              "chars": 318,
+              "truncated": false
+            }
+          ],
+          "snapshot_visible_text_max_chars": 12000
+        }
+      },
+      "error_text": "",
+      "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_004_terminal_raw.png",
+      "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_004_terminal.txt",
+      "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_004_terminal.json",
+      "observation_artifact": {
+        "role": "round_end_verify",
+        "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_004_terminal_raw.png",
+        "annotated_screenshot_path": "",
+        "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_004_terminal.txt",
+        "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_004_terminal.json",
+        "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "page_title": "NorthCUA shop test",
+        "observation_id": "terminal-baseline-shop-a-1794612758752234124",
+        "settled": true,
+        "settle_reason": "captured",
+        "ref_count": 14,
+        "viewport": {},
+        "metadata": {
+          "source": "web_current_observation",
+          "has_clean_screenshot": true,
+          "has_annotated_screenshot": false,
+          "has_dom_text": true,
+          "has_dom_json": true
+        }
+      },
+      "tool_artifacts": [],
+      "terminal_verification": {
+        "status": "captured",
+        "reason": "completed",
+        "source": "runtime_finalize",
+        "runtime_mode": "local",
+        "previous_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_004_raw.png",
+        "screenshot_path": "results/harness/baseline-shop-a/screenshots/step_004_terminal_raw.png",
+        "previous_dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_004.txt",
+        "dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_004_terminal.txt",
+        "previous_dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_004.json",
+        "dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_004_terminal.json",
+        "page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "page_title": "NorthCUA shop test",
+        "error": "",
+        "metadata": {}
+      },
+      "observation_metadata": {
+        "web_current_observation_role": "round_end_verify",
+        "web_current_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_004_terminal_raw.png",
+        "web_current_dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_004_terminal.txt",
+        "web_current_dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_004_terminal.json",
+        "web_current_ref_count": 14,
+        "web_current_settled": true,
+        "web_current_settle_reason": "captured",
+        "web_current_observation_id": "terminal-baseline-shop-a-1794612758752234124",
+        "web_current_page_url": "http://127.0.0.1:18878/shop/baseline-shop-a",
+        "web_current_page_title": "NorthCUA shop test",
+        "web_terminal_verification_status": "captured",
+        "web_terminal_verification_reason": "completed",
+        "web_terminal_verification_source": "runtime_finalize",
+        "web_terminal_previous_screenshot_path": "results/harness/baseline-shop-a/screenshots/step_004_raw.png",
+        "web_terminal_previous_dom_snapshot_path": "results/harness/baseline-shop-a/dom_snapshots/step_004.txt",
+        "web_terminal_previous_dom_snapshot_json_path": "results/harness/baseline-shop-a/dom_snapshots/step_004.json"
+      }
+    }
+  ],
+  "trace_path": "results/harness/baseline-shop-a/web_agent_trace.jsonl",
+  "result_path": "results/harness/baseline-shop-a/result.json",
+  "screenshots": [
+    "results/harness/baseline-shop-a/screenshots/step_001_raw.png",
+    "results/harness/baseline-shop-a/screenshots/step_001_annotated.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612746250316568_action_overlay.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612746730182419.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612746730856058_som.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612746781307563_action_overlay.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612747232449448.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612747233092700_som.png",
+    "results/harness/baseline-shop-a/screenshots/step_002_raw.png",
+    "results/harness/baseline-shop-a/screenshots/step_002_annotated.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612751215142851_action_overlay.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612751664719384.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612751665360843_som.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612751715299721_action_overlay.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612752162929864.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612752163511701_som.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612752212175536_action_overlay.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612752650583148.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612752651209048_som.png",
+    "results/harness/baseline-shop-a/screenshots/step_003_raw.png",
+    "results/harness/baseline-shop-a/screenshots/step_003_annotated.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612755498282805_action_overlay.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612755951174744.png",
+    "results/harness/baseline-shop-a/screenshots/tool_1794612755951838865_som.png",
+    "results/harness/baseline-shop-a/screenshots/step_004_raw.png",
+    "results/harness/baseline-shop-a/screenshots/step_004_annotated.png",
+    "results/harness/baseline-shop-a/screenshots/step_004_terminal_raw.png"
+  ],
+  "tool_errors": [],
+  "cleanup_errors": [],
+  "terminal_metadata": {},
+  "terminal_decision": {
+    "action": "finish",
+    "reason": "completed",
+    "success": true,
+    "retryable": false,
+    "final_answer": "Test order submitted successfully.\n\n- SKU: L17\n- Item: Desk lamp\n- Quantity: 3\n- Delivery: Express\n- Final total: 81 (currency not specified on the page)",
+    "summary": "The web task completed.",
+    "metadata": {}
+  }
+}

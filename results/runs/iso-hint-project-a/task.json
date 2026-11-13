@@ -1,0 +1,14 @@
+{
+  "id": "project-a",
+  "task": "project",
+  "prompt": "Create a project named Ember, category Design, priority High, start date December 1, 2026, budget 1250, notes 'Prototype review'. Enable notifications. Save it, reopen the saved project, and verify every requested value. Use only the normal visible browser controls. When filling an HTML date input, pass its value in YYYY-MM-DD format.",
+  "expected": {
+    "name": "Ember",
+    "category": "Design",
+    "priority": "High",
+    "start": "2026-12-01",
+    "budget": "1250",
+    "notes": "Prototype review",
+    "notifications": true
+  }
+}

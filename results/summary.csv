@@ -1,0 +1,13 @@
+run_id,case_id,started_at_unix,wall_seconds,harness_status,terminal_status,steps,saved_state_pass,end_to_end_pass,exit_code,model_calls,completion_tokens,model_decode_seconds,decode_tokens_per_second,overlapping_runs
+baseline-project-a,project-a,1794612691.1600535,18.10088014602661,error,tool_error,1,False,False,1,1,313,3.839694,81.51691254563514,[]
+baseline-project-b,project-b,1794612799.413403,13.691851377487183,error,tool_error,1,False,False,1,1,314,3.854905,81.45466619799969,[]
+baseline-settings-a,settings-a,1794612759.8825922,39.49838352203369,success,completed,11,True,True,0,11,518,6.29612,82.27289187626666,[]
+baseline-settings-b,settings-b,1794612830.163527,82.2792534828186,max_steps,max_steps,20,True,False,1,20,668,8.108725,82.38039889131768,"['iso-hint-project-a', 'iso-hint-project-b']"
+baseline-shop-a,shop-a,1794612739.446669,20.404059648513794,success,completed,4,True,True,0,4,359,4.388822,81.79871500826417,[]
+baseline-shop-b,shop-b,1794612813.137373,16.99542737007141,success,completed,4,True,True,0,4,217,2.6424090000000002,82.12203334154553,[]
+coordinate-adapted-vision-a,vision-a,1794613222.4799588,12.791462421417236,success,completed,3,True,True,0,3,161,1.9768210000000002,81.44389400962454,[]
+iso-hint-project-a,project-a,1794612854.214187,50.81619620323181,success,completed,10,True,True,0,10,412,5.003792000000001,82.33755519813772,['baseline-settings-b']
+iso-hint-project-b,project-b,1794612905.0625162,33.879467725753784,success,completed,9,True,True,0,9,398,4.838796,82.2518659600446,['baseline-settings-b']
+serial-check-iso-project-a,project-a,1794613027.1361089,23.409626722335815,success,completed,4,True,True,0,4,414,5.070743,81.64483981933219,[]
+serial-check-settings-b,settings-b,1794612955.1769154,71.92726993560791,max_steps,max_steps,20,True,False,1,20,658,7.992164,82.33064286468596,[]
+visual-probe-vision-a,vision-a,1794613156.1832998,12.889363050460815,success,completed,3,False,False,0,3,146,1.801556,81.0410556208078,[]

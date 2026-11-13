@@ -1,0 +1,5409 @@
+{
+  "status": "error",
+  "terminal_status": "tool_error",
+  "session_id": "baseline-project-a",
+  "user_query": "Create a project named Ember, category Design, priority High, start date December 1, 2026, budget 1250, notes 'Prototype review'. Enable notifications. Save it, reopen the saved project, and verify every requested value. Use only the normal visible browser controls.",
+  "round_num": 1,
+  "evaluation_report": {},
+  "evaluation_report_path": "",
+  "evaluation_error": "",
+  "start_url": "http://127.0.0.1:18878/project/baseline-project-a",
+  "final_answer": "I’ll fill the project form with the requested values, enable notifications, save, then reopen the saved project to verify each field.",
+  "success": false,
+  "steps": [
+    {
+      "step_index": 1,
+      "session_id": "baseline-project-a",
+      "round_num": 1,
+      "session_step": 1,
+      "runtime_cursor": {
+        "session_id": "baseline-project-a",
+        "round_num": 1,
+        "round_step": 1,
+        "session_step": 1,
+        "phase": "main",
+        "phase_step": 1
+      },
+      "status": "error",
+      "assistant_text": "I’ll fill the project form with the requested values, enable notifications, save, then reopen the saved project to verify each field.",
+      "reasoning": "",
+      "assistant_tool_calls": [
+        {
+          "id": "xF7zHKOVa86VfKakknwMFuSQKNHWLjrO",
+          "name": "web_fill_ref",
+          "arguments": "{\"ref\": 3, \"text\": \"Ember\"}",
+          "type": "function"
+        },
+        {
+          "id": "X44kcw9J2KLqkrn9QkaI5tZFe3NKAiqW",
+          "name": "web_select_option_ref",
+          "arguments": "{\"ref\": 5, \"values\": [\"Design\"]}",
+          "type": "function"
+        },
+        {
+          "id": "OUIwBhIHiGlX9XhTvwRQze9ytBIRaEZX",
+          "name": "web_select_option_ref",
+          "arguments": "{\"ref\": 7, \"values\": [\"High\"]}",
+          "type": "function"
+        },
+        {
+          "id": "Ksi4n16vQ01zeiWZVoxXqHgzB85P503i",
+          "name": "web_fill_ref",
+          "arguments": "{\"ref\": 9, \"text\": \"12/01/2026\"}",
+          "type": "function"
+        },
+        {
+          "id": "jxEBOmsqOPGpP65Qa2atmxaLTXEGdkpA",
+          "name": "web_fill_ref",
+          "arguments": "{\"ref\": 11, \"text\": \"1250\"}",
+          "type": "function"
+        },
+        {
+          "id": "F0dXQpTjQfYrfjlciOYCe1iiphkwDSCB",
+          "name": "web_fill_ref",
+          "arguments": "{\"ref\": 13, \"text\": \"Prototype review\"}",
+          "type": "function"
+        },
+        {
+          "id": "8ROpZXtb8gaHgEx7xc0wdM4SiEdbcTQo",
+          "name": "web_check_ref",
+          "arguments": "{\"ref\": 15}",
+          "type": "function"
+        }
+      ],
+      "tool_summary": "web_fill_ref, web_select_option_ref, web_select_option_ref, web_fill_ref, web_fill_ref, web_fill_ref, web_check_ref",
+      "tools": [
+        {
+          "action": "fill_ref",
+          "tool_name": "web_fill_ref",
+          "tool_input": {
+            "ref": 3,
+            "text": "Ember"
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Filled 3.",
+            "action": "fill_ref",
+            "params": {
+              "ref": "3",
+              "text": "Ember"
+            },
+            "result": {
+              "ref": "3",
+              "text_length": 5
+            },
+            "observation": {
+              "observation_id": "post-fill_ref-1794612705301116002",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/project/baseline-project-a",
+                "title": "NorthCUA project test"
+              },
+              "snapshot": {
+                "text": "1 link \"Reopen saved project\"\n2 label \"Project name\"\n3 textbox \"Project name\" value=\"Ember\"\n4 label \"CategoryResearchDesignOperations\"\n5 combobox \"CategoryResearchDesignOperations\" value=\"Research\"\n6 label \"PriorityLowNormalHigh\"\n7 combobox \"PriorityLowNormalHigh\" value=\"Low\"\n8 label \"Start date\"\n9 textbox \"Start date\"\n10 label \"Budget\"\n11 spinbutton \"Budget\"\n12 label \"Notes\"\n13 textbox \"Notes\"\n14 label \"Enable notifications\"\n15 checkbox \"Enable notifications\" value=\"on\" checked=false\n16 button \"Save project\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "link",
+                    "label": "Reopen saved project"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "label",
+                    "label": "Project name"
+                  },
+                  {
+                    "ref": "3",
+                    "role": "textbox",
+                    "label": "Project name",
+                    "state": "value=\"Ember\""
+                  },
+                  {
+                    "ref": "4",
+                    "role": "label",
+                    "label": "CategoryResearchDesignOperations"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "combobox",
+                    "label": "CategoryResearchDesignOperations",
+                    "state": "value=\"Research\""
+                  },
+                  {
+                    "ref": "6",
+                    "role": "label",
+                    "label": "PriorityLowNormalHigh"
+                  },
+                  {
+                    "ref": "7",
+                    "role": "combobox",
+                    "label": "PriorityLowNormalHigh",
+                    "state": "value=\"Low\""
+                  },
+                  {
+                    "ref": "8",
+                    "role": "label",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "textbox",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "label",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "11",
+                    "role": "spinbutton",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "label",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "13",
+                    "role": "textbox",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "14",
+                    "role": "label",
+                    "label": "Enable notifications"
+                  },
+                  {
+                    "ref": "15",
+                    "role": "checkbox",
+                    "label": "Enable notifications",
+                    "state": "value=\"on\" checked=false"
+                  },
+                  {
+                    "ref": "16",
+                    "role": "button",
+                    "label": "Save project"
+                  }
+                ],
+                "ref_count": 16
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "link",
+                      "name": "Reopen saved project",
+                      "bbox_css": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "label",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "textbox",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "label",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "combobox",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "label",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "combobox",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "label",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "textbox",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "label",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "spinbutton",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "label",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "textbox",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "bbox_image": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "14",
+                      "label": "14",
+                      "role": "label",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "15",
+                      "label": "15",
+                      "role": "checkbox",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "16",
+                      "label": "16",
+                      "role": "button",
+                      "name": "Save project",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 16,
+                  "visible_interactive_count": 16,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "xF7zHKOVa86VfKakknwMFuSQKNHWLjrO"
+        },
+        {
+          "action": "select_option_ref",
+          "tool_name": "web_select_option_ref",
+          "tool_input": {
+            "ref": 5,
+            "values": [
+              "Design"
+            ]
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Selected option values on 5.",
+            "action": "select_option_ref",
+            "params": {
+              "ref": "5",
+              "values": [
+                "Design"
+              ]
+            },
+            "result": {
+              "ref": "5",
+              "values": [
+                "Design"
+              ]
+            },
+            "observation": {
+              "observation_id": "post-select_option_ref-1794612705806244407",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/project/baseline-project-a",
+                "title": "NorthCUA project test"
+              },
+              "snapshot": {
+                "text": "1 link \"Reopen saved project\"\n2 label \"Project name\"\n3 textbox \"Project name\" value=\"Ember\"\n4 label \"CategoryResearchDesignOperations\"\n5 combobox \"CategoryResearchDesignOperations\" value=\"Design\"\n6 label \"PriorityLowNormalHigh\"\n7 combobox \"PriorityLowNormalHigh\" value=\"Low\"\n8 label \"Start date\"\n9 textbox \"Start date\"\n10 label \"Budget\"\n11 spinbutton \"Budget\"\n12 label \"Notes\"\n13 textbox \"Notes\"\n14 label \"Enable notifications\"\n15 checkbox \"Enable notifications\" value=\"on\" checked=false\n16 button \"Save project\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "link",
+                    "label": "Reopen saved project"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "label",
+                    "label": "Project name"
+                  },
+                  {
+                    "ref": "3",
+                    "role": "textbox",
+                    "label": "Project name",
+                    "state": "value=\"Ember\""
+                  },
+                  {
+                    "ref": "4",
+                    "role": "label",
+                    "label": "CategoryResearchDesignOperations"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "combobox",
+                    "label": "CategoryResearchDesignOperations",
+                    "state": "value=\"Design\""
+                  },
+                  {
+                    "ref": "6",
+                    "role": "label",
+                    "label": "PriorityLowNormalHigh"
+                  },
+                  {
+                    "ref": "7",
+                    "role": "combobox",
+                    "label": "PriorityLowNormalHigh",
+                    "state": "value=\"Low\""
+                  },
+                  {
+                    "ref": "8",
+                    "role": "label",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "textbox",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "label",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "11",
+                    "role": "spinbutton",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "label",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "13",
+                    "role": "textbox",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "14",
+                    "role": "label",
+                    "label": "Enable notifications"
+                  },
+                  {
+                    "ref": "15",
+                    "role": "checkbox",
+                    "label": "Enable notifications",
+                    "state": "value=\"on\" checked=false"
+                  },
+                  {
+                    "ref": "16",
+                    "role": "button",
+                    "label": "Save project"
+                  }
+                ],
+                "ref_count": 16
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "link",
+                      "name": "Reopen saved project",
+                      "bbox_css": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "label",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "textbox",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "label",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "combobox",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "label",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "combobox",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "label",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "textbox",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "label",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "spinbutton",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "label",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "textbox",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "bbox_image": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "14",
+                      "label": "14",
+                      "role": "label",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "15",
+                      "label": "15",
+                      "role": "checkbox",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "16",
+                      "label": "16",
+                      "role": "button",
+                      "name": "Save project",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 16,
+                  "visible_interactive_count": 16,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "X44kcw9J2KLqkrn9QkaI5tZFe3NKAiqW"
+        },
+        {
+          "action": "select_option_ref",
+          "tool_name": "web_select_option_ref",
+          "tool_input": {
+            "ref": 7,
+            "values": [
+              "High"
+            ]
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Selected option values on 7.",
+            "action": "select_option_ref",
+            "params": {
+              "ref": "7",
+              "values": [
+                "High"
+              ]
+            },
+            "result": {
+              "ref": "7",
+              "values": [
+                "High"
+              ]
+            },
+            "observation": {
+              "observation_id": "post-select_option_ref-1794612706304660239",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/project/baseline-project-a",
+                "title": "NorthCUA project test"
+              },
+              "snapshot": {
+                "text": "1 link \"Reopen saved project\"\n2 label \"Project name\"\n3 textbox \"Project name\" value=\"Ember\"\n4 label \"CategoryResearchDesignOperations\"\n5 combobox \"CategoryResearchDesignOperations\" value=\"Design\"\n6 label \"PriorityLowNormalHigh\"\n7 combobox \"PriorityLowNormalHigh\" value=\"High\"\n8 label \"Start date\"\n9 textbox \"Start date\"\n10 label \"Budget\"\n11 spinbutton \"Budget\"\n12 label \"Notes\"\n13 textbox \"Notes\"\n14 label \"Enable notifications\"\n15 checkbox \"Enable notifications\" value=\"on\" checked=false\n16 button \"Save project\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "link",
+                    "label": "Reopen saved project"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "label",
+                    "label": "Project name"
+                  },
+                  {
+                    "ref": "3",
+                    "role": "textbox",
+                    "label": "Project name",
+                    "state": "value=\"Ember\""
+                  },
+                  {
+                    "ref": "4",
+                    "role": "label",
+                    "label": "CategoryResearchDesignOperations"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "combobox",
+                    "label": "CategoryResearchDesignOperations",
+                    "state": "value=\"Design\""
+                  },
+                  {
+                    "ref": "6",
+                    "role": "label",
+                    "label": "PriorityLowNormalHigh"
+                  },
+                  {
+                    "ref": "7",
+                    "role": "combobox",
+                    "label": "PriorityLowNormalHigh",
+                    "state": "value=\"High\""
+                  },
+                  {
+                    "ref": "8",
+                    "role": "label",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "textbox",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "label",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "11",
+                    "role": "spinbutton",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "12",
+                    "role": "label",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "13",
+                    "role": "textbox",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "14",
+                    "role": "label",
+                    "label": "Enable notifications"
+                  },
+                  {
+                    "ref": "15",
+                    "role": "checkbox",
+                    "label": "Enable notifications",
+                    "state": "value=\"on\" checked=false"
+                  },
+                  {
+                    "ref": "16",
+                    "role": "button",
+                    "label": "Save project"
+                  }
+                ],
+                "ref_count": 16
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "link",
+                      "name": "Reopen saved project",
+                      "bbox_css": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "label",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "textbox",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "label",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "combobox",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "label",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "combobox",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "label",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "textbox",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "label",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "spinbutton",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "label",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "textbox",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "bbox_image": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "14",
+                      "label": "14",
+                      "role": "label",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "15",
+                      "label": "15",
+                      "role": "checkbox",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "16",
+                      "label": "16",
+                      "role": "button",
+                      "name": "Save project",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 16,
+                  "visible_interactive_count": 16,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "OUIwBhIHiGlX9XhTvwRQze9ytBIRaEZX"
+        },
+        {
+          "action": "fill_ref",
+          "tool_name": "web_fill_ref",
+          "tool_input": {
+            "ref": 9,
+            "text": "12/01/2026"
+          },
+          "tool_output": {
+            "status": "error",
+            "action": "fill_ref",
+            "code": "browser_action_failed",
+            "error": "Locator.fill: Error: Malformed value Call log: - waiting for locator(\"[data-northcua-web-agent-ref='e9']\").first - locator resolved to <input type=\"date\" required=\"\" name=\"start\" data-northcua-web-agent-ref=\"e9\"/> - fill(\"12/01/2026\") - attempting fill action - waiting for element to be visible, enabled and editable",
+            "error_type": "WebActionCommandError",
+            "retryable": false,
+            "hint": "Inspect browser state before retrying.",
+            "reason_code": "browser_action_failed",
+            "concise_log_summary": "Locator.fill: Error: Malformed value Call log: - waiting for locator(\"[data-northcua-web-agent-ref='e9']\").first - locator resolved to <input type=\"date\" required=\"\" name=\"start\" data-northcua-web-agent-ref=\"e9\"/> - fill(\"12/01/2026\") - at…",
+            "feedback_source": "backend"
+          },
+          "is_error": true,
+          "tool_call_id": "Ksi4n16vQ01zeiWZVoxXqHgzB85P503i"
+        },
+        {
+          "action": "fill_ref",
+          "tool_name": "web_fill_ref",
+          "tool_input": {
+            "ref": 11,
+            "text": "1250"
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Filled 11.",
+            "action": "fill_ref",
+            "params": {
+              "ref": "11",
+              "text": "1250"
+            },
+            "result": {
+              "ref": "11",
+              "text_length": 4
+            },
+            "observation": {
+              "observation_id": "post-fill_ref-1794612706869812320",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/project/baseline-project-a",
+                "title": "NorthCUA project test"
+              },
+              "snapshot": {
+                "text": "1 link \"Reopen saved project\"\n2 label \"Project name\"\n3 textbox \"Project name\" value=\"Ember\"\n4 label \"CategoryResearchDesignOperations\"\n5 combobox \"CategoryResearchDesignOperations\" value=\"Design\"\n6 label \"PriorityLowNormalHigh\"\n7 combobox \"PriorityLowNormalHigh\" value=\"High\"\n8 label \"Start date\"\n9 textbox \"Start date\"\n10 label \"Budget\"\n11 spinbutton \"Budget\" value=\"1250\"\n12 label \"Notes\"\n13 textbox \"Notes\"\n14 label \"Enable notifications\"\n15 checkbox \"Enable notifications\" value=\"on\" checked=false\n16 button \"Save project\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "link",
+                    "label": "Reopen saved project"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "label",
+                    "label": "Project name"
+                  },
+                  {
+                    "ref": "3",
+                    "role": "textbox",
+                    "label": "Project name",
+                    "state": "value=\"Ember\""
+                  },
+                  {
+                    "ref": "4",
+                    "role": "label",
+                    "label": "CategoryResearchDesignOperations"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "combobox",
+                    "label": "CategoryResearchDesignOperations",
+                    "state": "value=\"Design\""
+                  },
+                  {
+                    "ref": "6",
+                    "role": "label",
+                    "label": "PriorityLowNormalHigh"
+                  },
+                  {
+                    "ref": "7",
+                    "role": "combobox",
+                    "label": "PriorityLowNormalHigh",
+                    "state": "value=\"High\""
+                  },
+                  {
+                    "ref": "8",
+                    "role": "label",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "textbox",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "label",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "11",
+                    "role": "spinbutton",
+                    "label": "Budget",
+                    "state": "value=\"1250\""
+                  },
+                  {
+                    "ref": "12",
+                    "role": "label",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "13",
+                    "role": "textbox",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "14",
+                    "role": "label",
+                    "label": "Enable notifications"
+                  },
+                  {
+                    "ref": "15",
+                    "role": "checkbox",
+                    "label": "Enable notifications",
+                    "state": "value=\"on\" checked=false"
+                  },
+                  {
+                    "ref": "16",
+                    "role": "button",
+                    "label": "Save project"
+                  }
+                ],
+                "ref_count": 16
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "link",
+                      "name": "Reopen saved project",
+                      "bbox_css": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "label",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "textbox",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "label",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "combobox",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "label",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "combobox",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "label",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "textbox",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "label",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "spinbutton",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "label",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "textbox",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "bbox_image": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "14",
+                      "label": "14",
+                      "role": "label",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "15",
+                      "label": "15",
+                      "role": "checkbox",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "16",
+                      "label": "16",
+                      "role": "button",
+                      "name": "Save project",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 16,
+                  "visible_interactive_count": 16,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "jxEBOmsqOPGpP65Qa2atmxaLTXEGdkpA"
+        },
+        {
+          "action": "fill_ref",
+          "tool_name": "web_fill_ref",
+          "tool_input": {
+            "ref": 13,
+            "text": "Prototype review"
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Filled 13.",
+            "action": "fill_ref",
+            "params": {
+              "ref": "13",
+              "text": "Prototype review"
+            },
+            "result": {
+              "ref": "13",
+              "text_length": 16
+            },
+            "observation": {
+              "observation_id": "post-fill_ref-1794612707368864582",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/project/baseline-project-a",
+                "title": "NorthCUA project test"
+              },
+              "snapshot": {
+                "text": "1 link \"Reopen saved project\"\n2 label \"Project name\"\n3 textbox \"Project name\" value=\"Ember\"\n4 label \"CategoryResearchDesignOperations\"\n5 combobox \"CategoryResearchDesignOperations\" value=\"Design\"\n6 label \"PriorityLowNormalHigh\"\n7 combobox \"PriorityLowNormalHigh\" value=\"High\"\n8 label \"Start date\"\n9 textbox \"Start date\"\n10 label \"Budget\"\n11 spinbutton \"Budget\" value=\"1250\"\n12 label \"Notes\"\n13 textbox \"Notes\" value=\"Prototype review\"\n14 label \"Enable notifications\"\n15 checkbox \"Enable notifications\" value=\"on\" checked=false\n16 button \"Save project\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "link",
+                    "label": "Reopen saved project"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "label",
+                    "label": "Project name"
+                  },
+                  {
+                    "ref": "3",
+                    "role": "textbox",
+                    "label": "Project name",
+                    "state": "value=\"Ember\""
+                  },
+                  {
+                    "ref": "4",
+                    "role": "label",
+                    "label": "CategoryResearchDesignOperations"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "combobox",
+                    "label": "CategoryResearchDesignOperations",
+                    "state": "value=\"Design\""
+                  },
+                  {
+                    "ref": "6",
+                    "role": "label",
+                    "label": "PriorityLowNormalHigh"
+                  },
+                  {
+                    "ref": "7",
+                    "role": "combobox",
+                    "label": "PriorityLowNormalHigh",
+                    "state": "value=\"High\""
+                  },
+                  {
+                    "ref": "8",
+                    "role": "label",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "textbox",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "label",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "11",
+                    "role": "spinbutton",
+                    "label": "Budget",
+                    "state": "value=\"1250\""
+                  },
+                  {
+                    "ref": "12",
+                    "role": "label",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "13",
+                    "role": "textbox",
+                    "label": "Notes",
+                    "state": "value=\"Prototype review\""
+                  },
+                  {
+                    "ref": "14",
+                    "role": "label",
+                    "label": "Enable notifications"
+                  },
+                  {
+                    "ref": "15",
+                    "role": "checkbox",
+                    "label": "Enable notifications",
+                    "state": "value=\"on\" checked=false"
+                  },
+                  {
+                    "ref": "16",
+                    "role": "button",
+                    "label": "Save project"
+                  }
+                ],
+                "ref_count": 16
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "link",
+                      "name": "Reopen saved project",
+                      "bbox_css": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "label",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "textbox",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "label",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "combobox",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "label",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "combobox",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "label",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "textbox",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "label",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "spinbutton",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "label",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "textbox",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "bbox_image": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "14",
+                      "label": "14",
+                      "role": "label",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "15",
+                      "label": "15",
+                      "role": "checkbox",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "16",
+                      "label": "16",
+                      "role": "button",
+                      "name": "Save project",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 16,
+                  "visible_interactive_count": 16,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "F0dXQpTjQfYrfjlciOYCe1iiphkwDSCB"
+        },
+        {
+          "action": "check_ref",
+          "tool_name": "web_check_ref",
+          "tool_input": {
+            "ref": 15
+          },
+          "tool_output": {
+            "status": "ok",
+            "text": "Checked 15.",
+            "action": "check_ref",
+            "params": {
+              "ref": "15"
+            },
+            "result": {
+              "ref": "15",
+              "checked": true
+            },
+            "observation": {
+              "observation_id": "post-check_ref-1794612707880801446",
+              "settled": true,
+              "settle_reason": "stable_2_samples",
+              "page": {
+                "url": "http://127.0.0.1:18878/project/baseline-project-a",
+                "title": "NorthCUA project test"
+              },
+              "snapshot": {
+                "text": "1 link \"Reopen saved project\"\n2 label \"Project name\"\n3 textbox \"Project name\" value=\"Ember\"\n4 label \"CategoryResearchDesignOperations\"\n5 combobox \"CategoryResearchDesignOperations\" value=\"Design\"\n6 label \"PriorityLowNormalHigh\"\n7 combobox \"PriorityLowNormalHigh\" value=\"High\"\n8 label \"Start date\"\n9 textbox \"Start date\"\n10 label \"Budget\"\n11 spinbutton \"Budget\" value=\"1250\"\n12 label \"Notes\"\n13 textbox \"Notes\" value=\"Prototype review\"\n14 label \"Enable notifications\"\n15 checkbox \"Enable notifications\" value=\"on\" checked=true\n16 button \"Save project\"",
+                "refs": [
+                  {
+                    "ref": "1",
+                    "role": "link",
+                    "label": "Reopen saved project"
+                  },
+                  {
+                    "ref": "2",
+                    "role": "label",
+                    "label": "Project name"
+                  },
+                  {
+                    "ref": "3",
+                    "role": "textbox",
+                    "label": "Project name",
+                    "state": "value=\"Ember\""
+                  },
+                  {
+                    "ref": "4",
+                    "role": "label",
+                    "label": "CategoryResearchDesignOperations"
+                  },
+                  {
+                    "ref": "5",
+                    "role": "combobox",
+                    "label": "CategoryResearchDesignOperations",
+                    "state": "value=\"Design\""
+                  },
+                  {
+                    "ref": "6",
+                    "role": "label",
+                    "label": "PriorityLowNormalHigh"
+                  },
+                  {
+                    "ref": "7",
+                    "role": "combobox",
+                    "label": "PriorityLowNormalHigh",
+                    "state": "value=\"High\""
+                  },
+                  {
+                    "ref": "8",
+                    "role": "label",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "9",
+                    "role": "textbox",
+                    "label": "Start date"
+                  },
+                  {
+                    "ref": "10",
+                    "role": "label",
+                    "label": "Budget"
+                  },
+                  {
+                    "ref": "11",
+                    "role": "spinbutton",
+                    "label": "Budget",
+                    "state": "value=\"1250\""
+                  },
+                  {
+                    "ref": "12",
+                    "role": "label",
+                    "label": "Notes"
+                  },
+                  {
+                    "ref": "13",
+                    "role": "textbox",
+                    "label": "Notes",
+                    "state": "value=\"Prototype review\""
+                  },
+                  {
+                    "ref": "14",
+                    "role": "label",
+                    "label": "Enable notifications"
+                  },
+                  {
+                    "ref": "15",
+                    "role": "checkbox",
+                    "label": "Enable notifications",
+                    "state": "value=\"on\" checked=true"
+                  },
+                  {
+                    "ref": "16",
+                    "role": "button",
+                    "label": "Save project"
+                  }
+                ],
+                "ref_count": 16
+              },
+              "screenshot": {
+                "kind": "set_of_mark",
+                "width": 1280,
+                "height": 720,
+                "image_attached": true,
+                "image_omitted_reason": "",
+                "annotation": {
+                  "kind": "set_of_mark",
+                  "coordinate_frame": "viewport_css",
+                  "image_coordinate_frame": "screenshot_pixels",
+                  "marks": [
+                    {
+                      "ref": "1",
+                      "label": "1",
+                      "role": "link",
+                      "name": "Reopen saved project",
+                      "bbox_css": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 155.0,
+                        "y": 103.109375,
+                        "width": 182.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "2",
+                      "label": "2",
+                      "role": "label",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 141.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "3",
+                      "label": "3",
+                      "role": "textbox",
+                      "name": "Project name",
+                      "bbox_css": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 263.671875,
+                        "y": 141.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "4",
+                      "label": "4",
+                      "role": "label",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 199.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "5",
+                      "label": "5",
+                      "role": "combobox",
+                      "name": "CategoryResearchDesignOperations",
+                      "bbox_css": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 228.703125,
+                        "y": 199.109375,
+                        "width": 133.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "6",
+                      "label": "6",
+                      "role": "label",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 257.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "7",
+                      "label": "7",
+                      "role": "combobox",
+                      "name": "PriorityLowNormalHigh",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 257.109375,
+                        "width": 102.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "8",
+                      "label": "8",
+                      "role": "label",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 315.109375,
+                        "width": 1000.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "9",
+                      "label": "9",
+                      "role": "textbox",
+                      "name": "Start date",
+                      "bbox_css": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "bbox_image": {
+                        "x": 234.921875,
+                        "y": 315.109375,
+                        "width": 179.0,
+                        "height": 46.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "10",
+                      "label": "10",
+                      "role": "label",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 375.109375,
+                        "width": 1000.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "11",
+                      "label": "11",
+                      "role": "spinbutton",
+                      "name": "Budget",
+                      "bbox_css": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "bbox_image": {
+                        "x": 213.625,
+                        "y": 375.109375,
+                        "width": 280.0,
+                        "height": 44.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "12",
+                      "label": "12",
+                      "role": "label",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 433.109375,
+                        "width": 1000.0,
+                        "height": 71.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "13",
+                      "label": "13",
+                      "role": "textbox",
+                      "name": "Notes",
+                      "bbox_css": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "bbox_image": {
+                        "x": 201.84375,
+                        "y": 433.109375,
+                        "width": 241.0,
+                        "height": 66.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "14",
+                      "label": "14",
+                      "role": "label",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "bbox_image": {
+                        "x": 140.0,
+                        "y": 518.109375,
+                        "width": 1000.0,
+                        "height": 24.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "15",
+                      "label": "15",
+                      "role": "checkbox",
+                      "name": "Enable notifications",
+                      "bbox_css": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "bbox_image": {
+                        "x": 148.0,
+                        "y": 524.109375,
+                        "width": 13.0,
+                        "height": 13.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    },
+                    {
+                      "ref": "16",
+                      "label": "16",
+                      "role": "button",
+                      "name": "Save project",
+                      "bbox_css": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "bbox_image": {
+                        "x": 152.0,
+                        "y": 556.109375,
+                        "width": 118.9375,
+                        "height": 40.0
+                      },
+                      "visible": true,
+                      "enabled": true
+                    }
+                  ],
+                  "truncated": false,
+                  "omitted_count": 0,
+                  "omitted_reason_counts": {},
+                  "marked_count": 16,
+                  "visible_interactive_count": 16,
+                  "max_marks": 150,
+                  "max_box_lookup": 512
+                }
+              }
+            },
+            "screenshot_url": "[redacted data URL; see screenshot artifact path]",
+            "raw_image_url": "[redacted data URL; see screenshot artifact path]",
+            "action_overlay_image_url": "[redacted data URL; see screenshot artifact path]",
+            "som_image_url": "[redacted data URL; see screenshot artifact path]"
+          },
+          "is_error": false,
+          "tool_call_id": "8ROpZXtb8gaHgEx7xc0wdM4SiEdbcTQo"
+        }
+      ],
+      "url": "http://127.0.0.1:18878/project/baseline-project-a",
+      "observation": {
+        "url": "http://127.0.0.1:18878/project/baseline-project-a",
+        "title": "NorthCUA project test",
+        "origin": "http://127.0.0.1:18878",
+        "snapshot": "link \"Reopen saved project\" [ref=@e1]\nlabel \"Project name\" [ref=@e2]\ntextbox \"Project name\" [ref=@e3]\nlabel \"CategoryResearchDesignOperations\" [ref=@e4]\ncombobox \"CategoryResearchDesignOperations\" [ref=@e5]\nlabel \"PriorityLowNormalHigh\" [ref=@e6]\ncombobox \"PriorityLowNormalHigh\" [ref=@e7]\nlabel \"Start date\" [ref=@e8]\ntextbox \"Start date\" [ref=@e9]\nlabel \"Budget\" [ref=@e10]\nspinbutton \"Budget\" [ref=@e11]\nlabel \"Notes\" [ref=@e12]\ntextbox \"Notes\" [ref=@e13]\nlabel \"Enable notifications\" [ref=@e14]\ncheckbox \"Enable notifications\" [ref=@e15]\nbutton \"Save project\" [ref=@e16]",
+        "elements": [
+          {
+            "ref_id": "e1",
+            "role": "link",
+            "name": "Reopen saved project",
+            "text": "Reopen saved project",
+            "tag": "a",
+            "attributes": {
+              "href": ""
+            }
+          },
+          {
+            "ref_id": "e2",
+            "role": "label",
+            "name": "Project name",
+            "text": "Project name",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e3",
+            "role": "textbox",
+            "name": "Project name",
+            "text": "Ember",
+            "tag": "input",
+            "attributes": {
+              "value": "Ember"
+            }
+          },
+          {
+            "ref_id": "e4",
+            "role": "label",
+            "name": "CategoryResearchDesignOperations",
+            "text": "CategoryResearchDesignOperations",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e5",
+            "role": "combobox",
+            "name": "CategoryResearchDesignOperations",
+            "text": "Design",
+            "tag": "select",
+            "attributes": {
+              "value": "Design"
+            }
+          },
+          {
+            "ref_id": "e6",
+            "role": "label",
+            "name": "PriorityLowNormalHigh",
+            "text": "PriorityLowNormalHigh",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e7",
+            "role": "combobox",
+            "name": "PriorityLowNormalHigh",
+            "text": "High",
+            "tag": "select",
+            "attributes": {
+              "value": "High"
+            }
+          },
+          {
+            "ref_id": "e8",
+            "role": "label",
+            "name": "Start date",
+            "text": "Start date",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e9",
+            "role": "textbox",
+            "name": "Start date",
+            "text": "",
+            "tag": "input",
+            "attributes": {
+              "type": "date"
+            }
+          },
+          {
+            "ref_id": "e10",
+            "role": "label",
+            "name": "Budget",
+            "text": "Budget",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e11",
+            "role": "spinbutton",
+            "name": "Budget",
+            "text": "1250",
+            "tag": "input",
+            "attributes": {
+              "type": "number",
+              "value": "1250"
+            }
+          },
+          {
+            "ref_id": "e12",
+            "role": "label",
+            "name": "Notes",
+            "text": "Notes",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e13",
+            "role": "textbox",
+            "name": "Notes",
+            "text": "Prototype review",
+            "tag": "textarea",
+            "attributes": {
+              "value": "Prototype review"
+            }
+          },
+          {
+            "ref_id": "e14",
+            "role": "label",
+            "name": "Enable notifications",
+            "text": "Enable notifications",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e15",
+            "role": "checkbox",
+            "name": "Enable notifications",
+            "text": "on",
+            "tag": "input",
+            "attributes": {
+              "type": "checkbox",
+              "value": "on",
+              "checked": true
+            }
+          },
+          {
+            "ref_id": "e16",
+            "role": "button",
+            "name": "Save project",
+            "text": "Save project",
+            "tag": "button",
+            "attributes": {}
+          }
+        ],
+        "raw": {
+          "backend": "playwright",
+          "url": "http://127.0.0.1:18878/project/baseline-project-a",
+          "title": "NorthCUA project test",
+          "frame_count": 1,
+          "frame_errors": [],
+          "frame_meta": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/project/baseline-project-a",
+              "ref_count": 16,
+              "visited": 32,
+              "truncated": false,
+              "fallback": ""
+            }
+          ],
+          "snapshot_eval_timeout_seconds": 8.0,
+          "snapshot_max_refs": null,
+          "snapshot_max_visited": null,
+          "snapshot_fallback_max_refs": 512,
+          "fallback_used": false,
+          "truncated": false,
+          "visible_text_frames": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/project/baseline-project-a",
+              "text": "Project planner Reopen saved project Project name Category Research Design Operations Priority Low Normal High Start date Budget Notes Enable notifications Save project",
+              "chars": 168,
+              "truncated": false
+            }
+          ],
+          "snapshot_visible_text_max_chars": 12000
+        }
+      },
+      "error_text": "Locator.fill: Error: Malformed value Call log: - waiting for locator(\"[data-northcua-web-agent-ref='e9']\").first - locator resolved to <input type=\"date\" required=\"\" name=\"start\" data-northcua-web-agent-ref=\"e9\"/> - fill(\"12/01/2026\") - attempting fill action - waiting for element to be visible, enabled and editable",
+      "screenshot_path": "results/harness/baseline-project-a/screenshots/step_001_terminal_raw.png",
+      "dom_snapshot_path": "results/harness/baseline-project-a/dom_snapshots/step_001_terminal.txt",
+      "dom_snapshot_json_path": "results/harness/baseline-project-a/dom_snapshots/step_001_terminal.json",
+      "observation_artifact": {
+        "role": "round_end_verify",
+        "screenshot_path": "results/harness/baseline-project-a/screenshots/step_001_terminal_raw.png",
+        "annotated_screenshot_path": "",
+        "dom_snapshot_path": "results/harness/baseline-project-a/dom_snapshots/step_001_terminal.txt",
+        "dom_snapshot_json_path": "results/harness/baseline-project-a/dom_snapshots/step_001_terminal.json",
+        "page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+        "page_title": "NorthCUA project test",
+        "observation_id": "terminal-baseline-project-a-1794612708099092813",
+        "settled": true,
+        "settle_reason": "captured",
+        "ref_count": 16,
+        "viewport": {},
+        "metadata": {
+          "source": "web_current_observation",
+          "has_clean_screenshot": true,
+          "has_annotated_screenshot": false,
+          "has_dom_text": true,
+          "has_dom_json": true
+        }
+      },
+      "tool_artifacts": [
+        {
+          "tool_name": "web_fill_ref",
+          "tool_call_id": "xF7zHKOVa86VfKakknwMFuSQKNHWLjrO",
+          "action": "fill_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Filled 3.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612705348605486.png",
+          "action_overlay_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612704870675222_action_overlay.png",
+          "som_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612705349258888_som.png",
+          "selected_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612705348605486.png",
+          "post_action_observation_summary": "NorthCUA project test - http://127.0.0.1:18878/project/baseline-project-a",
+          "page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+          "page_title": "NorthCUA project test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "link",
+                "name": "Reopen saved project",
+                "bbox_css": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "label",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "textbox",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "label",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "combobox",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "label",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "combobox",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "label",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "textbox",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "label",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "spinbutton",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "label",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "textbox",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "bbox_image": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "14",
+                "label": "14",
+                "role": "label",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "15",
+                "label": "15",
+                "role": "checkbox",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "16",
+                "label": "16",
+                "role": "button",
+                "name": "Save project",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 16,
+            "visible_interactive_count": 16,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 1,
+            "invocation_sequence": 1,
+            "candidate_path_count": 19,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_select_option_ref",
+          "tool_call_id": "X44kcw9J2KLqkrn9QkaI5tZFe3NKAiqW",
+          "action": "select_option_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Selected option values on 5.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612705864524729.png",
+          "action_overlay_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612705410582005_action_overlay.png",
+          "som_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612705865167400_som.png",
+          "selected_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612705864524729.png",
+          "post_action_observation_summary": "NorthCUA project test - http://127.0.0.1:18878/project/baseline-project-a",
+          "page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+          "page_title": "NorthCUA project test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "link",
+                "name": "Reopen saved project",
+                "bbox_css": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "label",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "textbox",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "label",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "combobox",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "label",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "combobox",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "label",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "textbox",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "label",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "spinbutton",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "label",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "textbox",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "bbox_image": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "14",
+                "label": "14",
+                "role": "label",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "15",
+                "label": "15",
+                "role": "checkbox",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "16",
+                "label": "16",
+                "role": "button",
+                "name": "Save project",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 16,
+            "visible_interactive_count": 16,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 2,
+            "invocation_sequence": 2,
+            "candidate_path_count": 19,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_select_option_ref",
+          "tool_call_id": "OUIwBhIHiGlX9XhTvwRQze9ytBIRaEZX",
+          "action": "select_option_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Selected option values on 7.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706364883012.png",
+          "action_overlay_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612705916103330_action_overlay.png",
+          "som_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706365526345_som.png",
+          "selected_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706364883012.png",
+          "post_action_observation_summary": "NorthCUA project test - http://127.0.0.1:18878/project/baseline-project-a",
+          "page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+          "page_title": "NorthCUA project test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "link",
+                "name": "Reopen saved project",
+                "bbox_css": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "label",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "textbox",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "label",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "combobox",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "label",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "combobox",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "label",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "textbox",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "label",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "spinbutton",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "label",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "textbox",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "bbox_image": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "14",
+                "label": "14",
+                "role": "label",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "15",
+                "label": "15",
+                "role": "checkbox",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "16",
+                "label": "16",
+                "role": "button",
+                "name": "Save project",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 16,
+            "visible_interactive_count": 16,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 3,
+            "invocation_sequence": 3,
+            "candidate_path_count": 19,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_fill_ref",
+          "tool_call_id": "Ksi4n16vQ01zeiWZVoxXqHgzB85P503i",
+          "action": "fill_ref",
+          "status": "error",
+          "is_error": true,
+          "text": "Locator.fill: Error: Malformed value Call log: - waiting for locator(\"[data-northcua-web-agent-ref='e9']\").first - locator resolved to <input type=\"date\" required=\"\" name=\"start\" data-northcua-web-agent-ref=\"e9\"/> - fill(\"12/01/2026\") - attempting fill action - waiting for element to be visible, enabled and editable",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706364883012.png",
+          "action_overlay_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706415898552_action_overlay.png",
+          "som_image_path": "",
+          "selected_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706364883012.png",
+          "post_action_observation_summary": "",
+          "page_url": "",
+          "page_title": "",
+          "som_metadata": {},
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 2,
+            "attribution_source": "explicit_path",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 1,
+            "invocation_id": 4,
+            "invocation_sequence": 4,
+            "candidate_path_count": 19,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_fill_ref",
+          "tool_call_id": "jxEBOmsqOPGpP65Qa2atmxaLTXEGdkpA",
+          "action": "fill_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Filled 11.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706929543467.png",
+          "action_overlay_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706478623901_action_overlay.png",
+          "som_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706930220242_som.png",
+          "selected_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706929543467.png",
+          "post_action_observation_summary": "NorthCUA project test - http://127.0.0.1:18878/project/baseline-project-a",
+          "page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+          "page_title": "NorthCUA project test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "link",
+                "name": "Reopen saved project",
+                "bbox_css": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "label",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "textbox",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "label",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "combobox",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "label",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "combobox",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "label",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "textbox",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "label",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "spinbutton",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "label",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "textbox",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "bbox_image": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "14",
+                "label": "14",
+                "role": "label",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "15",
+                "label": "15",
+                "role": "checkbox",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "16",
+                "label": "16",
+                "role": "button",
+                "name": "Save project",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 16,
+            "visible_interactive_count": 16,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 5,
+            "invocation_sequence": 5,
+            "candidate_path_count": 19,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_fill_ref",
+          "tool_call_id": "F0dXQpTjQfYrfjlciOYCe1iiphkwDSCB",
+          "action": "fill_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Filled 13.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612707419622797.png",
+          "action_overlay_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612706981677935_action_overlay.png",
+          "som_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612707420318969_som.png",
+          "selected_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612707419622797.png",
+          "post_action_observation_summary": "NorthCUA project test - http://127.0.0.1:18878/project/baseline-project-a",
+          "page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+          "page_title": "NorthCUA project test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "link",
+                "name": "Reopen saved project",
+                "bbox_css": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "label",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "textbox",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "label",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "combobox",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "label",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "combobox",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "label",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "textbox",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "label",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "spinbutton",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "label",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "textbox",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "bbox_image": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "14",
+                "label": "14",
+                "role": "label",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "15",
+                "label": "15",
+                "role": "checkbox",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "16",
+                "label": "16",
+                "role": "button",
+                "name": "Save project",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 16,
+            "visible_interactive_count": 16,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 6,
+            "invocation_sequence": 6,
+            "candidate_path_count": 19,
+            "answer": ""
+          }
+        },
+        {
+          "tool_name": "web_check_ref",
+          "tool_call_id": "8ROpZXtb8gaHgEx7xc0wdM4SiEdbcTQo",
+          "action": "check_ref",
+          "status": "ok",
+          "is_error": false,
+          "text": "Checked 15.",
+          "selected_image_kind": "raw",
+          "raw_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612707932266202.png",
+          "action_overlay_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612707472119939_action_overlay.png",
+          "som_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612707933194692_som.png",
+          "selected_image_path": "results/harness/baseline-project-a/screenshots/tool_1794612707932266202.png",
+          "post_action_observation_summary": "NorthCUA project test - http://127.0.0.1:18878/project/baseline-project-a",
+          "page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+          "page_title": "NorthCUA project test",
+          "som_metadata": {
+            "kind": "set_of_mark",
+            "coordinate_frame": "viewport_css",
+            "image_coordinate_frame": "screenshot_pixels",
+            "marks": [
+              {
+                "ref": "1",
+                "label": "1",
+                "role": "link",
+                "name": "Reopen saved project",
+                "bbox_css": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 155.0,
+                  "y": 103.109375,
+                  "width": 182.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "2",
+                "label": "2",
+                "role": "label",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 141.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "3",
+                "label": "3",
+                "role": "textbox",
+                "name": "Project name",
+                "bbox_css": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 263.671875,
+                  "y": 141.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "4",
+                "label": "4",
+                "role": "label",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 199.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "5",
+                "label": "5",
+                "role": "combobox",
+                "name": "CategoryResearchDesignOperations",
+                "bbox_css": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 228.703125,
+                  "y": 199.109375,
+                  "width": 133.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "6",
+                "label": "6",
+                "role": "label",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 257.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "7",
+                "label": "7",
+                "role": "combobox",
+                "name": "PriorityLowNormalHigh",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 257.109375,
+                  "width": 102.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "8",
+                "label": "8",
+                "role": "label",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 315.109375,
+                  "width": 1000.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "9",
+                "label": "9",
+                "role": "textbox",
+                "name": "Start date",
+                "bbox_css": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "bbox_image": {
+                  "x": 234.921875,
+                  "y": 315.109375,
+                  "width": 179.0,
+                  "height": 46.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "10",
+                "label": "10",
+                "role": "label",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 375.109375,
+                  "width": 1000.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "11",
+                "label": "11",
+                "role": "spinbutton",
+                "name": "Budget",
+                "bbox_css": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "bbox_image": {
+                  "x": 213.625,
+                  "y": 375.109375,
+                  "width": 280.0,
+                  "height": 44.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "12",
+                "label": "12",
+                "role": "label",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 433.109375,
+                  "width": 1000.0,
+                  "height": 71.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "13",
+                "label": "13",
+                "role": "textbox",
+                "name": "Notes",
+                "bbox_css": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "bbox_image": {
+                  "x": 201.84375,
+                  "y": 433.109375,
+                  "width": 241.0,
+                  "height": 66.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "14",
+                "label": "14",
+                "role": "label",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "bbox_image": {
+                  "x": 140.0,
+                  "y": 518.109375,
+                  "width": 1000.0,
+                  "height": 24.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "15",
+                "label": "15",
+                "role": "checkbox",
+                "name": "Enable notifications",
+                "bbox_css": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "bbox_image": {
+                  "x": 148.0,
+                  "y": 524.109375,
+                  "width": 13.0,
+                  "height": 13.0
+                },
+                "visible": true,
+                "enabled": true
+              },
+              {
+                "ref": "16",
+                "label": "16",
+                "role": "button",
+                "name": "Save project",
+                "bbox_css": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "bbox_image": {
+                  "x": 152.0,
+                  "y": 556.109375,
+                  "width": 118.9375,
+                  "height": 40.0
+                },
+                "visible": true,
+                "enabled": true
+              }
+            ],
+            "truncated": false,
+            "omitted_count": 0,
+            "omitted_reason_counts": {},
+            "marked_count": 16,
+            "visible_interactive_count": 16,
+            "max_marks": 150,
+            "max_box_lookup": 512
+          },
+          "metadata": {
+            "source": "web_tool_result",
+            "image_count": 3,
+            "attribution_source": "image_hash",
+            "observation_recovered": false,
+            "observation_recovery": {},
+            "event_count": 3,
+            "invocation_id": 7,
+            "invocation_sequence": 7,
+            "candidate_path_count": 19,
+            "answer": ""
+          }
+        }
+      ],
+      "terminal_verification": {
+        "status": "captured",
+        "reason": "tool_error",
+        "source": "runtime_finalize",
+        "runtime_mode": "local",
+        "previous_screenshot_path": "results/harness/baseline-project-a/screenshots/step_001_raw.png",
+        "screenshot_path": "results/harness/baseline-project-a/screenshots/step_001_terminal_raw.png",
+        "previous_dom_snapshot_path": "results/harness/baseline-project-a/dom_snapshots/step_001.txt",
+        "dom_snapshot_path": "results/harness/baseline-project-a/dom_snapshots/step_001_terminal.txt",
+        "previous_dom_snapshot_json_path": "results/harness/baseline-project-a/dom_snapshots/step_001.json",
+        "dom_snapshot_json_path": "results/harness/baseline-project-a/dom_snapshots/step_001_terminal.json",
+        "page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+        "page_title": "NorthCUA project test",
+        "error": "",
+        "metadata": {}
+      },
+      "observation_metadata": {
+        "web_current_observation_role": "round_end_verify",
+        "web_current_screenshot_path": "results/harness/baseline-project-a/screenshots/step_001_terminal_raw.png",
+        "web_current_dom_snapshot_path": "results/harness/baseline-project-a/dom_snapshots/step_001_terminal.txt",
+        "web_current_dom_snapshot_json_path": "results/harness/baseline-project-a/dom_snapshots/step_001_terminal.json",
+        "web_current_ref_count": 16,
+        "web_current_settled": true,
+        "web_current_settle_reason": "captured",
+        "web_current_observation_id": "terminal-baseline-project-a-1794612708099092813",
+        "web_current_page_url": "http://127.0.0.1:18878/project/baseline-project-a",
+        "web_current_page_title": "NorthCUA project test",
+        "web_terminal_verification_status": "captured",
+        "web_terminal_verification_reason": "tool_error",
+        "web_terminal_verification_source": "runtime_finalize",
+        "web_terminal_previous_screenshot_path": "results/harness/baseline-project-a/screenshots/step_001_raw.png",
+        "web_terminal_previous_dom_snapshot_path": "results/harness/baseline-project-a/dom_snapshots/step_001.txt",
+        "web_terminal_previous_dom_snapshot_json_path": "results/harness/baseline-project-a/dom_snapshots/step_001.json"
+      }
+    }
+  ],
+  "trace_path": "results/harness/baseline-project-a/web_agent_trace.jsonl",
+  "result_path": "results/harness/baseline-project-a/result.json",
+  "screenshots": [
+    "results/harness/baseline-project-a/screenshots/step_001_raw.png",
+    "results/harness/baseline-project-a/screenshots/step_001_annotated.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612704870675222_action_overlay.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612705348605486.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612705349258888_som.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612705410582005_action_overlay.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612705864524729.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612705865167400_som.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612705916103330_action_overlay.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612706364883012.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612706365526345_som.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612706415898552_action_overlay.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612706478623901_action_overlay.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612706929543467.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612706930220242_som.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612706981677935_action_overlay.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612707419622797.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612707420318969_som.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612707472119939_action_overlay.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612707932266202.png",
+    "results/harness/baseline-project-a/screenshots/tool_1794612707933194692_som.png",
+    "results/harness/baseline-project-a/screenshots/step_001_terminal_raw.png"
+  ],
+  "tool_errors": [
+    "Locator.fill: Error: Malformed value Call log: - waiting for locator(\"[data-northcua-web-agent-ref='e9']\").first - locator resolved to <input type=\"date\" required=\"\" name=\"start\" data-northcua-web-agent-ref=\"e9\"/> - fill(\"12/01/2026\") - attempting fill action - waiting for element to be visible, enabled and editable"
+  ],
+  "cleanup_errors": [],
+  "terminal_metadata": {},
+  "terminal_decision": {
+    "action": "fail",
+    "reason": "tool_error",
+    "success": false,
+    "retryable": true,
+    "final_answer": "I’ll fill the project form with the requested values, enable notifications, save, then reopen the saved project to verify each field.",
+    "summary": "A web tool execution failed.",
+    "metadata": {}
+  }
+}

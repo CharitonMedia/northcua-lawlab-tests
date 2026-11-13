@@ -1,0 +1,11 @@
+{
+  "url": "http://127.0.0.1:18878/vision/coordinate-adapted-vision-a",
+  "title": "NorthCUA vision test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "",
+  "elements": [],
+  "raw": {
+    "source": "post_action_observation_bundle",
+    "observation_id": "post-click_point-1794613232143281514"
+  }
+}

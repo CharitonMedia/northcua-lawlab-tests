@@ -1,0 +1,30 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/iso-hint-project-a/screenshots/tool_1794612893892939810.png",
+  "output_path": "results/harness/iso-hint-project-a/screenshots/tool_1794612898311892511_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "click",
+      "render_mode": "click",
+      "badge_text": "",
+      "primary_point": {
+        "x": 246,
+        "y": 115
+      },
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "single",
+      "metadata": {
+        "arguments": {
+          "x": 246,
+          "y": 115,
+          "ref": "1"
+        }
+      }
+    },
+    "web_action": "click_ref",
+    "source_observation_id": "post-click_ref-1794612893841771392"
+  }
+}

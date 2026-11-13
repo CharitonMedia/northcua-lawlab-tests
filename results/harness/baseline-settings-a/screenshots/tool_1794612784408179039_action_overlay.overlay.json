@@ -1,0 +1,30 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/baseline-settings-a/screenshots/tool_1794612781643224549.png",
+  "output_path": "results/harness/baseline-settings-a/screenshots/tool_1794612784408179039_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "click",
+      "render_mode": "click",
+      "badge_text": "",
+      "primary_point": {
+        "x": 154,
+        "y": 275
+      },
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "single",
+      "metadata": {
+        "arguments": {
+          "x": 154,
+          "y": 275,
+          "ref": "7"
+        }
+      }
+    },
+    "web_action": "check_ref",
+    "source_observation_id": "post-uncheck_ref-1794612781592464234"
+  }
+}

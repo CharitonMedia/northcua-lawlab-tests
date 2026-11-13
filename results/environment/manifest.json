@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-13",
+  "model": "beipo-ai/NorthCUA-Nano",
+  "nominal_parameters": "9B dense",
+  "quantizer": "mradermacher",
+  "weights": {
+    "file": "NorthCUA-Nano.Q8_0.gguf",
+    "bytes": 9527502016,
+    "sha256": "a5fb4fd9ce6c2faceb706d8c0eacb7e4e71a717d635e4d5a96febf361bbc3970"
+  },
+  "projector": {
+    "file": "NorthCUA-Nano.mmproj-f16.gguf",
+    "sha256": "a143f066a06cb2c2a45adfe87afc225213aadd086ce52233cc105eb310ff416f"
+  },
+  "gpu": {
+    "name": "RTX 3090",
+    "vram_mib": 24576,
+    "loaded_idle_memory_mib": 12272,
+    "driver": "595.99.02",
+    "pcie_link": "Gen4 x16",
+    "power_limit_w": 420
+  },
+  "gpu_host": {
+    "cpu": "AMD EPYC 7532",
+    "physical_cores": 32,
+    "logical_cpus": 64,
+    "memory_gib": 251,
+    "kernel": "7.0.0-43-generic"
+  },
+  "harness_host": {
+    "python": "3.12.3",
+    "kernel": "7.0.0-38-generic"
+  },
+  "harness_revision": "b904a8fc4fbc16de0197a142f6dd9ab2bd36ffff",
+  "engine": {
+    "name": "llama.cpp",
+    "build": 12359,
+    "commit": "b1b770d90",
+    "image_digest": "sha256:a8cf841eef4e9d6ea28bb4d88eea1004032a2bf0d1302bff7b8d2100e801ed16"
+  },
+  "experiment": {
+    "context_capacity": 131072,
+    "harness_max_context_tokens": 128000,
+    "max_output_tokens": 4096,
+    "temperature": 0,
+    "enable_thinking": false,
+    "max_steps": 20,
+    "parallel_slots": 1,
+    "kv_k": "q8_0",
+    "kv_v": "q8_0",
+    "gpu_layers": 99,
+    "flash_attention": true,
+    "viewport": [
+      1280,
+      720
+    ],
+    "llm_evaluator_enabled": false,
+    "independent_verifier": "server-side fixture receipts and exact field comparisons"
+  },
+  "note": "Loaded-idle GPU allocation is a snapshot, not peak usage. No energy or maximum-throughput benchmark was conducted."
+}

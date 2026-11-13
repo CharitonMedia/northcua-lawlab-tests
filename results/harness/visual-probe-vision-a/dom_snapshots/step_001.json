@@ -1,0 +1,40 @@
+{
+  "url": "http://127.0.0.1:18878/vision/visual-probe-vision-a",
+  "title": "NorthCUA vision test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "",
+  "elements": [],
+  "raw": {
+    "backend": "playwright",
+    "url": "http://127.0.0.1:18878/vision/visual-probe-vision-a",
+    "title": "NorthCUA vision test",
+    "frame_count": 1,
+    "frame_errors": [],
+    "frame_meta": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/vision/visual-probe-vision-a",
+        "ref_count": 0,
+        "visited": 13,
+        "truncated": false,
+        "fallback": ""
+      }
+    ],
+    "snapshot_eval_timeout_seconds": 8.0,
+    "snapshot_max_refs": null,
+    "snapshot_max_visited": null,
+    "snapshot_fallback_max_refs": 512,
+    "fallback_used": false,
+    "truncated": false,
+    "visible_text_frames": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/vision/visual-probe-vision-a",
+        "text": "Visual target board Click the requested shapes. The shapes are drawn on a canvas.",
+        "chars": 81,
+        "truncated": false
+      }
+    ],
+    "snapshot_visible_text_max_chars": 12000
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "url": "http://127.0.0.1:18878/settings/baseline-settings-b",
+  "title": "NorthCUA settings test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "1 button \"Display\"\n2 button \"Notifications\"\n3 link \"Reload saved settings\"\n4 label \"Weekly newsletter\"\n5 checkbox \"Weekly newsletter\" value=\"on\" checked=false\n6 label \"Autosave reminders\"\n7 checkbox \"Autosave reminders\" value=\"on\" checked=false\n8 button \"Save settings\"",
+  "elements": [
+    {
+      "ref_id": "1",
+      "role": "button",
+      "name": "Display",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "2",
+      "role": "button",
+      "name": "Notifications",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "3",
+      "role": "link",
+      "name": "Reload saved settings",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "4",
+      "role": "label",
+      "name": "Weekly newsletter",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "5",
+      "role": "checkbox",
+      "name": "Weekly newsletter",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "on",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "6",
+      "role": "label",
+      "name": "Autosave reminders",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "7",
+      "role": "checkbox",
+      "name": "Autosave reminders",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "on",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "8",
+      "role": "button",
+      "name": "Save settings",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    }
+  ],
+  "raw": {
+    "source": "post_action_observation_bundle",
+    "observation_id": "post-uncheck_ref-1794612851692635062"
+  }
+}

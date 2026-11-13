@@ -1,0 +1,56 @@
+{
+  "run_id": "serial-check-iso-project-a",
+  "case_id": "project-a",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/project/serial-check-iso-project-a",
+    "--query",
+    "Create a project named Ember, category Design, priority High, start date December 1, 2026, budget 1250, notes 'Prototype review'. Enable notifications. Save it, reopen the saved project, and verify every requested value. Use only the normal visible browser controls. When filling an HTML date input, pass its value in YYYY-MM-DD format.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "serial-check-iso-project-a",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794613027.1361089,
+  "wall_seconds": 23.409626722335815,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "name": "Ember",
+    "category": "Design",
+    "priority": "High",
+    "start": "2026-12-01",
+    "budget": "1250",
+    "notes": "Prototype review",
+    "notifications": true
+  },
+  "actual": {
+    "name": "Ember",
+    "category": "Design",
+    "priority": "High",
+    "start": "2026-12-01",
+    "budget": "1250",
+    "notes": "Prototype review",
+    "notifications": true
+  },
+  "checks": {
+    "name": true,
+    "category": true,
+    "priority": true,
+    "start": true,
+    "budget": true,
+    "notes": true,
+    "notifications": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/serial-check-iso-project-a/video/da45a383a62262a2f3718c237be9603b.webm"
+  ]
+}
