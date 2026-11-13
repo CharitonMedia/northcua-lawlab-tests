@@ -1,0 +1,11 @@
+vendor/
+.venv/
+.runtime/
+__pycache__/
+*.pyc
+.env
+*.key
+*.pem
+*.gguf
+*.safetensors
+node_modules/
