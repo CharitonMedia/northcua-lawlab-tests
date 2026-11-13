@@ -18,7 +18,7 @@ class Handler(BaseHTTPRequestHandler):
    r=urllib.request.urlopen(urllib.request.Request("http://127.0.0.1:19093"+self.path,data=json.dumps(req).encode(),headers={"Content-Type":"application/json"}),timeout=240);body=r.read()
   except urllib.error.HTTPError as e:status=e.code;body=e.read()
   except Exception as e:status=502;body=json.dumps({"error":str(e)}).encode()
-  run=Path(".runtime/current-run").read_text().strip() if Path(".runtime/current-run").exists() else "smoke"
+  run=req.get("user") or (Path(".runtime/current-run").read_text().strip() if Path(".runtime/current-run").exists() else "smoke")
   entry={"run_id":run,"started_at_unix":start,"elapsed_seconds":time.time()-start,"http_status":status,"request":clean(req),"response":clean(json.loads(body))}
   with(ROOT/"model-calls.jsonl").open("a") as f:f.write(json.dumps(entry)+"\n")
   self.send_response(status);self.send_header("Content-Type","application/json");self.send_header("Content-Length",str(len(body)));self.end_headers();self.wfile.write(body)

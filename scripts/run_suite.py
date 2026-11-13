@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Bounded real-model runs with independent fixture-state checks and video."""
-import os,json,time,subprocess,argparse
+import os,json,time,subprocess,argparse,fcntl
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 CASES=[
@@ -12,6 +12,8 @@ CASES=[
 {"id":"settings-b","task":"settings","prompt":"Set workspace theme Dark, language Spanish, date format YYYY-MM-DD and time zone Europe/London. Under Notifications, disable the weekly newsletter and enable autosave reminders. Save and reload the saved settings, then check all six values. Use only visible controls.","expected":{"theme":"Dark","language":"Spanish","date_format":"YYYY-MM-DD","timezone":"Europe/London","newsletter":False,"autosave":True}}
 ]
 def main():
+ lock=open(ROOT/".runtime/suite.lock","w")
+ fcntl.flock(lock,fcntl.LOCK_EX)
  ap=argparse.ArgumentParser();ap.add_argument("--case");ap.add_argument("--limit",type=int,default=20);ap.add_argument("--tag",default="baseline");ap.add_argument("--iso-date-hint",action="store_true");args=ap.parse_args()
  cases=[c for c in CASES if not args.case or c["id"]==args.case]
  for original in cases:
