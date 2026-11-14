@@ -1,0 +1,22 @@
+name: NorthCUAWeb
+llm_config:
+  model: scripted-integration-control
+  base_url: http://127.0.0.1:19096/always-finish/v1
+  api_key: ${env.OPENAI_API_KEY}
+  api_type: openai_chat_completion
+  max_tokens: 4096
+  max_context_tokens: 128000
+  max_retries: 0
+  timeout: 240
+  temperature: 0
+  extra_body:
+    chat_template_kwargs:
+      enable_thinking: false
+max_iterations: 1
+mcp_servers:
+- name: WebAgentProbeExecutor
+  model_visible: false
+  type: in-memory
+- name: WebAgentActionExecutor
+  model_visible: true
+  type: in-memory

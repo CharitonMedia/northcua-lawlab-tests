@@ -111,8 +111,21 @@ index 81807ed..ec40f73 100644
              self._context.set_default_timeout(self.config.command_timeout_seconds * 1000)
              self._context.set_default_navigation_timeout(self.config.command_timeout_seconds * 1000)
              await self._context.new_page()
+diff --git a/northcua/agents/web/backend/protocol.py b/northcua/agents/web/backend/protocol.py
+index a1fa4dd..f072b5b 100644
+--- a/northcua/agents/web/backend/protocol.py
++++ b/northcua/agents/web/backend/protocol.py
+@@ -29,6 +29,8 @@ class WebActionBackend(Protocol):
+ 
+     async def fill_ref(self, ref: str, text: str) -> WebActionCommandResult: ...
+ 
++    async def completion_evidence(self, selector: str) -> dict[str, object]: ...
++
+     async def select_option_ref(self, ref: str, values: list[str]) -> WebActionCommandResult: ...
+ 
+     async def check_ref(self, ref: str) -> WebActionCommandResult: ...
 diff --git a/northcua/agents/web/domain/actions.py b/northcua/agents/web/domain/actions.py
-index 8fb9031..8b5c2a2 100644
+index 8fb9031..b88c353 100644
 --- a/northcua/agents/web/domain/actions.py
 +++ b/northcua/agents/web/domain/actions.py
 @@ -339,7 +339,7 @@ class WebFillRefParams(WebRefParams):
@@ -124,7 +137,22 @@ index 8fb9031..8b5c2a2 100644
              "when you intentionally need literal keystrokes into the currently focused element."
          ),
      )
-@@ -414,14 +414,14 @@ class WebClickPointParams(BaseModel):
+@@ -402,26 +402,26 @@ class WebDragRefParams(BaseModel):
+ class WebClickPointParams(BaseModel):
+     """Arguments for ``web_click_point``.
+ 
+-    Coordinates are CSS pixels relative to the current viewport top-left.
++    Coordinates follow the input space declared in the latest runtime observation.
+     Document-scroll and screenshot-image coordinates are not accepted.
+ 
+     Attributes:
+-        x: Viewport-relative CSS x coordinate.
+-        y: Viewport-relative CSS y coordinate.
++        x: Model-facing viewport x coordinate.
++        y: Model-facing viewport y coordinate.
+         button: Mouse button to click.
+     """
+ 
      x: float = Field(
          ge=0,
          description=(
@@ -141,6 +169,15 @@ index 8fb9031..8b5c2a2 100644
              "no reliable numeric ref in the latest snapshot or direct SoM labels."
          ),
      )
+@@ -441,7 +441,7 @@ class WebDoubleClickPointParams(WebClickPointParams):
+ class WebDragPointParams(BaseModel):
+     """Arguments for ``web_drag_point``.
+ 
+-    Coordinates are CSS pixels relative to the current viewport top-left. The
++    Coordinates follow the input space declared in the latest runtime observation. The
+     action uses the left mouse button to align with desktop drag schemas.
+ 
+     Attributes:
 diff --git a/northcua/agents/web/domain/results.py b/northcua/agents/web/domain/results.py
 index 0be8dcd..7cb4d5e 100644
 --- a/northcua/agents/web/domain/results.py
@@ -186,10 +223,10 @@ index 0000000..53a46f7
 +                return True
 +    return False
 diff --git a/northcua/agents/web/mcp/descriptors.py b/northcua/agents/web/mcp/descriptors.py
-index d0ef77f..fd76963 100644
+index d0ef77f..bec7fa2 100644
 --- a/northcua/agents/web/mcp/descriptors.py
 +++ b/northcua/agents/web/mcp/descriptors.py
-@@ -215,20 +215,20 @@ _DESCRIPTION_BY_TOOL_NAME = {
+@@ -215,21 +215,21 @@ _DESCRIPTION_BY_TOOL_NAME = {
      )
      + _POST_OBSERVATION_SUFFIX,
      WebAgentToolName.CLICK_POINT.value: (
@@ -204,15 +241,18 @@ index d0ef77f..fd76963 100644
 -        "Double-click current viewport CSS coordinates only when no reliable element ref exists and the UI truly "
 +        "Double-click coordinates in the input space declared by the latest runtime observation only when no reliable element ref exists and the UI truly "
          "requires a double click. If the target has a stable numeric ref, use the ref click action. Coordinates come from "
-         "the current viewport, not document-scroll or screenshot-image coordinates."
+-        "the current viewport, not document-scroll or screenshot-image coordinates."
++        "the current viewport, not document-scroll coordinates."
      )
      + _POST_OBSERVATION_SUFFIX,
      WebAgentToolName.DRAG_POINT.value: (
 -        "Drag from one current viewport CSS coordinate to another using the left mouse button. Use this only when "
+-        "drag_ref is unavailable because the source or destination lacks a reliable numeric ref; coordinates are current "
 +        "Drag between coordinates in the input space declared by the latest runtime observation using the left mouse button. Use this only when "
-         "drag_ref is unavailable because the source or destination lacks a reliable numeric ref; coordinates are current "
++        "drag_ref is unavailable because the source or destination lacks a reliable numeric ref; coordinates follow the current observation policy, with default "
          "viewport CSS pixels."
      )
+     + _POST_OBSERVATION_SUFFIX,
 diff --git a/northcua/agents/web/overlay/action_adapter.py b/northcua/agents/web/overlay/action_adapter.py
 index 534fc16..736165a 100644
 --- a/northcua/agents/web/overlay/action_adapter.py
@@ -243,18 +283,20 @@ index 534fc16..736165a 100644
          if command is None:
              return None
 diff --git a/northcua/agents/web/prompt/templates/web_agent_system.j2 b/northcua/agents/web/prompt/templates/web_agent_system.j2
-index ac2f812..9a03fc3 100644
+index ac2f812..c7ead59 100644
 --- a/northcua/agents/web/prompt/templates/web_agent_system.j2
 +++ b/northcua/agents/web/prompt/templates/web_agent_system.j2
-@@ -71,7 +71,7 @@ Observation and screenshot semantics:
+@@ -71,8 +71,8 @@ Observation and screenshot semantics:
  
  Screenshot and coordinate semantics:
  - Every screenshot captures only the current viewport. Full-page capture is unavailable; inspect long pages viewport by viewport with `web_scroll`.
 -- Point coordinates are CSS pixels relative to the current viewport top-left: x increases to the right and y increases downward.
+-- Screenshot image pixel dimensions may be reported in metadata for visual inspection, but point actions still use current viewport CSS coordinates, not document-scroll or scaled image-pixel coordinates.
 +- Use the point-coordinate policy in the latest observation. normalized_1000 means x and y range from 0 to 1000 across the viewport; emit these directly and let the backend convert once. viewport_css means CSS pixels. Ref actions never need scaling.
- - Screenshot image pixel dimensions may be reported in metadata for visual inspection, but point actions still use current viewport CSS coordinates, not document-scroll or scaled image-pixel coordinates.
++- Screenshot dimensions may be reported for visual inspection. Point actions follow the configured model-facing input space; the backend converts to viewport CSS pixels exactly once.
  - Use an annotated screenshot when visual layout matters: it draws direct numeric Set-of-Mark ref labels over visible interactive elements and returns bbox metadata in the viewport CSS coordinate frame.
  - Prefer the matching ref action after inspecting SoM refs. Use a marked element's bbox center as a point fallback only when the visual target has no reliable semantic ref.
+ - Do not use browser-window-local, document-scroll, or screenshot-pixel coordinates for point actions unless the tool explicitly says so.
 @@ -93,3 +93,9 @@ Response rules:
  - If no action is required, answer directly without tool calls.
  - Do not ask the user for clarification. Act with the available tools and report concrete infeasibility only for environment/task-precondition gaps.
@@ -266,10 +308,10 @@ index ac2f812..9a03fc3 100644
 +- When all values have been verified and the page shows the saved result, finish immediately. Do not alternate tabs to recheck values already confirmed.
 +- Never claim a saved result or recorded click sequence unless it appears in the latest visible page evidence. A successful click tool alone does not prove a target was hit.
 diff --git a/northcua/agents/web/runner/run_loop.py b/northcua/agents/web/runner/run_loop.py
-index b55fc45..613770a 100644
+index b55fc45..d0db8ac 100644
 --- a/northcua/agents/web/runner/run_loop.py
 +++ b/northcua/agents/web/runner/run_loop.py
-@@ -3,6 +3,8 @@
+@@ -3,12 +3,14 @@
  from __future__ import annotations
  
  import logging
@@ -278,6 +320,13 @@ index b55fc45..613770a 100644
  from dataclasses import dataclass, field
  from pathlib import Path
  from time import time_ns
+ from typing import TYPE_CHECKING, cast
+ 
+-from nexau.core.messages import Message
++from nexau.core.messages import Message, Role, TextBlock
+ 
+ from northcua.agentkernel.tools.surface import normalize_allowed_tool_names
+ from northcua.agentkit.runtime import (
 @@ -30,6 +32,7 @@ from northcua.core.terminal import AgentTerminalReason, TerminalDecisionPolicy
  from northcua.agentkernel.working_memory import WorkingMemoryStore
  
@@ -298,16 +347,20 @@ index b55fc45..613770a 100644
      recent_action_result: JsonObject | None = None
      current_observation: WebObservationContext | None = None
      recent_post_action_observation: WebObservationContext | None = None
-@@ -156,7 +164,7 @@ class _WebAgentLoopExecution:
-         registered = self.runner.session_registry.get_registered_session(self.session_id)
-         registered.clear_tool_image_artifact_events()
-         step_result = await self.runner._run_model_step(
--            user_query=self.spec.user_query,
-+            user_query=self.spec.user_query + ("\nRuntime feedback: " + self.runtime_feedback if self.runtime_feedback else ""),
-             session_id=self.session_id,
-             step_index=step_index,
-             session_step=session_step,
-@@ -232,6 +240,26 @@ class _WebAgentLoopExecution:
+@@ -137,6 +145,12 @@ class _WebAgentLoopExecution:
+         session_step = context.cursor.session_step
+         artifact_step_index = session_step or step_index
+         client = self.resource.require_client()
++        if self.runtime_feedback:
++            self.prior_messages.append(Message(role=Role.USER, content=[
++                TextBlock(text="Runtime feedback: " + self.runtime_feedback)
++            ]))
++            self._record_hardening_event(step_index, "feedback_delivered", self.runtime_feedback)
++            self.runtime_feedback = ""
+         observation = await self._current_observation()
+         artifact_paths = await self.runner.artifact_persistence.persist_observation_artifacts(
+             client=client,
+@@ -232,6 +246,26 @@ class _WebAgentLoopExecution:
          if not resolved_actions:
              final_answer = self._final_answer_from_step(step_result)
              if final_answer:
@@ -334,7 +387,7 @@ index b55fc45..613770a 100644
                  return self._finish_final_answer(context, step_record, final_answer)
              return self._finish_missing_tool(context, step_record, step_result)
          self.recent_action_result = compact_tool_outputs(cast(list[ResolvedToolExecution], resolved_actions))
-@@ -261,6 +289,25 @@ class _WebAgentLoopExecution:
+@@ -261,6 +295,26 @@ class _WebAgentLoopExecution:
          )
          if errored_action is not None:
              return self._finish_tool_error(context, step_record, step_result, errored_action)
@@ -351,6 +404,7 @@ index b55fc45..613770a 100644
 +            if repeated_cycle(self.cycle_history):
 +                self.loop_warnings += 1
 +                self.cycle_history.clear()
++                self._record_hardening_event(step_index,"repeated_cycle",str(self.loop_warnings))
 +                if self.loop_warnings > 1:
 +                    return self._stop_with_reason(context,step_record,WebTerminalStatus.NO_PROGRESS,
 +                        "Repeated action/observation cycle continued after a recovery warning.")
@@ -360,10 +414,14 @@ index b55fc45..613770a 100644
          return AgentRuntimeStepOutcome(
              cursor=context.cursor,
              result=step_record,
-@@ -395,6 +442,14 @@ class _WebAgentLoopExecution:
+@@ -395,6 +449,18 @@ class _WebAgentLoopExecution:
  
          return (self.runner._assistant_text_from_step(step_result) or step_result.response_text or "").strip()
  
++    def _record_hardening_event(self,step,kind,detail):
++        with (Path(self.runner.artifact_store.root)/"hardening_events.jsonl").open("a") as stream:
++            stream.write(json.dumps({"step":step,"kind":kind,"detail":detail})+"\n")
++
 +    def _stop_with_reason(self,context,step_record,reason,detail):
 +        self.result.success=False
 +        self.result.status=WebRunStatus.FAILED
