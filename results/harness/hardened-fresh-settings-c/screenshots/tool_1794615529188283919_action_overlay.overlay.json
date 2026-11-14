@@ -1,0 +1,30 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/hardened-fresh-settings-c/screenshots/tool_1794615526392647869.png",
+  "output_path": "results/harness/hardened-fresh-settings-c/screenshots/tool_1794615529188283919_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "click",
+      "render_mode": "click",
+      "badge_text": "",
+      "primary_point": {
+        "x": 331,
+        "y": 247
+      },
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "single",
+      "metadata": {
+        "arguments": {
+          "x": 331,
+          "y": 247,
+          "ref": "5"
+        }
+      }
+    },
+    "web_action": "select_option_ref",
+    "source_observation_id": "initial-hardened-fresh-settings-c-1794615526314689338"
+  }
+}

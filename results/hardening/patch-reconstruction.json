@@ -1,0 +1,52 @@
+[
+  {
+    "path": "northcua/agents/web/backend/playwright.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "ac2053b97e4cdd52f5f693545c2cbed3c4ecff13fa73988304b3318a161547e2"
+  },
+  {
+    "path": "northcua/agents/web/backend/protocol.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "4d0468de3703f28ffbed4ea3d92e399c1d5314dfb72386e9456c0dbd54806be5"
+  },
+  {
+    "path": "northcua/agents/web/domain/actions.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "e2218f584360de04789f56aa1d67257829d671b8505c5cba8d7f32ddf01c0100"
+  },
+  {
+    "path": "northcua/agents/web/domain/results.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "bf6aa9e6f2f9bf08821b083bc1324c0eb22675fbb30f5e75fb2b2944affb232c"
+  },
+  {
+    "path": "northcua/agents/web/hardening.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "49719344240e4bbab91ab7d87b6785c7eaf13d29bd96b59192f3ddc67b2127a3"
+  },
+  {
+    "path": "northcua/agents/web/mcp/descriptors.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "f4be473785698078e3b938be1f44d8a40615f2ce96b7b1f7982f6cab8d3659e5"
+  },
+  {
+    "path": "northcua/agents/web/overlay/action_adapter.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "38c32af2598c6e977a0c717c66b85593af348cdf508901c702f9bcd060e4d85f"
+  },
+  {
+    "path": "northcua/agents/web/prompt/templates/web_agent_system.j2",
+    "matches_reconstructed_patch": true,
+    "sha256": "91b2e5cce7919cf7a45197885bc1aabe641bf5b4d969a995e9a63e369f32fa96"
+  },
+  {
+    "path": "northcua/agents/web/runner/run_loop.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "4899e900aee68da54e55acd7ad6feba14fae85c04177355f60781b77f829eab1"
+  },
+  {
+    "path": "northcua/core/config.py",
+    "matches_reconstructed_patch": true,
+    "sha256": "0b1f944a2aea40cc05c41625a630789820ccdd26df6645ec1549b2e09f507551"
+  }
+]

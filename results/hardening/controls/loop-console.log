@@ -1,0 +1,163 @@
+┌─ NorthCUA Web Agent ─────────────────────────────────────────────────────────────────┐
+│ [1m[34mRun[0m                                                                                  │
+│   Session: control-loop                                                              │
+│   Trace Dir: results/hardening/controls/harness/control-loop                         │
+│   Query: Controlled integration check. Fill the date if requested, otherwise         │
+│   inspect the page.                                                                  │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 1[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 1 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+│   Observation: NorthCUA settings test -                                              │
+│   http://127.0.0.1:18878/settings/control-loop                                       │
+│   Summary: web_click_ref                                                             │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: web_click_ref {"ref":2}                                                │
+│   Executed: web_click_ref [ok]                                                       │
+│   Tool Summary: web_click_ref                                                        │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 2[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 2 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+│   Observation: NorthCUA settings test -                                              │
+│   http://127.0.0.1:18878/settings/control-loop                                       │
+│   Summary: web_click_ref                                                             │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: web_click_ref {"ref":3}                                                │
+│   Executed: web_click_ref [ok]                                                       │
+│   Tool Summary: web_click_ref                                                        │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 3[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 3 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+│   Observation: NorthCUA settings test -                                              │
+│   http://127.0.0.1:18878/settings/control-loop                                       │
+│   Summary: web_click_ref                                                             │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: web_click_ref {"ref":2}                                                │
+│   Executed: web_click_ref [ok]                                                       │
+│   Tool Summary: web_click_ref                                                        │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 4[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 4 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+│   Observation: NorthCUA settings test -                                              │
+│   http://127.0.0.1:18878/settings/control-loop                                       │
+│   Summary: web_click_ref                                                             │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: web_click_ref {"ref":3}                                                │
+│   Executed: web_click_ref [ok]                                                       │
+│   Tool Summary: web_click_ref                                                        │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 5[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 5 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+│   Observation: NorthCUA settings test -                                              │
+│   http://127.0.0.1:18878/settings/control-loop                                       │
+│   Summary: web_click_ref                                                             │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: web_click_ref {"ref":2}                                                │
+│   Executed: web_click_ref [ok]                                                       │
+│   Tool Summary: web_click_ref                                                        │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 6[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 6 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+│   Observation: NorthCUA settings test -                                              │
+│   http://127.0.0.1:18878/settings/control-loop                                       │
+│   Summary: web_click_ref                                                             │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: web_click_ref {"ref":3}                                                │
+│   Executed: web_click_ref [ok]                                                       │
+│   Tool Summary: web_click_ref                                                        │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 7[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 7 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+│   Observation: NorthCUA settings test -                                              │
+│   http://127.0.0.1:18878/settings/control-loop                                       │
+│   Summary: web_click_ref                                                             │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: web_click_ref {"ref":2}                                                │
+│   Executed: web_click_ref [ok]                                                       │
+│   Tool Summary: web_click_ref                                                        │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 8[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 8 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Unable to complete this controlled task; stopping after the runtime warning.       │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/settings/control-loop                                  │
+│   Observation: NorthCUA settings test -                                              │
+│   http://127.0.0.1:18878/settings/control-loop                                       │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: (none)                                                                 │
+│   Executed: (none)                                                                   │
+│   Tool Summary: (none)                                                               │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+┌─ NorthCUA Web Agent Summary ─────────────────────────────────────────────────────────┐
+│ [1m[34mSummary[0m                                                                              │
+│   Status: success                                                                    │
+│   Terminal: completed                                                                │
+│   Steps: 8                                                                           │
+│   Success: True                                                                      │
+│   Answer: Unable to complete this controlled task; stopping after the runtime        │
+│   warning.                                                                           │
+│   Trace Dir: results/hardening/controls/harness/control-loop                         │
+│   Result JSON: results/hardening/controls/harness/control-loop/result.json           │
+│   Trace: results/hardening/controls/harness/control-loop/web_agent_trace.jsonl       │
+│ [1m[36mDecision[0m                                                                             │
+│   Action: finish                                                                     │
+│   Reason: completed                                                                  │
+│   Success: True                                                                      │
+│   Retryable: False                                                                   │
+│   Summary: The web task completed.                                                   │
+│   Answer: Unable to complete this controlled task; stopping after the runtime        │
+│   warning.                                                                           │
+└──────────────────────────────────────────────────────────────────────────────────────┘

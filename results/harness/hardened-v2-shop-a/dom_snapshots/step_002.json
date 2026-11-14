@@ -1,0 +1,144 @@
+{
+  "url": "http://127.0.0.1:18878/shop/hardened-v2-shop-a",
+  "title": "NorthCUA shop test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "1 label \"Category filterAllLampChair\"\n2 combobox \"Category filterAllLampChair\" value=\"All\"\n3 label \"In stock only\"\n4 checkbox \"In stock only\" value=\"on\" checked=true\n5 label \"SortSKUPrice ascending\"\n6 combobox \"SortSKUPrice ascending\" value=\"sku\"\n7 radio \"Select Folding chair\" value=\"C12\" checked=false\n8 radio \"Select Desk lamp\" value=\"L17\" checked=false\n9 radio \"Select Studio lamp\" value=\"L42\" checked=false\n10 label \"Quantity\"\n11 spinbutton \"Quantity\" value=\"1\"\n12 label \"DeliveryStandardExpress\"\n13 combobox \"DeliveryStandardExpress\" value=\"Standard\"\n14 button \"Place test order\"",
+  "elements": [
+    {
+      "ref_id": "1",
+      "role": "label",
+      "name": "Category filterAllLampChair",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "2",
+      "role": "combobox",
+      "name": "Category filterAllLampChair",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "All"
+      }
+    },
+    {
+      "ref_id": "3",
+      "role": "label",
+      "name": "In stock only",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "4",
+      "role": "checkbox",
+      "name": "In stock only",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "on",
+        "checked": true
+      }
+    },
+    {
+      "ref_id": "5",
+      "role": "label",
+      "name": "SortSKUPrice ascending",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "6",
+      "role": "combobox",
+      "name": "SortSKUPrice ascending",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "sku"
+      }
+    },
+    {
+      "ref_id": "7",
+      "role": "radio",
+      "name": "Select Folding chair",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "C12",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "8",
+      "role": "radio",
+      "name": "Select Desk lamp",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "L17",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "9",
+      "role": "radio",
+      "name": "Select Studio lamp",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "L42",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "10",
+      "role": "label",
+      "name": "Quantity",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "11",
+      "role": "spinbutton",
+      "name": "Quantity",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "1"
+      }
+    },
+    {
+      "ref_id": "12",
+      "role": "label",
+      "name": "DeliveryStandardExpress",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "13",
+      "role": "combobox",
+      "name": "DeliveryStandardExpress",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "Standard"
+      }
+    },
+    {
+      "ref_id": "14",
+      "role": "button",
+      "name": "Place test order",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    }
+  ],
+  "raw": {
+    "source": "post_action_observation_bundle",
+    "observation_id": "post-check_ref-1794615238868396887"
+  }
+}

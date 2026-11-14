@@ -1,0 +1,42 @@
+[
+  {
+    "control": "always-finish",
+    "kind": "scripted integration control, not a real-model task",
+    "passed": true,
+    "exit_code": 1,
+    "status": "failed",
+    "terminal_status": "verification_failed",
+    "steps": 3,
+    "runtime_feedback_delivered": true
+  },
+  {
+    "control": "loop",
+    "kind": "scripted integration control, not a real-model task",
+    "passed": true,
+    "exit_code": 0,
+    "status": "success",
+    "terminal_status": "completed",
+    "steps": 8,
+    "runtime_feedback_delivered": true
+  },
+  {
+    "control": "date-recovery",
+    "kind": "scripted integration control, not a real-model task",
+    "passed": true,
+    "exit_code": 0,
+    "status": "success",
+    "terminal_status": "completed",
+    "steps": 3,
+    "runtime_feedback_delivered": false
+  },
+  {
+    "control": "date-budget",
+    "kind": "scripted integration control, not a real-model task",
+    "passed": true,
+    "exit_code": 1,
+    "status": "failed",
+    "terminal_status": "tool_error",
+    "steps": 4,
+    "runtime_feedback_delivered": false
+  }
+]

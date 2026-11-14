@@ -1,0 +1,12 @@
+{
+  "task": "settings",
+  "data": {
+    "theme": "Dark",
+    "language": "Spanish",
+    "date_format": "YYYY-MM-DD",
+    "timezone": "Europe/London",
+    "autosave": true,
+    "newsletter": false
+  },
+  "saved_at_unix": 1794615399.9289808
+}

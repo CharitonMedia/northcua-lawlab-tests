@@ -1,0 +1,25 @@
+{
+  "kind": "action",
+  "source_image_path": "results/hardening/controls/harness/control-date-budget/screenshots/tool_1794615143139253835.png",
+  "output_path": "results/hardening/controls/harness/control-date-budget/screenshots/tool_1794615143521390850_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "type",
+      "render_mode": "badge",
+      "badge_text": "Type: 12/01/2026",
+      "primary_point": null,
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "",
+      "metadata": {
+        "arguments": {
+          "text": "12/01/2026"
+        }
+      }
+    },
+    "web_action": "fill_ref",
+    "source_observation_id": "recovery-control-date-budget-1794615143087681882"
+  }
+}

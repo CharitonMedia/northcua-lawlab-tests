@@ -1,0 +1,25 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/hardened-v3-project-a/screenshots/tool_1794615641696916848.png",
+  "output_path": "results/harness/hardened-v3-project-a/screenshots/tool_1794615644634667971_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "type",
+      "render_mode": "badge",
+      "badge_text": "Type: 2026-12-01",
+      "primary_point": null,
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "",
+      "metadata": {
+        "arguments": {
+          "text": "2026-12-01"
+        }
+      }
+    },
+    "web_action": "fill_ref",
+    "source_observation_id": "post-select_option_ref-1794615641650207373"
+  }
+}

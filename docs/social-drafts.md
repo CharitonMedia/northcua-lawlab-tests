@@ -1,25 +1,23 @@
-# Social publication drafts
+# Follow-up publication drafts
 
-Status: prepared for publication; not posted to either platform.
+Status: prepared, not posted.
 
 ## X
 
-NorthCUA-Nano on one RTX 3090 completed 3 of 6 browser tasks. Four saved correct data, but one kept looping. We published the failures, videos and a coordinate-adapter follow-up, plus the scripts to repeat the tests.
+NorthCUA-Nano on one RTX 3090: fixing coordinate handling, recovery and a missing browser system prompt took our six original tasks from 3/6 to 6/6. Four task variations passed too. Code, failures and videos:
 https://github.com/CharitonMedia/northcua-lawlab-tests
 
 ## Facebook
 
-We tested a 9B computer-use model on a single RTX 3090. NorthCUA-Nano completed three of six baseline browser tasks.
+NorthCUA-Nano went from completing three of our six browser tasks to completing all six after we fixed the harness.
 
-It selected the correct in-stock product and submitted two test orders with the right quantities and totals. It also completed a settings task across two tabs.
+The most revealing discovery was in the requests sent to the model. The generated setup was using NexAU's generic default prompt, including a line saying no tools were available. The browser-specific instructions weren't being sent.
 
-The failures were instructive. Two forms stopped because the model supplied a date format the browser tool rejected. Another run saved every requested setting but kept switching tabs until it hit the step limit.
+We fixed that path, added coordinate conversion based on the current viewport, and gave malformed dates a bounded correction path. We also corrected a recovery-message delivery problem and added a configurable check for visible completion receipts.
 
-We also tried a visual target board. The model returned coordinates on a 0–1000 scale while the browser expected pixels. Both clicks missed, and it still claimed success. In a separate run, an explicit coordinate adapter converted the positions and both clicks registered correctly.
+The final configuration passed the six original tasks, the original visual-clicking probe and four additional task variations. One moved the targets and changed the viewport to 1440 by 900.
 
-The public repository includes all 12 model runs, continuous browser recordings, raw traces, model hashes and the analysis. Date-format hints and coordinate conversion are labeled as assisted follow-ups.
+This is a small synthetic test set. Every final result was checked against saved fixture data. The public repository preserves all 41 model runs, including unsuccessful development stages, with source, patches and continuous browser recordings.
 
-The small task set doesn't establish general reliability. It does show why checking the saved result matters.
-
-Watch the successful runs and the failures:
-https://github.com/CharitonMedia/northcua-lawlab-tests
+The before-and-after analysis and videos are here:
+https://github.com/CharitonMedia/northcua-lawlab-tests/blob/main/docs/hardening.md

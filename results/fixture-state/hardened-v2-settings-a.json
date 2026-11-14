@@ -1,0 +1,12 @@
+{
+  "task": "settings",
+  "data": {
+    "theme": "Dark",
+    "language": "French",
+    "date_format": "YYYY-MM-DD",
+    "timezone": "UTC",
+    "autosave": true,
+    "newsletter": false
+  },
+  "saved_at_unix": 1794615289.2497082
+}

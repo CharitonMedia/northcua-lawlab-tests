@@ -1,0 +1,22 @@
+Page:
+title: NorthCUA settings test
+url: http://127.0.0.1:18878/settings/controls-final-loop
+
+Interactive refs:
+button "Display" [ref=@e1]
+button "Notifications" [ref=@e2]
+link "Reload saved settings" [ref=@e3]
+label "ThemeLightDark" [ref=@e4]
+combobox "ThemeLightDark" [ref=@e5]
+label "LanguageEnglishSpanishFrench" [ref=@e6]
+combobox "LanguageEnglishSpanishFrench" [ref=@e7]
+label "Date formatMM/DD/YYYYYYYY-MM-DD" [ref=@e8]
+combobox "Date formatMM/DD/YYYYYYYY-MM-DD" [ref=@e9]
+label "Time zoneAmerica/New_YorkUTCEurope/London" [ref=@e10]
+combobox "Time zoneAmerica/New_YorkUTCEurope/London" [ref=@e11]
+button "Save settings" [ref=@e12]
+[Runtime point coordinate policy: normalized_1000; current viewport 1280x720. Ref actions do not use coordinates.]
+
+Visible page text:
+[main frame]
+Workspace settings DisplayNotificationsReload saved settings Display Theme Light Dark Language English Spanish French Date format MM/DD/YYYY YYYY-MM-DD Time zone America/New_York UTC Europe/London Save settings

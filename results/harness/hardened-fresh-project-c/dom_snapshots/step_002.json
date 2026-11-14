@@ -1,0 +1,149 @@
+{
+  "url": "http://127.0.0.1:18878/project/hardened-fresh-project-c",
+  "title": "NorthCUA project test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "1 link \"Reopen saved project\"\n2 label \"Project name\"\n3 textbox \"Project name\" value=\"Orion\"\n4 label \"CategoryResearchDesignOperations\"\n5 combobox \"CategoryResearchDesignOperations\" value=\"Research\"\n6 label \"PriorityLowNormalHigh\"\n7 combobox \"PriorityLowNormalHigh\" value=\"Low\"\n8 label \"Start date\"\n9 textbox \"Start date\"\n10 label \"Budget\"\n11 spinbutton \"Budget\"\n12 label \"Notes\"\n13 textbox \"Notes\"\n14 label \"Enable notifications\"\n15 checkbox \"Enable notifications\" value=\"on\" checked=false\n16 button \"Save project\"",
+  "elements": [
+    {
+      "ref_id": "1",
+      "role": "link",
+      "name": "Reopen saved project",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "2",
+      "role": "label",
+      "name": "Project name",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "3",
+      "role": "textbox",
+      "name": "Project name",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "Orion"
+      }
+    },
+    {
+      "ref_id": "4",
+      "role": "label",
+      "name": "CategoryResearchDesignOperations",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "5",
+      "role": "combobox",
+      "name": "CategoryResearchDesignOperations",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "Research"
+      }
+    },
+    {
+      "ref_id": "6",
+      "role": "label",
+      "name": "PriorityLowNormalHigh",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "7",
+      "role": "combobox",
+      "name": "PriorityLowNormalHigh",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "Low"
+      }
+    },
+    {
+      "ref_id": "8",
+      "role": "label",
+      "name": "Start date",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "9",
+      "role": "textbox",
+      "name": "Start date",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "10",
+      "role": "label",
+      "name": "Budget",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "11",
+      "role": "spinbutton",
+      "name": "Budget",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "12",
+      "role": "label",
+      "name": "Notes",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "13",
+      "role": "textbox",
+      "name": "Notes",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "14",
+      "role": "label",
+      "name": "Enable notifications",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    },
+    {
+      "ref_id": "15",
+      "role": "checkbox",
+      "name": "Enable notifications",
+      "text": "",
+      "tag": "",
+      "attributes": {
+        "value": "on",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "16",
+      "role": "button",
+      "name": "Save project",
+      "text": "",
+      "tag": "",
+      "attributes": {}
+    }
+  ],
+  "raw": {
+    "source": "post_action_observation_bundle",
+    "observation_id": "post-fill_ref-1794615464512858616"
+  }
+}

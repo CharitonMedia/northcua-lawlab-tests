@@ -1,0 +1,9 @@
+{
+  "test_model_container": "stopped",
+  "fixture": "stopped",
+  "capture_proxy": "stopped",
+  "scripted_control_server": "stopped",
+  "SSH_tunnel": "closed",
+  "existing_Qwen_and_WebUI": "left running",
+  "patched_harness": "installed, committed and published; temporary model service stopped"
+}

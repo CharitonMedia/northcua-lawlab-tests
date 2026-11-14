@@ -1,0 +1,36 @@
+test_date_error_is_correctable_and_does_not_mutate (test_hardening.BrowserTests.test_date_error_is_correctable_and_does_not_mutate) ... ok
+test_drag_maps_both_endpoints_once (test_hardening.BrowserTests.test_drag_maps_both_endpoints_once) ... ok
+test_evidence_requires_nonempty_rendered_marker (test_hardening.BrowserTests.test_evidence_requires_nonempty_rendered_marker) ... $LAB_ROOT/tests/test_hardening.py:57: RuntimeWarning: coroutine 'Page.evaluate' was never awaited
+Coroutine created at (most recent call last)
+  File "/usr/lib/python3.12/unittest/async_case.py", line 131, in run
+    return super().run(result)
+  File "/usr/lib/python3.12/unittest/case.py", line 634, in run
+    self._callTestMethod(testMethod)
+  File "/usr/lib/python3.12/unittest/async_case.py", line 90, in _callTestMethod
+    if self._callMaybeAsync(method) is not None:
+  File "/usr/lib/python3.12/unittest/async_case.py", line 112, in _callMaybeAsync
+    return self._asyncioRunner.run(
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 674, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 641, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 1979, in _run_once
+    handle._run()
+  File "/usr/lib/python3.12/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "$LAB_ROOT/tests/test_hardening.py", line 57, in test_evidence_requires_nonempty_rendered_marker
+    await self.page.locator('[role="status"]').first.fill("x") if False else self.page.evaluate("document.querySelector('[role=status]').textContent='Saved receipt 42'")
+  await self.page.locator('[role="status"]').first.fill("x") if False else self.page.evaluate("document.querySelector('[role=status]').textContent='Saved receipt 42'")
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_point_click_tracks_live_resize (test_hardening.BrowserTests.test_point_click_tracks_live_resize) ... ok
+test_cycle_requires_repeated_action_and_state (test_hardening.PolicyTests.test_cycle_requires_repeated_action_and_state) ... ok
+test_normalized_sizes_and_edges (test_hardening.PolicyTests.test_normalized_sizes_and_edges) ... ok
+test_pixels_not_scaled_and_invalid_values_rejected (test_hardening.PolicyTests.test_pixels_not_scaled_and_invalid_values_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.547s
+
+OK

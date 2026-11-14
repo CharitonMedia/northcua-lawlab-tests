@@ -1,0 +1,14 @@
+{
+  "id": "project-c",
+  "task": "project",
+  "prompt": "Create project Orion, category Research, priority Low, start date February 28, 2027, budget 423.75, notes 'Prepare poster panels'. Enable notifications. Save, reopen and verify the requested values using the visible controls.",
+  "expected": {
+    "name": "Orion",
+    "category": "Research",
+    "priority": "Low",
+    "start": "2027-02-28",
+    "budget": "423.75",
+    "notes": "Prepare poster panels",
+    "notifications": true
+  }
+}

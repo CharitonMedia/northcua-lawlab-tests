@@ -1,0 +1,27 @@
+Page:
+title: NorthCUA project test
+url: http://127.0.0.1:18878/project/hardened-v3-project-b
+
+Interactive refs:
+link "Reopen saved project" [ref=@e1]
+label "Project name" [ref=@e2]
+textbox "Project name" [ref=@e3]
+label "CategoryResearchDesignOperations" [ref=@e4]
+combobox "CategoryResearchDesignOperations" [ref=@e5]
+label "PriorityLowNormalHigh" [ref=@e6]
+combobox "PriorityLowNormalHigh" [ref=@e7]
+label "Start date" [ref=@e8]
+textbox "Start date" [ref=@e9]
+label "Budget" [ref=@e10]
+spinbutton "Budget" [ref=@e11]
+label "Notes" [ref=@e12]
+textbox "Notes" [ref=@e13]
+label "Enable notifications" [ref=@e14]
+checkbox "Enable notifications" [ref=@e15]
+button "Save project" [ref=@e16]
+[Runtime point coordinate policy: normalized_1000; current viewport 1280x720. Ref actions do not use coordinates.]
+[HTML date inputs e9 require YYYY-MM-DD values.]
+
+Visible page text:
+[main frame]
+Project planner Reopen saved project Project name Category Research Design Operations Priority Low Normal High Start date Budget Notes Enable notifications Save project

@@ -1,0 +1,8 @@
+1 button "Display"
+2 button "Notifications"
+3 link "Reload saved settings"
+4 label "Weekly newsletter"
+5 checkbox "Weekly newsletter" value="on" checked=true
+6 label "Autosave reminders"
+7 checkbox "Autosave reminders" value="on" checked=false
+8 button "Save settings"

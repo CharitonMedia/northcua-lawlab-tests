@@ -1,0 +1,53 @@
+{
+  "run_id": "hardened-v1-settings-b",
+  "case_id": "settings-b",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/settings/hardened-v1-settings-b",
+    "--query",
+    "Set workspace theme Dark, language Spanish, date format YYYY-MM-DD and time zone Europe/London. Under Notifications, disable the weekly newsletter and enable autosave reminders. Save and reload the saved settings, then check all six values. Use only visible controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-v1-settings-b",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794614948.3345215,
+  "wall_seconds": 71.37581539154053,
+  "exit_code": 1,
+  "timed_out": false,
+  "expected": {
+    "theme": "Dark",
+    "language": "Spanish",
+    "date_format": "YYYY-MM-DD",
+    "timezone": "Europe/London",
+    "newsletter": false,
+    "autosave": true
+  },
+  "actual": {
+    "theme": "Dark",
+    "language": "Spanish",
+    "date_format": "YYYY-MM-DD",
+    "timezone": "Europe/London",
+    "autosave": true,
+    "newsletter": false
+  },
+  "checks": {
+    "theme": true,
+    "language": true,
+    "date_format": true,
+    "timezone": true,
+    "newsletter": true,
+    "autosave": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-v1-settings-b/video/b06bd66aeb55b49c4bc32032c1ee7844.webm"
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "kind": "set_of_mark",
+  "coordinate_frame": "viewport_css",
+  "image_coordinate_frame": "screenshot_pixels",
+  "marks": [
+    {
+      "ref": "1",
+      "label": "1",
+      "source_ref": "@e1",
+      "role": "link",
+      "name": "Reopen saved project",
+      "bbox_css": {
+        "x": 235.0,
+        "y": 103.109375,
+        "width": 182.0,
+        "height": 24.0
+      },
+      "bbox_image": {
+        "x": 235.0,
+        "y": 103.109375,
+        "width": 182.0,
+        "height": 24.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "2",
+      "label": "2",
+      "source_ref": "@e2",
+      "role": "label",
+      "name": "Project name",
+      "bbox_css": {
+        "x": 220.0,
+        "y": 141.109375,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 220.0,
+        "y": 141.109375,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "3",
+      "label": "3",
+      "source_ref": "@e3",
+      "role": "textbox",
+      "name": "Project name",
+      "bbox_css": {
+        "x": 343.671875,
+        "y": 141.109375,
+        "width": 280.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 343.671875,
+        "y": 141.109375,
+        "width": 280.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "4",
+      "label": "4",
+      "source_ref": "@e4",
+      "role": "label",
+      "name": "CategoryResearchDesignOperations",
+      "bbox_css": {
+        "x": 220.0,
+        "y": 199.109375,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 220.0,
+        "y": 199.109375,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "5",
+      "label": "5",
+      "source_ref": "@e5",
+      "role": "combobox",
+      "name": "CategoryResearchDesignOperations",
+      "bbox_css": {
+        "x": 308.703125,
+        "y": 199.109375,
+        "width": 133.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 308.703125,
+        "y": 199.109375,
+        "width": 133.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "6",
+      "label": "6",
+      "source_ref": "@e6",
+      "role": "label",
+      "name": "PriorityLowNormalHigh",
+      "bbox_css": {
+        "x": 220.0,
+        "y": 257.109375,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 220.0,
+        "y": 257.109375,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "7",
+      "label": "7",
+      "source_ref": "@e7",
+      "role": "combobox",
+      "name": "PriorityLowNormalHigh",
+      "bbox_css": {
+        "x": 293.625,
+        "y": 257.109375,
+        "width": 102.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 293.625,
+        "y": 257.109375,
+        "width": 102.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "8",
+      "label": "8",
+      "source_ref": "@e8",
+      "role": "label",
+      "name": "Start date",
+      "bbox_css": {
+        "x": 220.0,
+        "y": 315.109375,
+        "width": 1000.0,
+        "height": 46.0
+      },
+      "bbox_image": {
+        "x": 220.0,
+        "y": 315.109375,
+        "width": 1000.0,
+        "height": 46.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "9",
+      "label": "9",
+      "source_ref": "@e9",
+      "role": "textbox",
+      "name": "Start date",
+      "bbox_css": {
+        "x": 314.921875,
+        "y": 315.109375,
+        "width": 179.0,
+        "height": 46.0
+      },
+      "bbox_image": {
+        "x": 314.921875,
+        "y": 315.109375,
+        "width": 179.0,
+        "height": 46.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "10",
+      "label": "10",
+      "source_ref": "@e10",
+      "role": "label",
+      "name": "Budget",
+      "bbox_css": {
+        "x": 220.0,
+        "y": 375.109375,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 220.0,
+        "y": 375.109375,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "11",
+      "label": "11",
+      "source_ref": "@e11",
+      "role": "spinbutton",
+      "name": "Budget",
+      "bbox_css": {
+        "x": 293.625,
+        "y": 375.109375,
+        "width": 280.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 293.625,
+        "y": 375.109375,
+        "width": 280.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "12",
+      "label": "12",
+      "source_ref": "@e12",
+      "role": "label",
+      "name": "Notes",
+      "bbox_css": {
+        "x": 220.0,
+        "y": 433.109375,
+        "width": 1000.0,
+        "height": 71.0
+      },
+      "bbox_image": {
+        "x": 220.0,
+        "y": 433.109375,
+        "width": 1000.0,
+        "height": 71.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "13",
+      "label": "13",
+      "source_ref": "@e13",
+      "role": "textbox",
+      "name": "Notes",
+      "bbox_css": {
+        "x": 281.84375,
+        "y": 433.109375,
+        "width": 241.0,
+        "height": 66.0
+      },
+      "bbox_image": {
+        "x": 281.84375,
+        "y": 433.109375,
+        "width": 241.0,
+        "height": 66.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "14",
+      "label": "14",
+      "source_ref": "@e14",
+      "role": "label",
+      "name": "Enable notifications",
+      "bbox_css": {
+        "x": 220.0,
+        "y": 518.109375,
+        "width": 1000.0,
+        "height": 24.0
+      },
+      "bbox_image": {
+        "x": 220.0,
+        "y": 518.109375,
+        "width": 1000.0,
+        "height": 24.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "15",
+      "label": "15",
+      "source_ref": "@e15",
+      "role": "checkbox",
+      "name": "Enable notifications",
+      "bbox_css": {
+        "x": 228.0,
+        "y": 524.109375,
+        "width": 13.0,
+        "height": 13.0
+      },
+      "bbox_image": {
+        "x": 228.0,
+        "y": 524.109375,
+        "width": 13.0,
+        "height": 13.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "16",
+      "label": "16",
+      "source_ref": "@e16",
+      "role": "button",
+      "name": "Save project",
+      "bbox_css": {
+        "x": 232.0,
+        "y": 556.109375,
+        "width": 118.9375,
+        "height": 40.0
+      },
+      "bbox_image": {
+        "x": 232.0,
+        "y": 556.109375,
+        "width": 118.9375,
+        "height": 40.0
+      },
+      "visible": true,
+      "enabled": true
+    }
+  ],
+  "truncated": false,
+  "omitted_count": 0,
+  "omitted_reason_counts": {},
+  "marked_count": 16,
+  "visible_interactive_count": 16,
+  "max_marks": 150,
+  "max_box_lookup": 512,
+  "source_screenshot_path": "results/harness/hardened-v3-fresh-project-c/screenshots/tool_1794615846903147816.png",
+  "overlay_screenshot_path": "results/harness/hardened-v3-fresh-project-c/screenshots/tool_1794615846906202155_som.png"
+}

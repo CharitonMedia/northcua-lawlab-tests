@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "model_calls": 41,
+    "intended_browser_prompt_present": 0,
+    "generic_default_prompt_present": 41
+  },
+  "v1": {
+    "model_calls": 66,
+    "intended_browser_prompt_present": 0,
+    "generic_default_prompt_present": 66
+  },
+  "v2": {
+    "model_calls": 64,
+    "intended_browser_prompt_present": 0,
+    "generic_default_prompt_present": 64
+  },
+  "v3": {
+    "model_calls": 81,
+    "intended_browser_prompt_present": 81,
+    "generic_default_prompt_present": 0
+  }
+}

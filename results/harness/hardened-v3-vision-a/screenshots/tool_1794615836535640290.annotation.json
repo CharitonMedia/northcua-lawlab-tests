@@ -1,0 +1,15 @@
+{
+  "kind": "set_of_mark",
+  "coordinate_frame": "viewport_css",
+  "image_coordinate_frame": "screenshot_pixels",
+  "marks": [],
+  "truncated": false,
+  "omitted_count": 0,
+  "omitted_reason_counts": {},
+  "marked_count": 0,
+  "visible_interactive_count": 0,
+  "max_marks": 150,
+  "max_box_lookup": 512,
+  "source_screenshot_path": "results/harness/hardened-v3-vision-a/screenshots/tool_1794615836535640290.png",
+  "overlay_screenshot_path": ""
+}

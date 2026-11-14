@@ -1,0 +1,25 @@
+Page:
+title: NorthCUA shop test
+url: http://127.0.0.1:18878/shop/hardened-v3-shop-b
+
+Interactive refs:
+label "Category filterAllLampChair" [ref=@e1]
+combobox "Category filterAllLampChair" [ref=@e2]
+label "In stock only" [ref=@e3]
+checkbox "In stock only" [ref=@e4]
+label "SortSKUPrice ascending" [ref=@e5]
+combobox "SortSKUPrice ascending" [ref=@e6]
+radio "Select Folding chair" [ref=@e7]
+radio "Select Desk lamp" [ref=@e8]
+radio "Select Studio lamp" [ref=@e9]
+label "Quantity" [ref=@e10]
+spinbutton "Quantity" [ref=@e11]
+label "DeliveryStandardExpress" [ref=@e12]
+combobox "DeliveryStandardExpress" [ref=@e13]
+button "Place test order" [ref=@e14]
+status "Saved shop: {"sku":"L17","quantity":"2","delivery":"Standard","total":49}" [ref=@e15]
+[Runtime point coordinate policy: normalized_1000; current viewport 1280x720. Ref actions do not use coordinates.]
+
+Visible page text:
+[main frame]
+Supply shop Category filter All Lamp Chair In stock only Sort SKU Price ascending Select SKU Product Category Price Stock C12 Folding chair Chair $18.00 In stock L17 Desk lamp Lamp $24.50 In stock L42 Studio lamp Lamp $32.00 In stock Quantity Delivery Standard Express Place test order Saved shop: {"sku":"L17","quantity":"2","delivery":"Standard","total":49}

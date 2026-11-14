@@ -1,0 +1,13 @@
+{
+  "id": "settings-a",
+  "task": "settings",
+  "prompt": "Using the visible workspace settings controls, set theme Dark, language French, date format YYYY-MM-DD, and time zone UTC. On the Notifications tab turn OFF the weekly newsletter and turn ON autosave reminders. Save, reload the saved settings, and verify them.",
+  "expected": {
+    "theme": "Dark",
+    "language": "French",
+    "date_format": "YYYY-MM-DD",
+    "timezone": "UTC",
+    "newsletter": false,
+    "autosave": true
+  }
+}

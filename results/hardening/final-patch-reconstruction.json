@@ -1,0 +1,57 @@
+[
+  {
+    "path": "northcua/agents/web/backend/playwright.py",
+    "sha256": "1c2043b847fa7b252620c64337911513f87b4b71e9834623a2128d30214a0bb4",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/backend/protocol.py",
+    "sha256": "4d0468de3703f28ffbed4ea3d92e399c1d5314dfb72386e9456c0dbd54806be5",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/domain/actions.py",
+    "sha256": "e2218f584360de04789f56aa1d67257829d671b8505c5cba8d7f32ddf01c0100",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/domain/results.py",
+    "sha256": "bf6aa9e6f2f9bf08821b083bc1324c0eb22675fbb30f5e75fb2b2944affb232c",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/hardening.py",
+    "sha256": "7640c5cb9630564c55e238d125dab0e01651f01353dbe6846f5fb9d25c3e763e",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/mcp/descriptors.py",
+    "sha256": "f4be473785698078e3b938be1f44d8a40615f2ce96b7b1f7982f6cab8d3659e5",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/overlay/action_adapter.py",
+    "sha256": "8b0d0414dc3bf851fe1f664f3a664595ec5705b3bd10391cba4058c991c0c6d6",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/prompt/templates/web_agent_system.j2",
+    "sha256": "91b2e5cce7919cf7a45197885bc1aabe641bf5b4d969a995e9a63e369f32fa96",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/runner/model_step.py",
+    "sha256": "e9ea4a11080e4b37f06f00dc45ee61abdc3f27742f9baa05f16995229dc08e43",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/agents/web/runner/run_loop.py",
+    "sha256": "fb7f6981f998a33db1c359c899eee15c4191f6ed0632e9d3a49dea5bf17a98f2",
+    "matches_patch_reconstruction": true
+  },
+  {
+    "path": "northcua/core/config.py",
+    "sha256": "fe0878bc94411b1a71017cdd89eceaa8ea857c644a4e1a17479ba01f45177740",
+    "matches_patch_reconstruction": true
+  }
+]

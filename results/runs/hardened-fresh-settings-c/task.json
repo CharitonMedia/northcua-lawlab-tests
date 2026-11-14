@@ -1,0 +1,13 @@
+{
+  "id": "settings-c",
+  "task": "settings",
+  "prompt": "Set theme Dark, language English, date format MM/DD/YYYY and time zone UTC. Keep the weekly newsletter enabled and enable autosave reminders. Save, reload the saved settings and verify the values. Use normal visible controls.",
+  "expected": {
+    "theme": "Dark",
+    "language": "English",
+    "date_format": "MM/DD/YYYY",
+    "timezone": "UTC",
+    "newsletter": true,
+    "autosave": true
+  }
+}

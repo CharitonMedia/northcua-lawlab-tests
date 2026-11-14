@@ -1,0 +1,56 @@
+{
+  "run_id": "hardened-v1-project-a",
+  "case_id": "project-a",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/project/hardened-v1-project-a",
+    "--query",
+    "Create a project named Ember, category Design, priority High, start date December 1, 2026, budget 1250, notes 'Prototype review'. Enable notifications. Save it, reopen the saved project, and verify every requested value. Use only the normal visible browser controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-v1-project-a",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794614768.6778662,
+  "wall_seconds": 29.88000726699829,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "name": "Ember",
+    "category": "Design",
+    "priority": "High",
+    "start": "2026-12-01",
+    "budget": "1250",
+    "notes": "Prototype review",
+    "notifications": true
+  },
+  "actual": {
+    "name": "Ember",
+    "category": "Design",
+    "priority": "High",
+    "start": "2026-12-01",
+    "budget": "1250",
+    "notes": "Prototype review",
+    "notifications": true
+  },
+  "checks": {
+    "name": true,
+    "category": true,
+    "priority": true,
+    "start": true,
+    "budget": true,
+    "notes": true,
+    "notifications": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-v1-project-a/video/3e09faa3dfedb915053a49a86a038506.webm"
+  ]
+}

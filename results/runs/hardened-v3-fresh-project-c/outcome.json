@@ -1,0 +1,56 @@
+{
+  "run_id": "hardened-v3-fresh-project-c",
+  "case_id": "project-c",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.wide.yaml",
+    "--url",
+    "http://127.0.0.1:18878/project/hardened-v3-fresh-project-c",
+    "--query",
+    "Create project Orion, category Research, priority Low, start date February 28, 2027, budget 423.75, notes 'Prepare poster panels'. Enable notifications. Save, reopen and verify the requested values using the visible controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-v3-fresh-project-c",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794615842.8986783,
+  "wall_seconds": 40.546255588531494,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "name": "Orion",
+    "category": "Research",
+    "priority": "Low",
+    "start": "2027-02-28",
+    "budget": "423.75",
+    "notes": "Prepare poster panels",
+    "notifications": true
+  },
+  "actual": {
+    "name": "Orion",
+    "category": "Research",
+    "priority": "Low",
+    "start": "2027-02-28",
+    "budget": "423.75",
+    "notes": "Prepare poster panels",
+    "notifications": true
+  },
+  "checks": {
+    "name": true,
+    "category": true,
+    "priority": true,
+    "start": true,
+    "budget": true,
+    "notes": true,
+    "notifications": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-v3-fresh-project-c/video/603ab56afb8ca9f8c0b936b369955f66.webm"
+  ]
+}

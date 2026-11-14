@@ -2,6 +2,8 @@
 
 Staff | November 13, 2026
 
+**Follow-up:** Request captures later showed that these initial runs used the generic NexAU system prompt. The [patched-harness study](hardening.md) reports the fixes, all development stages and eleven successful final runs. Original scores remain unchanged.
+
 NorthCUA-Nano fully completed **three of six baseline browser runs** on a single RTX 3090. Four runs saved the requested data correctly; one of those kept switching tabs until it hit the 20-step limit. The two project forms stopped when the model supplied a date format that the browser tool rejected.
 
 We retained **12 model-task runs**, including prompt-sensitivity checks, a sequential repeat, and a separate visual-coordinate probe. These are small synthetic tasks. They measure this local configuration, not OSWorld or WebArena performance.
@@ -40,7 +42,7 @@ A full pass requires both a successful harness termination and an exact match be
 
 The shop tasks required choosing the least expensive in-stock lamp while rejecting a cheaper unavailable lamp. Nano selected SKU L17. It produced the correct totals for three lamps with Express delivery ($81) and two with Standard delivery ($49).
 
-Settings A required changing six values across two tabs, saving and reopening them. Settings B saved all six requested values but then alternated between the Display and Notifications tabs. A fresh sequential repeat also hit the limit, taking 71.93 seconds.
+Settings A required changing six values across two tabs, saving and reopening them. Settings B saved all six requested values but then alternated between the Notifications button and the Reload saved settings link. A fresh sequential repeat also hit the limit, taking 71.93 seconds.
 
 *Settings B overlapped with two follow-up runs because the first version of the runner lacked a suite lock. Its latency and both overlapping follow-up latencies are excluded from single-task timing interpretation. All affected runs remain in the data. The runner now serializes task execution.*
 

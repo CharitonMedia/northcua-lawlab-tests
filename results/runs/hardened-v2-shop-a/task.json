@@ -1,0 +1,11 @@
+{
+  "id": "shop-a",
+  "task": "shop",
+  "prompt": "Find the least expensive in-stock lamp. Order 3 of it with Express delivery using the normal visible browser controls. Submit the test order and report its SKU and final total. Do not buy an unavailable item.",
+  "expected": {
+    "sku": "L17",
+    "quantity": "3",
+    "delivery": "Express",
+    "total": 81.0
+  }
+}

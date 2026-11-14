@@ -1,0 +1,4 @@
+$LAB_ROOT/vendor/NorthCUA/northcua/agentkernel/working_memory.py
+  $LAB_ROOT/vendor/NorthCUA/northcua/agentkernel/working_memory.py:17:10 - error: Import "nexau.core.messages" could not be resolved (reportMissingImports)
+  $LAB_ROOT/vendor/NorthCUA/northcua/agentkernel/working_memory.py:105:14 - error: Import "nexau.core.messages" could not be resolved (reportMissingImports)
+2 errors, 0 warnings, 0 informations

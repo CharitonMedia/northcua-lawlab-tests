@@ -1,0 +1,83 @@
+┌─ NorthCUA Web Agent ─────────────────────────────────────────────────────────────────┐
+│ [1m[34mRun[0m                                                                                  │
+│   Session: controls-final-date-recovery                                              │
+│   Trace Dir: results/hardening/controls-final/harness/controls-final-date-recovery   │
+│   Query: Controlled integration check. Fill the date if requested, otherwise         │
+│   inspect the page.                                                                  │
+│   URL: http://127.0.0.1:18878/project/controls-final-date-recovery                   │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 1[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 1 [[1m[31merror[0m] ─────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/project/controls-final-date-recovery                   │
+│   Observation: NorthCUA project test -                                               │
+│   http://127.0.0.1:18878/project/controls-final-date-recovery                        │
+│   Summary: web_fill_ref                                                              │
+│                                                                                      │
+│ [1m[31mTool[0m                                                                                 │
+│   Model call: web_fill_ref {"ref":9,"text":"12/01/2026"}                             │
+│   Executed: web_fill_ref [error]                                                     │
+│   Tool Summary: web_fill_ref                                                         │
+│   Result: error                                                                      │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 2[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 2 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Scripted browser control action.                                                   │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/project/controls-final-date-recovery                   │
+│   Observation: NorthCUA project test -                                               │
+│   http://127.0.0.1:18878/project/controls-final-date-recovery                        │
+│   Summary: web_fill_ref                                                              │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: web_fill_ref {"ref":9,"text":"2026-12-01"}                             │
+│   Executed: web_fill_ref [ok]                                                        │
+│   Tool Summary: web_fill_ref                                                         │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 3[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 3 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   Unable to complete the whole form in this scripted control; date input             │
+│   correction finished.                                                               │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/project/controls-final-date-recovery                   │
+│   Observation: NorthCUA project test -                                               │
+│   http://127.0.0.1:18878/project/controls-final-date-recovery                        │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: (none)                                                                 │
+│   Executed: (none)                                                                   │
+│   Tool Summary: (none)                                                               │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+┌─ NorthCUA Web Agent Summary ─────────────────────────────────────────────────────────┐
+│ [1m[34mSummary[0m                                                                              │
+│   Status: success                                                                    │
+│   Terminal: completed                                                                │
+│   Steps: 3                                                                           │
+│   Success: True                                                                      │
+│   Answer: Unable to complete the whole form in this scripted control; date input     │
+│   correction finished.                                                               │
+│   Trace Dir: results/hardening/controls-final/harness/controls-final-date-recovery   │
+│   Result JSON:                                                                       │
+│   results/hardening/controls-final/harness/controls-final-date-recovery/result.jso   │
+│   n                                                                                  │
+│   Trace:                                                                             │
+│   results/hardening/controls-final/harness/controls-final-date-recovery/web_agent_   │
+│   trace.jsonl                                                                        │
+│ [1m[36mDecision[0m                                                                             │
+│   Action: finish                                                                     │
+│   Reason: completed                                                                  │
+│   Success: True                                                                      │
+│   Retryable: False                                                                   │
+│   Summary: The web task completed.                                                   │
+│   Answer: Unable to complete the whole form in this scripted control; date input     │
+│   correction finished.                                                               │
+└──────────────────────────────────────────────────────────────────────────────────────┘

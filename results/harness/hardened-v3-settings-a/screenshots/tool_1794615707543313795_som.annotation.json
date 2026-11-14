@@ -1,0 +1,268 @@
+{
+  "kind": "set_of_mark",
+  "coordinate_frame": "viewport_css",
+  "image_coordinate_frame": "screenshot_pixels",
+  "marks": [
+    {
+      "ref": "1",
+      "label": "1",
+      "source_ref": "@e1",
+      "role": "button",
+      "name": "Display",
+      "bbox_css": {
+        "x": 152.0,
+        "y": 103.109375,
+        "width": 77.40625,
+        "height": 40.0
+      },
+      "bbox_image": {
+        "x": 152.0,
+        "y": 103.109375,
+        "width": 77.40625,
+        "height": 40.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "2",
+      "label": "2",
+      "source_ref": "@e2",
+      "role": "button",
+      "name": "Notifications",
+      "bbox_css": {
+        "x": 241.40625,
+        "y": 103.109375,
+        "width": 123.078125,
+        "height": 40.0
+      },
+      "bbox_image": {
+        "x": 241.40625,
+        "y": 103.109375,
+        "width": 123.078125,
+        "height": 40.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "3",
+      "label": "3",
+      "source_ref": "@e3",
+      "role": "link",
+      "name": "Reload saved settings",
+      "bbox_css": {
+        "x": 379.484375,
+        "y": 111.109375,
+        "width": 183.734375,
+        "height": 24.0
+      },
+      "bbox_image": {
+        "x": 379.484375,
+        "y": 111.109375,
+        "width": 183.734375,
+        "height": 24.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "4",
+      "label": "4",
+      "source_ref": "@e4",
+      "role": "label",
+      "name": "ThemeLightDark",
+      "bbox_css": {
+        "x": 140.0,
+        "y": 224.921875,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 140.0,
+        "y": 224.921875,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "5",
+      "label": "5",
+      "source_ref": "@e5",
+      "role": "combobox",
+      "name": "ThemeLightDark",
+      "bbox_css": {
+        "x": 210.265625,
+        "y": 224.921875,
+        "width": 81.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 210.265625,
+        "y": 224.921875,
+        "width": 81.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "6",
+      "label": "6",
+      "source_ref": "@e6",
+      "role": "label",
+      "name": "LanguageEnglishSpanishFrench",
+      "bbox_css": {
+        "x": 140.0,
+        "y": 282.921875,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 140.0,
+        "y": 282.921875,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "7",
+      "label": "7",
+      "source_ref": "@e7",
+      "role": "combobox",
+      "name": "LanguageEnglishSpanishFrench",
+      "bbox_css": {
+        "x": 236.171875,
+        "y": 282.921875,
+        "width": 105.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 236.171875,
+        "y": 282.921875,
+        "width": 105.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "8",
+      "label": "8",
+      "source_ref": "@e8",
+      "role": "label",
+      "name": "Date formatMM/DD/YYYYYYYY-MM-DD",
+      "bbox_css": {
+        "x": 140.0,
+        "y": 340.921875,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 140.0,
+        "y": 340.921875,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "9",
+      "label": "9",
+      "source_ref": "@e9",
+      "role": "combobox",
+      "name": "Date formatMM/DD/YYYYYYYY-MM-DD",
+      "bbox_css": {
+        "x": 254.515625,
+        "y": 340.921875,
+        "width": 152.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 254.515625,
+        "y": 340.921875,
+        "width": 152.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "10",
+      "label": "10",
+      "source_ref": "@e10",
+      "role": "label",
+      "name": "Time zoneAmerica/New_YorkUTCEurope/London",
+      "bbox_css": {
+        "x": 140.0,
+        "y": 398.921875,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 140.0,
+        "y": 398.921875,
+        "width": 1000.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "11",
+      "label": "11",
+      "source_ref": "@e11",
+      "role": "combobox",
+      "name": "Time zoneAmerica/New_YorkUTCEurope/London",
+      "bbox_css": {
+        "x": 238.953125,
+        "y": 398.921875,
+        "width": 197.0,
+        "height": 44.0
+      },
+      "bbox_image": {
+        "x": 238.953125,
+        "y": 398.921875,
+        "width": 197.0,
+        "height": 44.0
+      },
+      "visible": true,
+      "enabled": true
+    },
+    {
+      "ref": "12",
+      "label": "12",
+      "source_ref": "@e12",
+      "role": "button",
+      "name": "Save settings",
+      "bbox_css": {
+        "x": 152.0,
+        "y": 456.921875,
+        "width": 127.1875,
+        "height": 40.0
+      },
+      "bbox_image": {
+        "x": 152.0,
+        "y": 456.921875,
+        "width": 127.1875,
+        "height": 40.0
+      },
+      "visible": true,
+      "enabled": true
+    }
+  ],
+  "truncated": false,
+  "omitted_count": 0,
+  "omitted_reason_counts": {},
+  "marked_count": 12,
+  "visible_interactive_count": 12,
+  "max_marks": 150,
+  "max_box_lookup": 512,
+  "source_screenshot_path": "results/harness/hardened-v3-settings-a/screenshots/tool_1794615707542726438.png",
+  "overlay_screenshot_path": "results/harness/hardened-v3-settings-a/screenshots/tool_1794615707543313795_som.png"
+}

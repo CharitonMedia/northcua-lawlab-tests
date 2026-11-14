@@ -1,0 +1,164 @@
+{
+  "url": "http://127.0.0.1:18878/settings/hardened-v1-settings-b",
+  "title": "NorthCUA settings test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "button \"Display\" [ref=@e1]\nbutton \"Notifications\" [ref=@e2]\nlink \"Reload saved settings\" [ref=@e3]\nlabel \"ThemeLightDark\" [ref=@e4]\ncombobox \"ThemeLightDark\" [ref=@e5]\nlabel \"LanguageEnglishSpanishFrench\" [ref=@e6]\ncombobox \"LanguageEnglishSpanishFrench\" [ref=@e7]\nlabel \"Date formatMM/DD/YYYYYYYY-MM-DD\" [ref=@e8]\ncombobox \"Date formatMM/DD/YYYYYYYY-MM-DD\" [ref=@e9]\nlabel \"Time zoneAmerica/New_YorkUTCEurope/London\" [ref=@e10]\ncombobox \"Time zoneAmerica/New_YorkUTCEurope/London\" [ref=@e11]\nbutton \"Save settings\" [ref=@e12]\nstatus \"Saved settings: {\"theme\":\"Dark\",\"language\":\"Spanish\",\"date_format\":\"YYYY-MM-DD\",\"timezone\":\"Europe/London\",\"autosave\":true,\"newsletter\":false}\" [ref=@e13]\n[Runtime point coordinate policy: normalized_1000; current viewport 1280x720. Ref actions do not use coordinates.]",
+  "elements": [
+    {
+      "ref_id": "e1",
+      "role": "button",
+      "name": "Display",
+      "text": "Display",
+      "tag": "button",
+      "attributes": {
+        "type": "button"
+      }
+    },
+    {
+      "ref_id": "e2",
+      "role": "button",
+      "name": "Notifications",
+      "text": "Notifications",
+      "tag": "button",
+      "attributes": {
+        "type": "button"
+      }
+    },
+    {
+      "ref_id": "e3",
+      "role": "link",
+      "name": "Reload saved settings",
+      "text": "Reload saved settings",
+      "tag": "a",
+      "attributes": {
+        "href": ""
+      }
+    },
+    {
+      "ref_id": "e4",
+      "role": "label",
+      "name": "ThemeLightDark",
+      "text": "ThemeLightDark",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e5",
+      "role": "combobox",
+      "name": "ThemeLightDark",
+      "text": "Dark",
+      "tag": "select",
+      "attributes": {
+        "value": "Dark"
+      }
+    },
+    {
+      "ref_id": "e6",
+      "role": "label",
+      "name": "LanguageEnglishSpanishFrench",
+      "text": "LanguageEnglishSpanishFrench",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e7",
+      "role": "combobox",
+      "name": "LanguageEnglishSpanishFrench",
+      "text": "Spanish",
+      "tag": "select",
+      "attributes": {
+        "value": "Spanish"
+      }
+    },
+    {
+      "ref_id": "e8",
+      "role": "label",
+      "name": "Date formatMM/DD/YYYYYYYY-MM-DD",
+      "text": "Date formatMM/DD/YYYYYYYY-MM-DD",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e9",
+      "role": "combobox",
+      "name": "Date formatMM/DD/YYYYYYYY-MM-DD",
+      "text": "YYYY-MM-DD",
+      "tag": "select",
+      "attributes": {
+        "value": "YYYY-MM-DD"
+      }
+    },
+    {
+      "ref_id": "e10",
+      "role": "label",
+      "name": "Time zoneAmerica/New_YorkUTCEurope/London",
+      "text": "Time zoneAmerica/New_YorkUTCEurope/London",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e11",
+      "role": "combobox",
+      "name": "Time zoneAmerica/New_YorkUTCEurope/London",
+      "text": "Europe/London",
+      "tag": "select",
+      "attributes": {
+        "value": "Europe/London"
+      }
+    },
+    {
+      "ref_id": "e12",
+      "role": "button",
+      "name": "Save settings",
+      "text": "Save settings",
+      "tag": "button",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e13",
+      "role": "status",
+      "name": "Saved settings: {\"theme\":\"Dark\",\"language\":\"Spanish\",\"date_format\":\"YYYY-MM-DD\",\"timezone\":\"Europe/London\",\"autosave\":true,\"newsletter\":false}",
+      "text": "Saved settings: {\"theme\":\"Dark\",\"language\":\"Spanish\",\"date_format\":\"YYYY-MM-DD\",\"timezone\":\"Europe/London\",\"autosave\":true,\"newsletter\":false}",
+      "tag": "p",
+      "attributes": {}
+    }
+  ],
+  "raw": {
+    "backend": "playwright",
+    "point_coordinate_input_space": "normalized_1000",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "url": "http://127.0.0.1:18878/settings/hardened-v1-settings-b",
+    "title": "NorthCUA settings test",
+    "frame_count": 1,
+    "frame_errors": [],
+    "frame_meta": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/settings/hardened-v1-settings-b",
+        "ref_count": 13,
+        "visited": 42,
+        "truncated": false,
+        "fallback": ""
+      }
+    ],
+    "snapshot_eval_timeout_seconds": 8.0,
+    "snapshot_max_refs": null,
+    "snapshot_max_visited": null,
+    "snapshot_fallback_max_refs": 512,
+    "fallback_used": false,
+    "truncated": false,
+    "visible_text_frames": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/settings/hardened-v1-settings-b",
+        "text": "Workspace settings DisplayNotificationsReload saved settings Display Theme Light Dark Language English Spanish French Date format MM/DD/YYYY YYYY-MM-DD Time zone America/New_York UTC Europe/London Save settings Saved settings: {\"theme\":\"Dark\",\"language\":\"Spanish\",\"date_format\":\"YYYY-MM-DD\",\"timezone\":\"Europe/London\",\"autosave\":true,\"newsletter\":false}",
+        "chars": 353,
+        "truncated": false
+      }
+    ],
+    "snapshot_visible_text_max_chars": 12000
+  }
+}

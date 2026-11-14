@@ -1,0 +1,804 @@
+{
+  "status": "failed",
+  "terminal_status": "verification_failed",
+  "session_id": "controls-final-always-finish",
+  "user_query": "Controlled integration check. Fill the date if requested, otherwise inspect the page.",
+  "round_num": 1,
+  "evaluation_report": {},
+  "evaluation_report_path": "",
+  "evaluation_error": "",
+  "start_url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+  "final_answer": "No visible completion evidence after bounded recovery.",
+  "success": false,
+  "steps": [
+    {
+      "step_index": 1,
+      "session_id": "controls-final-always-finish",
+      "round_num": 1,
+      "session_step": 1,
+      "runtime_cursor": {
+        "session_id": "controls-final-always-finish",
+        "round_num": 1,
+        "round_step": 1,
+        "session_step": 1,
+        "phase": "main",
+        "phase_step": 1
+      },
+      "status": "ok",
+      "assistant_text": "The task is complete.",
+      "reasoning": "",
+      "assistant_tool_calls": [],
+      "tool_summary": "",
+      "tools": [],
+      "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+      "observation": {
+        "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+        "title": "NorthCUA project test",
+        "origin": "http://127.0.0.1:18878",
+        "snapshot": "link \"Reopen saved project\" [ref=@e1]\nlabel \"Project name\" [ref=@e2]\ntextbox \"Project name\" [ref=@e3]\nlabel \"CategoryResearchDesignOperations\" [ref=@e4]\ncombobox \"CategoryResearchDesignOperations\" [ref=@e5]\nlabel \"PriorityLowNormalHigh\" [ref=@e6]\ncombobox \"PriorityLowNormalHigh\" [ref=@e7]\nlabel \"Start date\" [ref=@e8]\ntextbox \"Start date\" [ref=@e9]\nlabel \"Budget\" [ref=@e10]\nspinbutton \"Budget\" [ref=@e11]\nlabel \"Notes\" [ref=@e12]\ntextbox \"Notes\" [ref=@e13]\nlabel \"Enable notifications\" [ref=@e14]\ncheckbox \"Enable notifications\" [ref=@e15]\nbutton \"Save project\" [ref=@e16]\n[Runtime point coordinate policy: normalized_1000; current viewport 1280x720. Ref actions do not use coordinates.]\n[HTML date inputs e9 require YYYY-MM-DD values.]",
+        "elements": [
+          {
+            "ref_id": "e1",
+            "role": "link",
+            "name": "Reopen saved project",
+            "text": "Reopen saved project",
+            "tag": "a",
+            "attributes": {
+              "href": ""
+            }
+          },
+          {
+            "ref_id": "e2",
+            "role": "label",
+            "name": "Project name",
+            "text": "Project name",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e3",
+            "role": "textbox",
+            "name": "Project name",
+            "text": "",
+            "tag": "input",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e4",
+            "role": "label",
+            "name": "CategoryResearchDesignOperations",
+            "text": "CategoryResearchDesignOperations",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e5",
+            "role": "combobox",
+            "name": "CategoryResearchDesignOperations",
+            "text": "Research",
+            "tag": "select",
+            "attributes": {
+              "value": "Research"
+            }
+          },
+          {
+            "ref_id": "e6",
+            "role": "label",
+            "name": "PriorityLowNormalHigh",
+            "text": "PriorityLowNormalHigh",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e7",
+            "role": "combobox",
+            "name": "PriorityLowNormalHigh",
+            "text": "Low",
+            "tag": "select",
+            "attributes": {
+              "value": "Low"
+            }
+          },
+          {
+            "ref_id": "e8",
+            "role": "label",
+            "name": "Start date",
+            "text": "Start date",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e9",
+            "role": "textbox",
+            "name": "Start date",
+            "text": "",
+            "tag": "input",
+            "attributes": {
+              "type": "date"
+            }
+          },
+          {
+            "ref_id": "e10",
+            "role": "label",
+            "name": "Budget",
+            "text": "Budget",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e11",
+            "role": "spinbutton",
+            "name": "Budget",
+            "text": "",
+            "tag": "input",
+            "attributes": {
+              "type": "number"
+            }
+          },
+          {
+            "ref_id": "e12",
+            "role": "label",
+            "name": "Notes",
+            "text": "Notes",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e13",
+            "role": "textbox",
+            "name": "Notes",
+            "text": "",
+            "tag": "textarea",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e14",
+            "role": "label",
+            "name": "Enable notifications",
+            "text": "Enable notifications",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e15",
+            "role": "checkbox",
+            "name": "Enable notifications",
+            "text": "on",
+            "tag": "input",
+            "attributes": {
+              "type": "checkbox",
+              "value": "on",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e16",
+            "role": "button",
+            "name": "Save project",
+            "text": "Save project",
+            "tag": "button",
+            "attributes": {}
+          }
+        ],
+        "raw": {
+          "backend": "playwright",
+          "point_coordinate_input_space": "normalized_1000",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+          "title": "NorthCUA project test",
+          "frame_count": 1,
+          "frame_errors": [],
+          "frame_meta": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+              "ref_count": 16,
+              "visited": 32,
+              "truncated": false,
+              "fallback": ""
+            }
+          ],
+          "snapshot_eval_timeout_seconds": 8.0,
+          "snapshot_max_refs": null,
+          "snapshot_max_visited": null,
+          "snapshot_fallback_max_refs": 512,
+          "fallback_used": false,
+          "truncated": false,
+          "visible_text_frames": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+              "text": "Project planner Reopen saved project Project name Category Research Design Operations Priority Low Normal High Start date Budget Notes Enable notifications Save project",
+              "chars": 168,
+              "truncated": false
+            }
+          ],
+          "snapshot_visible_text_max_chars": 12000
+        }
+      },
+      "error_text": "",
+      "screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_001_raw.png",
+      "dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_001.txt",
+      "dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_001.json",
+      "observation_artifact": {
+        "role": "current",
+        "screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_001_raw.png",
+        "annotated_screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_001_annotated.png",
+        "dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_001.txt",
+        "dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_001.json",
+        "page_url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+        "page_title": "NorthCUA project test",
+        "observation_id": "initial-controls-final-always-finish-1794616047723036868",
+        "settled": true,
+        "settle_reason": "captured",
+        "ref_count": 16,
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "metadata": {
+          "source": "web_current_observation",
+          "has_clean_screenshot": true,
+          "has_annotated_screenshot": true,
+          "has_dom_text": true,
+          "has_dom_json": true
+        }
+      },
+      "tool_artifacts": [],
+      "observation_metadata": {
+        "web_current_observation_role": "current",
+        "web_current_screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_001_raw.png",
+        "web_current_dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_001.txt",
+        "web_current_dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_001.json",
+        "web_current_ref_count": 16,
+        "web_current_settled": true,
+        "web_current_settle_reason": "captured"
+      }
+    },
+    {
+      "step_index": 2,
+      "session_id": "controls-final-always-finish",
+      "round_num": 1,
+      "session_step": 2,
+      "runtime_cursor": {
+        "session_id": "controls-final-always-finish",
+        "round_num": 1,
+        "round_step": 2,
+        "session_step": 2,
+        "phase": "main",
+        "phase_step": 2
+      },
+      "status": "ok",
+      "assistant_text": "The task is complete.",
+      "reasoning": "",
+      "assistant_tool_calls": [],
+      "tool_summary": "",
+      "tools": [],
+      "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+      "observation": {
+        "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+        "title": "NorthCUA project test",
+        "origin": "http://127.0.0.1:18878",
+        "snapshot": "link \"Reopen saved project\" [ref=@e1]\nlabel \"Project name\" [ref=@e2]\ntextbox \"Project name\" [ref=@e3]\nlabel \"CategoryResearchDesignOperations\" [ref=@e4]\ncombobox \"CategoryResearchDesignOperations\" [ref=@e5]\nlabel \"PriorityLowNormalHigh\" [ref=@e6]\ncombobox \"PriorityLowNormalHigh\" [ref=@e7]\nlabel \"Start date\" [ref=@e8]\ntextbox \"Start date\" [ref=@e9]\nlabel \"Budget\" [ref=@e10]\nspinbutton \"Budget\" [ref=@e11]\nlabel \"Notes\" [ref=@e12]\ntextbox \"Notes\" [ref=@e13]\nlabel \"Enable notifications\" [ref=@e14]\ncheckbox \"Enable notifications\" [ref=@e15]\nbutton \"Save project\" [ref=@e16]\n[Runtime point coordinate policy: normalized_1000; current viewport 1280x720. Ref actions do not use coordinates.]\n[HTML date inputs e9 require YYYY-MM-DD values.]",
+        "elements": [
+          {
+            "ref_id": "e1",
+            "role": "link",
+            "name": "Reopen saved project",
+            "text": "Reopen saved project",
+            "tag": "a",
+            "attributes": {
+              "href": ""
+            }
+          },
+          {
+            "ref_id": "e2",
+            "role": "label",
+            "name": "Project name",
+            "text": "Project name",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e3",
+            "role": "textbox",
+            "name": "Project name",
+            "text": "",
+            "tag": "input",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e4",
+            "role": "label",
+            "name": "CategoryResearchDesignOperations",
+            "text": "CategoryResearchDesignOperations",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e5",
+            "role": "combobox",
+            "name": "CategoryResearchDesignOperations",
+            "text": "Research",
+            "tag": "select",
+            "attributes": {
+              "value": "Research"
+            }
+          },
+          {
+            "ref_id": "e6",
+            "role": "label",
+            "name": "PriorityLowNormalHigh",
+            "text": "PriorityLowNormalHigh",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e7",
+            "role": "combobox",
+            "name": "PriorityLowNormalHigh",
+            "text": "Low",
+            "tag": "select",
+            "attributes": {
+              "value": "Low"
+            }
+          },
+          {
+            "ref_id": "e8",
+            "role": "label",
+            "name": "Start date",
+            "text": "Start date",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e9",
+            "role": "textbox",
+            "name": "Start date",
+            "text": "",
+            "tag": "input",
+            "attributes": {
+              "type": "date"
+            }
+          },
+          {
+            "ref_id": "e10",
+            "role": "label",
+            "name": "Budget",
+            "text": "Budget",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e11",
+            "role": "spinbutton",
+            "name": "Budget",
+            "text": "",
+            "tag": "input",
+            "attributes": {
+              "type": "number"
+            }
+          },
+          {
+            "ref_id": "e12",
+            "role": "label",
+            "name": "Notes",
+            "text": "Notes",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e13",
+            "role": "textbox",
+            "name": "Notes",
+            "text": "",
+            "tag": "textarea",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e14",
+            "role": "label",
+            "name": "Enable notifications",
+            "text": "Enable notifications",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e15",
+            "role": "checkbox",
+            "name": "Enable notifications",
+            "text": "on",
+            "tag": "input",
+            "attributes": {
+              "type": "checkbox",
+              "value": "on",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e16",
+            "role": "button",
+            "name": "Save project",
+            "text": "Save project",
+            "tag": "button",
+            "attributes": {}
+          }
+        ],
+        "raw": {
+          "backend": "playwright",
+          "point_coordinate_input_space": "normalized_1000",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+          "title": "NorthCUA project test",
+          "frame_count": 1,
+          "frame_errors": [],
+          "frame_meta": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+              "ref_count": 16,
+              "visited": 32,
+              "truncated": false,
+              "fallback": ""
+            }
+          ],
+          "snapshot_eval_timeout_seconds": 8.0,
+          "snapshot_max_refs": null,
+          "snapshot_max_visited": null,
+          "snapshot_fallback_max_refs": 512,
+          "fallback_used": false,
+          "truncated": false,
+          "visible_text_frames": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+              "text": "Project planner Reopen saved project Project name Category Research Design Operations Priority Low Normal High Start date Budget Notes Enable notifications Save project",
+              "chars": 168,
+              "truncated": false
+            }
+          ],
+          "snapshot_visible_text_max_chars": 12000
+        }
+      },
+      "error_text": "",
+      "screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_002_raw.png",
+      "dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_002.txt",
+      "dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_002.json",
+      "observation_artifact": {
+        "role": "current",
+        "screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_002_raw.png",
+        "annotated_screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_002_annotated.png",
+        "dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_002.txt",
+        "dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_002.json",
+        "page_url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+        "page_title": "NorthCUA project test",
+        "observation_id": "initial-controls-final-always-finish-1794616048350765936",
+        "settled": true,
+        "settle_reason": "captured",
+        "ref_count": 16,
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "metadata": {
+          "source": "web_current_observation",
+          "has_clean_screenshot": true,
+          "has_annotated_screenshot": true,
+          "has_dom_text": true,
+          "has_dom_json": true
+        }
+      },
+      "tool_artifacts": [],
+      "observation_metadata": {
+        "web_current_observation_role": "current",
+        "web_current_screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_002_raw.png",
+        "web_current_dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_002.txt",
+        "web_current_dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_002.json",
+        "web_current_ref_count": 16,
+        "web_current_settled": true,
+        "web_current_settle_reason": "captured"
+      }
+    },
+    {
+      "step_index": 3,
+      "session_id": "controls-final-always-finish",
+      "round_num": 1,
+      "session_step": 3,
+      "runtime_cursor": {
+        "session_id": "controls-final-always-finish",
+        "round_num": 1,
+        "round_step": 3,
+        "session_step": 3,
+        "phase": "main",
+        "phase_step": 3
+      },
+      "status": "ok",
+      "assistant_text": "The task is complete.",
+      "reasoning": "",
+      "assistant_tool_calls": [],
+      "tool_summary": "",
+      "tools": [],
+      "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+      "observation": {
+        "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+        "title": "NorthCUA project test",
+        "origin": "http://127.0.0.1:18878",
+        "snapshot": "link \"Reopen saved project\" [ref=@e1]\nlabel \"Project name\" [ref=@e2]\ntextbox \"Project name\" [ref=@e3]\nlabel \"CategoryResearchDesignOperations\" [ref=@e4]\ncombobox \"CategoryResearchDesignOperations\" [ref=@e5]\nlabel \"PriorityLowNormalHigh\" [ref=@e6]\ncombobox \"PriorityLowNormalHigh\" [ref=@e7]\nlabel \"Start date\" [ref=@e8]\ntextbox \"Start date\" [ref=@e9]\nlabel \"Budget\" [ref=@e10]\nspinbutton \"Budget\" [ref=@e11]\nlabel \"Notes\" [ref=@e12]\ntextbox \"Notes\" [ref=@e13]\nlabel \"Enable notifications\" [ref=@e14]\ncheckbox \"Enable notifications\" [ref=@e15]\nbutton \"Save project\" [ref=@e16]\n[Runtime point coordinate policy: normalized_1000; current viewport 1280x720. Ref actions do not use coordinates.]\n[HTML date inputs e9 require YYYY-MM-DD values.]",
+        "elements": [
+          {
+            "ref_id": "e1",
+            "role": "link",
+            "name": "Reopen saved project",
+            "text": "Reopen saved project",
+            "tag": "a",
+            "attributes": {
+              "href": ""
+            }
+          },
+          {
+            "ref_id": "e2",
+            "role": "label",
+            "name": "Project name",
+            "text": "Project name",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e3",
+            "role": "textbox",
+            "name": "Project name",
+            "text": "",
+            "tag": "input",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e4",
+            "role": "label",
+            "name": "CategoryResearchDesignOperations",
+            "text": "CategoryResearchDesignOperations",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e5",
+            "role": "combobox",
+            "name": "CategoryResearchDesignOperations",
+            "text": "Research",
+            "tag": "select",
+            "attributes": {
+              "value": "Research"
+            }
+          },
+          {
+            "ref_id": "e6",
+            "role": "label",
+            "name": "PriorityLowNormalHigh",
+            "text": "PriorityLowNormalHigh",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e7",
+            "role": "combobox",
+            "name": "PriorityLowNormalHigh",
+            "text": "Low",
+            "tag": "select",
+            "attributes": {
+              "value": "Low"
+            }
+          },
+          {
+            "ref_id": "e8",
+            "role": "label",
+            "name": "Start date",
+            "text": "Start date",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e9",
+            "role": "textbox",
+            "name": "Start date",
+            "text": "",
+            "tag": "input",
+            "attributes": {
+              "type": "date"
+            }
+          },
+          {
+            "ref_id": "e10",
+            "role": "label",
+            "name": "Budget",
+            "text": "Budget",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e11",
+            "role": "spinbutton",
+            "name": "Budget",
+            "text": "",
+            "tag": "input",
+            "attributes": {
+              "type": "number"
+            }
+          },
+          {
+            "ref_id": "e12",
+            "role": "label",
+            "name": "Notes",
+            "text": "Notes",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e13",
+            "role": "textbox",
+            "name": "Notes",
+            "text": "",
+            "tag": "textarea",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e14",
+            "role": "label",
+            "name": "Enable notifications",
+            "text": "Enable notifications",
+            "tag": "label",
+            "attributes": {}
+          },
+          {
+            "ref_id": "e15",
+            "role": "checkbox",
+            "name": "Enable notifications",
+            "text": "on",
+            "tag": "input",
+            "attributes": {
+              "type": "checkbox",
+              "value": "on",
+              "checked": false
+            }
+          },
+          {
+            "ref_id": "e16",
+            "role": "button",
+            "name": "Save project",
+            "text": "Save project",
+            "tag": "button",
+            "attributes": {}
+          }
+        ],
+        "raw": {
+          "backend": "playwright",
+          "point_coordinate_input_space": "normalized_1000",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+          "title": "NorthCUA project test",
+          "frame_count": 1,
+          "frame_errors": [],
+          "frame_meta": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+              "ref_count": 16,
+              "visited": 32,
+              "truncated": false,
+              "fallback": ""
+            }
+          ],
+          "snapshot_eval_timeout_seconds": 8.0,
+          "snapshot_max_refs": null,
+          "snapshot_max_visited": null,
+          "snapshot_fallback_max_refs": 512,
+          "fallback_used": false,
+          "truncated": false,
+          "visible_text_frames": [
+            {
+              "frame_index": 0,
+              "url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+              "text": "Project planner Reopen saved project Project name Category Research Design Operations Priority Low Normal High Start date Budget Notes Enable notifications Save project",
+              "chars": 168,
+              "truncated": false
+            }
+          ],
+          "snapshot_visible_text_max_chars": 12000
+        }
+      },
+      "error_text": "",
+      "screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_terminal_raw.png",
+      "dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003_terminal.txt",
+      "dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003_terminal.json",
+      "observation_artifact": {
+        "role": "round_end_verify",
+        "screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_terminal_raw.png",
+        "annotated_screenshot_path": "",
+        "dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003_terminal.txt",
+        "dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003_terminal.json",
+        "page_url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+        "page_title": "NorthCUA project test",
+        "observation_id": "terminal-controls-final-always-finish-1794616049205595601",
+        "settled": true,
+        "settle_reason": "captured",
+        "ref_count": 16,
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "metadata": {
+          "source": "web_current_observation",
+          "has_clean_screenshot": true,
+          "has_annotated_screenshot": false,
+          "has_dom_text": true,
+          "has_dom_json": true
+        }
+      },
+      "tool_artifacts": [],
+      "terminal_verification": {
+        "status": "captured",
+        "reason": "verification_failed",
+        "source": "runtime_finalize",
+        "runtime_mode": "local",
+        "previous_screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_raw.png",
+        "screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_terminal_raw.png",
+        "previous_dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003.txt",
+        "dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003_terminal.txt",
+        "previous_dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003.json",
+        "dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003_terminal.json",
+        "page_url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+        "page_title": "NorthCUA project test",
+        "error": "",
+        "metadata": {}
+      },
+      "observation_metadata": {
+        "web_current_observation_role": "round_end_verify",
+        "web_current_screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_terminal_raw.png",
+        "web_current_dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003_terminal.txt",
+        "web_current_dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003_terminal.json",
+        "web_current_ref_count": 16,
+        "web_current_settled": true,
+        "web_current_settle_reason": "captured",
+        "web_current_observation_id": "terminal-controls-final-always-finish-1794616049205595601",
+        "web_current_page_url": "http://127.0.0.1:18878/project/controls-final-always-finish",
+        "web_current_page_title": "NorthCUA project test",
+        "web_terminal_verification_status": "captured",
+        "web_terminal_verification_reason": "verification_failed",
+        "web_terminal_verification_source": "runtime_finalize",
+        "web_terminal_previous_screenshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_raw.png",
+        "web_terminal_previous_dom_snapshot_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003.txt",
+        "web_terminal_previous_dom_snapshot_json_path": "results/hardening/controls-final/harness/controls-final-always-finish/dom_snapshots/step_003.json"
+      }
+    }
+  ],
+  "trace_path": "results/hardening/controls-final/harness/controls-final-always-finish/web_agent_trace.jsonl",
+  "result_path": "results/hardening/controls-final/harness/controls-final-always-finish/result.json",
+  "screenshots": [
+    "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_001_raw.png",
+    "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_001_annotated.png",
+    "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_002_raw.png",
+    "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_002_annotated.png",
+    "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_raw.png",
+    "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_annotated.png",
+    "results/hardening/controls-final/harness/controls-final-always-finish/screenshots/step_003_terminal_raw.png"
+  ],
+  "tool_errors": [],
+  "cleanup_errors": [],
+  "terminal_metadata": {},
+  "terminal_decision": {
+    "action": "error",
+    "reason": "runtime_error",
+    "success": false,
+    "retryable": true,
+    "final_answer": "No visible completion evidence after bounded recovery.",
+    "summary": "The web task encountered a runtime error.",
+    "metadata": {}
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "run_id": "hardened-v3-shop-b",
+  "case_id": "shop-b",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/shop/hardened-v3-shop-b",
+    "--query",
+    "Select the least expensive lamp that is currently in stock. Order quantity 2 with Standard delivery. Submit the test order using normal visible controls; verify the SKU and final total.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-v3-shop-b",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794615768.2490582,
+  "wall_seconds": 20.404977321624756,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "sku": "L17",
+    "quantity": "2",
+    "delivery": "Standard",
+    "total": 49.0
+  },
+  "actual": {
+    "sku": "L17",
+    "quantity": "2",
+    "delivery": "Standard",
+    "total": 49.0
+  },
+  "checks": {
+    "sku": true,
+    "quantity": true,
+    "delivery": true,
+    "total": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-v3-shop-b/video/fd7abcffa4dadaae35af4d05f0e24ba2.webm"
+  ]
+}

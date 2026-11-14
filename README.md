@@ -1,15 +1,17 @@
 # NorthCUA on an RTX 3090: public local tests
 
-**NorthCUA-Nano fully completed 3 of 6 baseline browser runs. Four saved the correct data.** Follow-up tests isolated date formatting, task termination and coordinate-convention failures.
+**The final patched configuration completed 6/6 original browser tasks, the original visual probe, and 4/4 additional task variations.** The initial configuration completed 3/6 original browser tasks. Read the [before-and-after analysis](docs/hardening.md).
 
-This repository preserves **12 real-model task runs** from November 13, 2026, including unsuccessful attempts. All tasks use synthetic projects, products, settings or visual targets.
+This repository preserves **41 real-model task runs** from November 13, 2026, including unsuccessful attempts. All tasks use synthetic projects, products, settings or visual targets.
 
-- [Read the analysis](docs/analysis.md)
+- [Read the follow-up analysis and reproduce the fixes](docs/hardening.md)
+- [Read the initial analysis](docs/analysis.md)
+- [Browse the patched Harness source](https://github.com/CharitonMedia/northcua-lawlab-tests/tree/harness-patched)
 - [Results table](results/summary.csv) and [structured summary](results/summary.json)
 - [Reproduce the tests](docs/reproduce.md)
 - [Hardware, model hashes and settings](results/environment/manifest.json)
 - [Data integrity notes and limitations](docs/data-notes.md)
-- [Videos and complete evidence download](https://github.com/CharitonMedia/northcua-lawlab-tests/releases/tag/2026-11-13-nano)
+- [Videos and complete evidence download](https://github.com/CharitonMedia/northcua-lawlab-tests/releases/tag/2026-11-13-hardening)
 - [X and Facebook drafts](docs/social-drafts.md)
 
 ## Watch the model work
@@ -26,7 +28,7 @@ These are continuous browser recordings in real time, without speed changes or n
 
 ## Scope
 
-The model is mradermacher's Q8_0 NorthCUA-Nano GGUF with its f16 vision projector. The official Harness snapshot is pinned. Inference used one RTX 3090 with 128K configured capacity; the browser ran on a separate Linux controller host.
+The model is mradermacher's Q8_0 NorthCUA-Nano GGUF with its f16 vision projector. The original Harness snapshot and patched source are both pinned. Inference used one RTX 3090 with 128K configured capacity; the browser ran on a separate Linux controller host.
 
 Most baseline tasks use DOM references plus screenshots. A separate canvas probe tests point actions. Assisted follow-ups are reported separately. Neither research-benchmark reproduction nor native Desktop, Mini, Hermes or Grok Bot acceptance is claimed.
 

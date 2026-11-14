@@ -1,0 +1,9 @@
+1 button "Display"
+2 button "Notifications"
+3 link "Reload saved settings"
+4 label "Weekly newsletter"
+5 checkbox "Weekly newsletter" value="on" checked=false
+6 label "Autosave reminders"
+7 checkbox "Autosave reminders" value="on" checked=false
+8 button "Save settings"
+9 status "Saved settings: {"theme":"Dark","language":"French","date_format":"YYYY-MM-DD","timezone":"UTC","newsletter":true,"autosave":false}"

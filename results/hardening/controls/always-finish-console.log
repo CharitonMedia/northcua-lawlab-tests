@@ -1,0 +1,76 @@
+┌─ NorthCUA Web Agent ─────────────────────────────────────────────────────────────────┐
+│ [1m[34mRun[0m                                                                                  │
+│   Session: control-always-finish                                                     │
+│   Trace Dir: results/hardening/controls/harness/control-always-finish                │
+│   Query: Controlled integration check. Fill the date if requested, otherwise         │
+│   inspect the page.                                                                  │
+│   URL: http://127.0.0.1:18878/project/control-always-finish                          │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 1[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 1 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   The task is complete.                                                              │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/project/control-always-finish                          │
+│   Observation: NorthCUA project test -                                               │
+│   http://127.0.0.1:18878/project/control-always-finish                               │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: (none)                                                                 │
+│   Executed: (none)                                                                   │
+│   Tool Summary: (none)                                                               │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 2[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 2 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   The task is complete.                                                              │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/project/control-always-finish                          │
+│   Observation: NorthCUA project test -                                               │
+│   http://127.0.0.1:18878/project/control-always-finish                               │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: (none)                                                                 │
+│   Executed: (none)                                                                   │
+│   Tool Summary: (none)                                                               │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+[36m›[0m [1m[36mStep 3[0m [90m·[0m [2m[34mrunning...[0m
+┌─ Step 3 [[1m[32mok[0m] ────────────────────────────────────────────────────────────────────────┐
+│ [1m[32mAssistant[0m                                                                            │
+│   The task is complete.                                                              │
+│                                                                                      │
+│ [1m[36mObservation[0m                                                                          │
+│   URL: http://127.0.0.1:18878/project/control-always-finish                          │
+│   Observation: NorthCUA project test -                                               │
+│   http://127.0.0.1:18878/project/control-always-finish                               │
+│                                                                                      │
+│ [1m[33mTool[0m                                                                                 │
+│   Model call: (none)                                                                 │
+│   Executed: (none)                                                                   │
+│   Tool Summary: (none)                                                               │
+│   Result: success                                                                    │
+└──────────────────────────────────────────────────────────────────────────────────────┘
+┌─ NorthCUA Web Agent Summary ─────────────────────────────────────────────────────────┐
+│ [1m[34mSummary[0m                                                                              │
+│   Status: failed                                                                     │
+│   Terminal: verification_failed                                                      │
+│   Steps: 3                                                                           │
+│   Success: False                                                                     │
+│   Answer: No visible completion evidence after bounded recovery.                     │
+│   Trace Dir: results/hardening/controls/harness/control-always-finish                │
+│   Result JSON:                                                                       │
+│   results/hardening/controls/harness/control-always-finish/result.json               │
+│   Trace:                                                                             │
+│   results/hardening/controls/harness/control-always-finish/web_agent_trace.jsonl     │
+│ [1m[36mDecision[0m                                                                             │
+│   Action: error                                                                      │
+│   Reason: runtime_error                                                              │
+│   Success: False                                                                     │
+│   Retryable: True                                                                    │
+│   Summary: The web task encountered a runtime error.                                 │
+│   Answer: No visible completion evidence after bounded recovery.                     │
+└──────────────────────────────────────────────────────────────────────────────────────┘

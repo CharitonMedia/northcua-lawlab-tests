@@ -1,0 +1,28 @@
+{
+  "identical_AST_before_after": true,
+  "files": {
+    "vendor/NorthCUA/northcua/agents/web/backend/playwright.py": "38ff330c7d8b7e2f76c98b92a20a05cfd57d85c55201fec1f1af849d5b0078f1",
+    "vendor/NorthCUA/northcua/agents/web/backend/protocol.py": "f7f52b6c7a7b84d0bdad28534f0abfb539921e604d49a9e2f3820e45e962a7be",
+    "vendor/NorthCUA/northcua/agents/web/domain/actions.py": "cfc9d2cb8f5e52c5c26909feb0035f18055a02f051180e4afdbda20144bf981e",
+    "vendor/NorthCUA/northcua/agents/web/domain/results.py": "e51942d10008a5416bcc43c6d7e811edeb4345eb392935e070fe5224975764ec",
+    "vendor/NorthCUA/northcua/agents/web/hardening.py": "18dafb8b21d7d68c6d517f1a6e57512233f9d048b4ca8989bbdf2398cdfb2132",
+    "vendor/NorthCUA/northcua/agents/web/mcp/descriptors.py": "f83f993f9d766c6692af0175a2d55adc550fcd81c2cf22e6b8fb7e80286e166c",
+    "vendor/NorthCUA/northcua/agents/web/overlay/action_adapter.py": "91cf63f5b4e559ef79ade73fe7cf2cf89678bae6a34e1799d1886419762fe689",
+    "vendor/NorthCUA/northcua/agents/web/runner/model_step.py": "23463636dda0e4fe5617b17b4b0b1dfda2578cee645a19c624c1e38d1d048408",
+    "vendor/NorthCUA/northcua/agents/web/runner/run_loop.py": "743ee5d229b311993962fdabeb5ef724310776292654b54ccd14a423ddff9d89",
+    "vendor/NorthCUA/northcua/core/config.py": "a05224f0b8ac4252fc48517baa31669de88025598dd5e8e98bdfc4900ec2e476",
+    "tests/test_system_prompt.py": "a2b66a16c765273a1e0de1c48cea08fda7207231e0d54d04333b7264af4f4876",
+    "tests/test_hardening.py": "d12e54fd903b0dabdaa16015b1e430229c4a7e1431b7a7366b269e1f349c144a",
+    "scripts/upgrade_hardening_feedback.py": "d3e78e41bb4ca36c2bfeab89ac6a799cbfa4ae554a8ece9c1babdcbee61efe02",
+    "scripts/run_controls.py": "ae6d47a25a4fa5ff83351177a0e84c32ce619bbc74c24656c297d54212ebeb9a",
+    "scripts/run_suite.py": "7133d1cf5230664e06c2b032f4149c198a65dde294babb355edc6edfff9a373d",
+    "scripts/apply_hardening.py": "698b1b4531b12bc139cdfdfc0316ed6f8cc60c49120640962ece5b4d904f1928",
+    "scripts/scripted_control_server.py": "990b8f3bcad0f9422b4c54bae56a74a01fe7088c549b3a5436c091b19ba9246a",
+    "scripts/analyze.py": "6002fdcd2ea30714407c1d0338870b067ceef6ee962f02546c1f71926ecee7fd",
+    "scripts/capture_proxy.py": "07f918ccf7550eaad3c11b4984eb2b51c860a65fa2ac183c51257c570489492e",
+    "scripts/fixture_server.py": "1022b9085c3d20efa1938b2b7c33c9517eb13eb434d53bc9b9e3b236ab54f5cc",
+    "scripts/check_canvas_fixture.py": "f015d49d2dc6c0fd4bcbb84f17c6b22dfbb7169ca91475f50cd0605954d4a021",
+    "scripts/upgrade_system_prompt.py": "6e6b0518afde413404542dedcd9d59af13b2a06dec7d9047d5d359d7dae07695",
+    "scripts/recording/sitecustomize.py": "d2c1b785e4442b22968e68e820648834f40820ee3291da1f8871f96c1bea3079"
+  }
+}

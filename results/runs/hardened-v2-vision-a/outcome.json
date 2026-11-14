@@ -1,0 +1,61 @@
+{
+  "run_id": "hardened-v2-vision-a",
+  "case_id": "vision-a",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/vision/hardened-v2-vision-a",
+    "--query",
+    "Click the TEAL HEXAGON first, then the PURPLE CIRCLE on the visual target board. Use normal browser pointing actions. Stop after those two clicks and report the recorded sequence.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-v2-vision-a",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794615444.8697233,
+  "wall_seconds": 12.74426817893982,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "sequence": [
+      "teal-hexagon",
+      "purple-circle"
+    ],
+    "click_count": 2
+  },
+  "actual": {
+    "sequence": [
+      "teal-hexagon",
+      "purple-circle"
+    ],
+    "click_count": 2,
+    "clicks": [
+      {
+        "x": 302.3952095808383,
+        "y": 327.4970206567797,
+        "viewport_x": 443,
+        "viewport_y": 474
+      },
+      {
+        "x": 700.5988023952095,
+        "y": 327.4970206567797,
+        "viewport_x": 842,
+        "viewport_y": 474
+      }
+    ]
+  },
+  "checks": {
+    "sequence": true,
+    "click_count": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-v2-vision-a/video/e061ba0ae8a2bdd243e94fc287a484dc.webm"
+  ]
+}

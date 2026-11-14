@@ -1,0 +1,47 @@
+{
+  "run_id": "hardened-fresh-shop-c",
+  "case_id": "shop-c",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.wide.yaml",
+    "--url",
+    "http://127.0.0.1:18878/shop/hardened-fresh-shop-c",
+    "--query",
+    "Choose the most expensive in-stock lamp, order quantity 2 with Express delivery, and submit the test order. Verify the SKU and total using the visible browser controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-fresh-shop-c",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794615495.067268,
+  "wall_seconds": 27.273231983184814,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "sku": "L42",
+    "quantity": "2",
+    "delivery": "Express",
+    "total": 71.5
+  },
+  "actual": {
+    "sku": "L42",
+    "quantity": "2",
+    "delivery": "Express",
+    "total": 71.5
+  },
+  "checks": {
+    "sku": true,
+    "quantity": true,
+    "delivery": true,
+    "total": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-fresh-shop-c/video/41369ae93a17284e05e6edd5ed48607c.webm"
+  ]
+}

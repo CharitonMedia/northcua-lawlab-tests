@@ -1,0 +1,10 @@
+{
+  "task": "shop",
+  "data": {
+    "sku": "L17",
+    "quantity": "2",
+    "delivery": "Standard",
+    "total": 49.0
+  },
+  "saved_at_unix": 1794615368.8971233
+}

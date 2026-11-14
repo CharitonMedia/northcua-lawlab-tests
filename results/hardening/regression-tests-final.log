@@ -1,0 +1,16 @@
+E2B SDK not installed. Install it with: pip install e2b
+test_date_error_is_correctable_and_does_not_mutate (test_hardening.BrowserTests.test_date_error_is_correctable_and_does_not_mutate) ... Executing <Task pending name='Task-4' coro=<Connection.run.<locals>.init() running at $LAB_ROOT/vendor/NorthCUA/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:310> wait_for=<Future pending cb=[Task.task_wakeup()] created at /usr/lib/python3.12/asyncio/base_events.py:449> cb=[ProtocolCallback.__init__.<locals>.cb() at $LAB_ROOT/vendor/NorthCUA/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:230] created at $LAB_ROOT/vendor/NorthCUA/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:313> took 0.155 seconds
+ok
+test_drag_maps_both_endpoints_once (test_hardening.BrowserTests.test_drag_maps_both_endpoints_once) ... ok
+test_evidence_requires_nonempty_rendered_marker (test_hardening.BrowserTests.test_evidence_requires_nonempty_rendered_marker) ... ok
+test_point_click_tracks_live_resize (test_hardening.BrowserTests.test_point_click_tracks_live_resize) ... ok
+test_cycle_requires_repeated_action_and_state (test_hardening.PolicyTests.test_cycle_requires_repeated_action_and_state) ... ok
+test_normalized_sizes_and_edges (test_hardening.PolicyTests.test_normalized_sizes_and_edges) ... ok
+test_pixels_not_scaled_and_invalid_values_rejected (test_hardening.PolicyTests.test_pixels_not_scaled_and_invalid_values_rejected) ... ok
+test_custom_prompt_is_preserved (test_system_prompt.SystemPromptTests.test_custom_prompt_is_preserved) ... ok
+test_missing_prompt_uses_bundled_web_template (test_system_prompt.SystemPromptTests.test_missing_prompt_uses_bundled_web_template) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 3.289s
+
+OK

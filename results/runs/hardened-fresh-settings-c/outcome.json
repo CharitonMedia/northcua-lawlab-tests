@@ -1,0 +1,53 @@
+{
+  "run_id": "hardened-fresh-settings-c",
+  "case_id": "settings-c",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.wide.yaml",
+    "--url",
+    "http://127.0.0.1:18878/settings/hardened-fresh-settings-c",
+    "--query",
+    "Set theme Dark, language English, date format MM/DD/YYYY and time zone UTC. Keep the weekly newsletter enabled and enable autosave reminders. Save, reload the saved settings and verify the values. Use normal visible controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-fresh-settings-c",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794615522.3728452,
+  "wall_seconds": 30.078048944473267,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "theme": "Dark",
+    "language": "English",
+    "date_format": "MM/DD/YYYY",
+    "timezone": "UTC",
+    "newsletter": true,
+    "autosave": true
+  },
+  "actual": {
+    "theme": "Dark",
+    "language": "English",
+    "date_format": "MM/DD/YYYY",
+    "timezone": "UTC",
+    "newsletter": true,
+    "autosave": true
+  },
+  "checks": {
+    "theme": true,
+    "language": true,
+    "date_format": true,
+    "timezone": true,
+    "newsletter": true,
+    "autosave": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-fresh-settings-c/video/157075cc38346968060f11514d4844db.webm"
+  ]
+}

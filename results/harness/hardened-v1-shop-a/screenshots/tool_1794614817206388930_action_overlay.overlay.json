@@ -1,0 +1,30 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/hardened-v1-shop-a/screenshots/tool_1794614814563975443.png",
+  "output_path": "results/harness/hardened-v1-shop-a/screenshots/tool_1794614817206388930_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "click",
+      "render_mode": "click",
+      "badge_text": "",
+      "primary_point": {
+        "x": 278,
+        "y": 498
+      },
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "single",
+      "metadata": {
+        "arguments": {
+          "x": 278,
+          "y": 498,
+          "ref": "12"
+        }
+      }
+    },
+    "web_action": "select_option_ref",
+    "source_observation_id": "post-fill_ref-1794614814510091553"
+  }
+}

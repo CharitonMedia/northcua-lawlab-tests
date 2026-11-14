@@ -1,0 +1,25 @@
+{
+  "task": "vision",
+  "data": {
+    "sequence": [
+      "purple-circle",
+      "teal-hexagon"
+    ],
+    "click_count": 2,
+    "clicks": [
+      {
+        "x": 199.6007984031936,
+        "y": 328.49278336864404,
+        "viewport_x": 420,
+        "viewport_y": 475
+      },
+      {
+        "x": 799.4011976047905,
+        "y": 328.49278336864404,
+        "viewport_x": 1021,
+        "viewport_y": 475
+      }
+    ]
+  },
+  "saved_at_unix": 1794615956.1119301
+}

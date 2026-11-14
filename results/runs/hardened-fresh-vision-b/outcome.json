@@ -1,0 +1,61 @@
+{
+  "run_id": "hardened-fresh-vision-b",
+  "case_id": "vision-b",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.wide.yaml",
+    "--url",
+    "http://127.0.0.1:18878/vision/hardened-fresh-vision-b",
+    "--query",
+    "On the visual target board, click the PURPLE CIRCLE first and the TEAL HEXAGON second. Stop after those two clicks and report the recorded sequence.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-fresh-vision-b",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794615552.4827943,
+  "wall_seconds": 13.994527339935303,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "sequence": [
+      "purple-circle",
+      "teal-hexagon"
+    ],
+    "click_count": 2
+  },
+  "actual": {
+    "sequence": [
+      "purple-circle",
+      "teal-hexagon"
+    ],
+    "click_count": 2,
+    "clicks": [
+      {
+        "x": 199.6007984031936,
+        "y": 332.4758342161017,
+        "viewport_x": 420,
+        "viewport_y": 479
+      },
+      {
+        "x": 799.4011976047905,
+        "y": 332.4758342161017,
+        "viewport_x": 1021,
+        "viewport_y": 479
+      }
+    ]
+  },
+  "checks": {
+    "sequence": true,
+    "click_count": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-fresh-vision-b/video/c98bcabaa80cdd79048234f7d30bb54d.webm"
+  ]
+}

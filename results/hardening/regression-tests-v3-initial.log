@@ -1,0 +1,44 @@
+E2B SDK not installed. Install it with: pip install e2b
+test_date_error_is_correctable_and_does_not_mutate (test_hardening.BrowserTests.test_date_error_is_correctable_and_does_not_mutate) ... Executing <Task pending name='Task-4' coro=<Connection.run.<locals>.init() running at $LAB_ROOT/vendor/NorthCUA/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:310> wait_for=<Future pending cb=[Task.task_wakeup()] created at /usr/lib/python3.12/asyncio/base_events.py:449> cb=[ProtocolCallback.__init__.<locals>.cb() at $LAB_ROOT/vendor/NorthCUA/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:230] created at $LAB_ROOT/vendor/NorthCUA/.venv/lib/python3.12/site-packages/playwright/_impl/_connection.py:313> took 0.156 seconds
+ok
+test_drag_maps_both_endpoints_once (test_hardening.BrowserTests.test_drag_maps_both_endpoints_once) ... ok
+test_evidence_requires_nonempty_rendered_marker (test_hardening.BrowserTests.test_evidence_requires_nonempty_rendered_marker) ... ok
+test_point_click_tracks_live_resize (test_hardening.BrowserTests.test_point_click_tracks_live_resize) ... ok
+test_cycle_requires_repeated_action_and_state (test_hardening.PolicyTests.test_cycle_requires_repeated_action_and_state) ... ok
+test_normalized_sizes_and_edges (test_hardening.PolicyTests.test_normalized_sizes_and_edges) ... ok
+test_pixels_not_scaled_and_invalid_values_rejected (test_hardening.PolicyTests.test_pixels_not_scaled_and_invalid_values_rejected) ... ok
+test_custom_prompt_is_preserved (test_system_prompt.SystemPromptTests.test_custom_prompt_is_preserved) ... ERROR
+test_missing_prompt_uses_bundled_web_template (test_system_prompt.SystemPromptTests.test_missing_prompt_uses_bundled_web_template) ... ERROR
+
+======================================================================
+ERROR: test_custom_prompt_is_preserved (test_system_prompt.SystemPromptTests.test_custom_prompt_is_preserved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "$LAB_ROOT/tests/test_system_prompt.py", line 13, in test_custom_prompt_is_preserved
+    cfg=AgentConfig(name="custom-regression",system_prompt="Explicit custom instructions.",system_prompt_type="string")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$LAB_ROOT/vendor/NorthCUA/.venv/lib/python3.12/site-packages/pydantic/main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for AgentConfig
+  Value error, Model not found in environment variables [type=value_error]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error
+
+======================================================================
+ERROR: test_missing_prompt_uses_bundled_web_template (test_system_prompt.SystemPromptTests.test_missing_prompt_uses_bundled_web_template)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "$LAB_ROOT/tests/test_system_prompt.py", line 7, in test_missing_prompt_uses_bundled_web_template
+    cfg=AgentConfig(name="prompt-regression")
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$LAB_ROOT/vendor/NorthCUA/.venv/lib/python3.12/site-packages/pydantic/main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for AgentConfig
+  Value error, Model not found in environment variables [type=value_error]
+    For further information visit https://errors.pydantic.dev/2.13/v/value_error
+
+----------------------------------------------------------------------
+Ran 9 tests in 2.838s
+
+FAILED (errors=2)

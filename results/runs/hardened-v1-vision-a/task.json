@@ -1,0 +1,12 @@
+{
+  "id": "vision-a",
+  "task": "vision",
+  "prompt": "Click the TEAL HEXAGON first, then the PURPLE CIRCLE on the visual target board. Use normal browser pointing actions. Stop after those two clicks and report the recorded sequence.",
+  "expected": {
+    "sequence": [
+      "teal-hexagon",
+      "purple-circle"
+    ],
+    "click_count": 2
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "run_id": "hardened-v1-project-b",
+  "case_id": "project-b",
+  "command": [
+    "$LAB_ROOT/vendor/NorthCUA/.venv/bin/northcua",
+    "local",
+    "web",
+    "run",
+    "--app-config",
+    "config/nano-q8-hardened/app.example.yaml",
+    "--url",
+    "http://127.0.0.1:18878/project/hardened-v1-project-b",
+    "--query",
+    "Create project Atlas, category Operations, priority Normal, start date January 15, 2027, budget 875.50, notes 'Check supply list'. Leave notifications OFF. Save, reopen the saved project, and verify all values. Use only normal visible browser controls.",
+    "--max-steps",
+    "20",
+    "--session-id",
+    "hardened-v1-project-b",
+    "--no-evaluate"
+  ],
+  "started_at_unix": 1794614897.332484,
+  "wall_seconds": 27.62458038330078,
+  "exit_code": 0,
+  "timed_out": false,
+  "expected": {
+    "name": "Atlas",
+    "category": "Operations",
+    "priority": "Normal",
+    "start": "2027-01-15",
+    "budget": "875.50",
+    "notes": "Check supply list",
+    "notifications": false
+  },
+  "actual": {
+    "name": "Atlas",
+    "category": "Operations",
+    "priority": "Normal",
+    "start": "2027-01-15",
+    "budget": "875.50",
+    "notes": "Check supply list",
+    "notifications": false
+  },
+  "checks": {
+    "name": true,
+    "category": true,
+    "priority": true,
+    "start": true,
+    "budget": true,
+    "notes": true,
+    "notifications": true
+  },
+  "independent_saved_state_pass": true,
+  "video_files": [
+    "results/runs/hardened-v1-project-b/video/9807754f354fd2820ae8cdc77ffd17a6.webm"
+  ]
+}

@@ -1,0 +1,1 @@
+82c090ab7214a5eee2512823d13fbccb1e5d12104750c7b652bdc7671148b9c3  patches/northcua-web-hardening.patch

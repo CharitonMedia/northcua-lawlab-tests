@@ -1,0 +1,124 @@
+{
+  "url": "http://127.0.0.1:18878/settings/controls-final-loop",
+  "title": "NorthCUA settings test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "button \"Display\" [ref=@e1]\nbutton \"Notifications\" [ref=@e2]\nlink \"Reload saved settings\" [ref=@e3]\nlabel \"Weekly newsletter\" [ref=@e4]\ncheckbox \"Weekly newsletter\" [ref=@e5]\nlabel \"Autosave reminders\" [ref=@e6]\ncheckbox \"Autosave reminders\" [ref=@e7]\nbutton \"Save settings\" [ref=@e8]\n[Runtime point coordinate policy: normalized_1000; current viewport 1280x720. Ref actions do not use coordinates.]",
+  "elements": [
+    {
+      "ref_id": "e1",
+      "role": "button",
+      "name": "Display",
+      "text": "Display",
+      "tag": "button",
+      "attributes": {
+        "type": "button"
+      }
+    },
+    {
+      "ref_id": "e2",
+      "role": "button",
+      "name": "Notifications",
+      "text": "Notifications",
+      "tag": "button",
+      "attributes": {
+        "type": "button"
+      }
+    },
+    {
+      "ref_id": "e3",
+      "role": "link",
+      "name": "Reload saved settings",
+      "text": "Reload saved settings",
+      "tag": "a",
+      "attributes": {
+        "href": ""
+      }
+    },
+    {
+      "ref_id": "e4",
+      "role": "label",
+      "name": "Weekly newsletter",
+      "text": "Weekly newsletter",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e5",
+      "role": "checkbox",
+      "name": "Weekly newsletter",
+      "text": "on",
+      "tag": "input",
+      "attributes": {
+        "type": "checkbox",
+        "value": "on",
+        "checked": true
+      }
+    },
+    {
+      "ref_id": "e6",
+      "role": "label",
+      "name": "Autosave reminders",
+      "text": "Autosave reminders",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e7",
+      "role": "checkbox",
+      "name": "Autosave reminders",
+      "text": "on",
+      "tag": "input",
+      "attributes": {
+        "type": "checkbox",
+        "value": "on",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "e8",
+      "role": "button",
+      "name": "Save settings",
+      "text": "Save settings",
+      "tag": "button",
+      "attributes": {}
+    }
+  ],
+  "raw": {
+    "backend": "playwright",
+    "point_coordinate_input_space": "normalized_1000",
+    "viewport": {
+      "width": 1280,
+      "height": 720
+    },
+    "url": "http://127.0.0.1:18878/settings/controls-final-loop",
+    "title": "NorthCUA settings test",
+    "frame_count": 1,
+    "frame_errors": [],
+    "frame_meta": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/settings/controls-final-loop",
+        "ref_count": 8,
+        "visited": 42,
+        "truncated": false,
+        "fallback": ""
+      }
+    ],
+    "snapshot_eval_timeout_seconds": 8.0,
+    "snapshot_max_refs": null,
+    "snapshot_max_visited": null,
+    "snapshot_fallback_max_refs": 512,
+    "fallback_used": false,
+    "truncated": false,
+    "visible_text_frames": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/settings/controls-final-loop",
+        "text": "Workspace settings DisplayNotificationsReload saved settings Notifications Weekly newsletter Autosave reminders Save settings",
+        "chars": 125,
+        "truncated": false
+      }
+    ],
+    "snapshot_visible_text_max_chars": 12000
+  }
+}

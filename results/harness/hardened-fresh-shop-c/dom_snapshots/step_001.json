@@ -1,0 +1,196 @@
+{
+  "url": "http://127.0.0.1:18878/shop/hardened-fresh-shop-c",
+  "title": "NorthCUA shop test",
+  "origin": "http://127.0.0.1:18878",
+  "snapshot": "label \"Category filterAllLampChair\" [ref=@e1]\ncombobox \"Category filterAllLampChair\" [ref=@e2]\nlabel \"In stock only\" [ref=@e3]\ncheckbox \"In stock only\" [ref=@e4]\nlabel \"SortSKUPrice ascending\" [ref=@e5]\ncombobox \"SortSKUPrice ascending\" [ref=@e6]\nradio \"Select Folding chair\" [ref=@e7]\nradio \"Select Pocket lamp\" [ref=@e8]\nradio \"Select Desk lamp\" [ref=@e9]\nradio \"Select Studio lamp\" [ref=@e10]\nlabel \"Quantity\" [ref=@e11]\nspinbutton \"Quantity\" [ref=@e12]\nlabel \"DeliveryStandardExpress\" [ref=@e13]\ncombobox \"DeliveryStandardExpress\" [ref=@e14]\nbutton \"Place test order\" [ref=@e15]\n[Runtime point coordinate policy: normalized_1000; current viewport 1440x900. Ref actions do not use coordinates.]",
+  "elements": [
+    {
+      "ref_id": "e1",
+      "role": "label",
+      "name": "Category filterAllLampChair",
+      "text": "Category filterAllLampChair",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e2",
+      "role": "combobox",
+      "name": "Category filterAllLampChair",
+      "text": "All",
+      "tag": "select",
+      "attributes": {
+        "value": "All"
+      }
+    },
+    {
+      "ref_id": "e3",
+      "role": "label",
+      "name": "In stock only",
+      "text": "In stock only",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e4",
+      "role": "checkbox",
+      "name": "In stock only",
+      "text": "on",
+      "tag": "input",
+      "attributes": {
+        "type": "checkbox",
+        "value": "on",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "e5",
+      "role": "label",
+      "name": "SortSKUPrice ascending",
+      "text": "SortSKUPrice ascending",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e6",
+      "role": "combobox",
+      "name": "SortSKUPrice ascending",
+      "text": "sku",
+      "tag": "select",
+      "attributes": {
+        "value": "sku"
+      }
+    },
+    {
+      "ref_id": "e7",
+      "role": "radio",
+      "name": "Select Folding chair",
+      "text": "C12",
+      "tag": "input",
+      "attributes": {
+        "type": "radio",
+        "value": "C12",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "e8",
+      "role": "radio",
+      "name": "Select Pocket lamp",
+      "text": "L11",
+      "tag": "input",
+      "attributes": {
+        "type": "radio",
+        "disabled": "",
+        "value": "L11",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "e9",
+      "role": "radio",
+      "name": "Select Desk lamp",
+      "text": "L17",
+      "tag": "input",
+      "attributes": {
+        "type": "radio",
+        "value": "L17",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "e10",
+      "role": "radio",
+      "name": "Select Studio lamp",
+      "text": "L42",
+      "tag": "input",
+      "attributes": {
+        "type": "radio",
+        "value": "L42",
+        "checked": false
+      }
+    },
+    {
+      "ref_id": "e11",
+      "role": "label",
+      "name": "Quantity",
+      "text": "Quantity",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e12",
+      "role": "spinbutton",
+      "name": "Quantity",
+      "text": "1",
+      "tag": "input",
+      "attributes": {
+        "type": "number",
+        "value": "1"
+      }
+    },
+    {
+      "ref_id": "e13",
+      "role": "label",
+      "name": "DeliveryStandardExpress",
+      "text": "DeliveryStandardExpress",
+      "tag": "label",
+      "attributes": {}
+    },
+    {
+      "ref_id": "e14",
+      "role": "combobox",
+      "name": "DeliveryStandardExpress",
+      "text": "Standard",
+      "tag": "select",
+      "attributes": {
+        "value": "Standard"
+      }
+    },
+    {
+      "ref_id": "e15",
+      "role": "button",
+      "name": "Place test order",
+      "text": "Place test order",
+      "tag": "button",
+      "attributes": {}
+    }
+  ],
+  "raw": {
+    "backend": "playwright",
+    "point_coordinate_input_space": "normalized_1000",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "url": "http://127.0.0.1:18878/shop/hardened-fresh-shop-c",
+    "title": "NorthCUA shop test",
+    "frame_count": 1,
+    "frame_errors": [],
+    "frame_meta": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/shop/hardened-fresh-shop-c",
+        "ref_count": 15,
+        "visited": 71,
+        "truncated": false,
+        "fallback": ""
+      }
+    ],
+    "snapshot_eval_timeout_seconds": 8.0,
+    "snapshot_max_refs": null,
+    "snapshot_max_visited": null,
+    "snapshot_fallback_max_refs": 512,
+    "fallback_used": false,
+    "truncated": false,
+    "visible_text_frames": [
+      {
+        "frame_index": 0,
+        "url": "http://127.0.0.1:18878/shop/hardened-fresh-shop-c",
+        "text": "Supply shop Category filter All Lamp Chair In stock only Sort SKU Price ascending Select SKU Product Category Price Stock C12 Folding chair Chair $18.00 In stock L11 Pocket lamp Lamp $9.95 Unavailable L17 Desk lamp Lamp $24.50 In stock L42 Studio lamp Lamp $32.00 In stock Quantity Delivery Standard Express Place test order",
+        "chars": 324,
+        "truncated": false
+      }
+    ],
+    "snapshot_visible_text_max_chars": 12000
+  }
+}

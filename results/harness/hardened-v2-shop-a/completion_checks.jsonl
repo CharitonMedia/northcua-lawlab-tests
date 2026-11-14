@@ -1,0 +1,1 @@
+{"step": 7, "ok": true, "visible_evidence": ["Saved shop: {\"sku\":\"L17\",\"quantity\":\"3\",\"delivery\":\"Express\",\"total\":81}"], "selector": "[role=\"status\"], #status"}

@@ -1,0 +1,11 @@
+{
+  "id": "shop-b",
+  "task": "shop",
+  "prompt": "Select the least expensive lamp that is currently in stock. Order quantity 2 with Standard delivery. Submit the test order using normal visible controls; verify the SKU and final total.",
+  "expected": {
+    "sku": "L17",
+    "quantity": "2",
+    "delivery": "Standard",
+    "total": 49.0
+  }
+}

@@ -1,5 +1,5 @@
 diff --git a/northcua/agents/web/backend/playwright.py b/northcua/agents/web/backend/playwright.py
-index 81807ed..ec40f73 100644
+index 81807ed..34e9877 100644
 --- a/northcua/agents/web/backend/playwright.py
 +++ b/northcua/agents/web/backend/playwright.py
 @@ -5,6 +5,9 @@ from __future__ import annotations
@@ -12,20 +12,22 @@ index 81807ed..ec40f73 100644
  from collections.abc import Awaitable, Callable, Mapping
  from dataclasses import dataclass
  from typing import Any
-@@ -141,6 +144,12 @@ class PlaywrightWebActionBackend:
+@@ -141,6 +144,14 @@ class PlaywrightWebActionBackend:
          if not title:
              title = await self._safe_page_title(page)
          self._ref_targets_by_page[id(page)] = ref_map
 +        viewport = page.viewport_size or _DEFAULT_VIEWPORT
 +        space = self.config.coordinate_policy.input_space
-+        snapshots.append(f"[Runtime point coordinate policy: {space}; current viewport {viewport['width']}x{viewport['height']}. Ref actions do not use coordinates.]")
++        snapshots.append(
++            f"[Runtime point coordinate policy: {space}; current viewport {viewport['width']}x{viewport['height']}. Ref actions do not use coordinates.]"
++        )
 +        date_refs = [e.ref_id for e in elements if e.attributes.get("type") == "date"]
 +        if date_refs:
 +            snapshots.append("[HTML date inputs " + ", ".join(date_refs) + " require YYYY-MM-DD values.]")
          return WebSnapshotObservation(
              url=url,
              title=title,
-@@ -149,6 +158,8 @@ class PlaywrightWebActionBackend:
+@@ -149,6 +160,8 @@ class PlaywrightWebActionBackend:
              elements=elements,
              raw={
                  "backend": "playwright",
@@ -34,7 +36,7 @@ index 81807ed..ec40f73 100644
                  "url": url,
                  "title": title,
                  "frame_count": len(page.frames),
-@@ -411,6 +422,17 @@ class PlaywrightWebActionBackend:
+@@ -411,6 +424,17 @@ class PlaywrightWebActionBackend:
      async def _fill_ref(self, ref: str, text: str) -> dict[str, object]:
          locator = await self._locator_for_ref(ref)
          await self._preflight_ref_action(locator, ref=ref, action="fill_ref")
@@ -52,7 +54,7 @@ index 81807ed..ec40f73 100644
          await locator.fill(text, timeout=self.config.command_timeout_seconds * 1000)
          return {"ref": self._canonical_ref(ref), "text_length": len(text)}
  
-@@ -446,16 +468,18 @@ class PlaywrightWebActionBackend:
+@@ -446,16 +470,23 @@ class PlaywrightWebActionBackend:
          click_count: int,
      ) -> dict[str, object]:
          async def operation() -> dict[str, object]:
@@ -62,9 +64,14 @@ index 81807ed..ec40f73 100644
 -            return {"x": x, "y": y, "button": button.value, "click_count": click_count}
 +            mapped_x, mapped_y = await self._map_point(x, y)
 +            await page.mouse.click(mapped_x, mapped_y, button=button.value, click_count=click_count)
-+            return {"x": mapped_x, "y": mapped_y, "model_point": {"x":x, "y":y},
-+                    "input_space": self.config.coordinate_policy.input_space,
-+                    "button": button.value, "click_count": click_count}
++            return {
++                "x": mapped_x,
++                "y": mapped_y,
++                "model_point": {"x": x, "y": y},
++                "input_space": self.config.coordinate_policy.input_space,
++                "button": button.value,
++                "click_count": click_count,
++            }
  
          return await self._run_and_activate_new_page(operation)
  
@@ -76,38 +83,46 @@ index 81807ed..ec40f73 100644
          page = await self._page()
          await page.mouse.move(from_x, from_y)
          await page.mouse.down()
-@@ -952,6 +976,25 @@ class PlaywrightWebActionBackend:
+@@ -952,6 +983,31 @@ class PlaywrightWebActionBackend:
          except Exception:
              pass
  
-+    async def _map_point(self, x: float, y: float) -> tuple[float,float]:
++    async def _map_point(self, x: float, y: float) -> tuple[float, float]:
 +        page = await self._page()
 +        viewport = page.viewport_size or await page.evaluate("({width:innerWidth,height:innerHeight})")
-+        return map_point(x,y,width=viewport["width"],height=viewport["height"],
-+                         input_space=self.config.coordinate_policy.input_space,
-+                         clamp=self.config.coordinate_policy.clamp_to_bounds)
++        return map_point(
++            x,
++            y,
++            width=viewport["width"],
++            height=viewport["height"],
++            input_space=self.config.coordinate_policy.input_space,
++            clamp=self.config.coordinate_policy.clamp_to_bounds,
++        )
 +
-+    async def completion_evidence(self, selector: str) -> dict[str,object]:
++    async def completion_evidence(self, selector: str) -> dict[str, object]:
 +        """Read visible evidence only; never infer task values or mutate the page."""
-+        page=await self._page()
-+        targets=page.locator(selector)
-+        evidence=[]
++        page = await self._page()
++        targets = page.locator(selector)
++        evidence = []
 +        for i in range(await targets.count()):
-+            node=targets.nth(i)
++            node = targets.nth(i)
 +            if await node.is_visible():
-+                text=(await node.inner_text()).strip()
-+                if text:evidence.append(text[:4000])
-+        return {"ok":bool(evidence), "visible_evidence":evidence, "selector":selector}
++                text = (await node.inner_text()).strip()
++                if text:
++                    evidence.append(text[:4000])
++        return {"ok": bool(evidence), "visible_evidence": evidence, "selector": selector}
 +
      async def _validate_point(self, x: float, y: float) -> None:
          page = await self._page()
          viewport = page.viewport_size or _DEFAULT_VIEWPORT
-@@ -989,7 +1032,7 @@ class PlaywrightWebActionBackend:
+@@ -989,7 +1045,9 @@ class PlaywrightWebActionBackend:
                      raise ValueError("browser_channel requires playwright_browser=chromium")
                  launch_options["channel"] = self.config.browser_channel
              self._browser = await launcher.launch(**launch_options)
 -            self._context = await self._browser.new_context(viewport=_DEFAULT_VIEWPORT)
-+            self._context = await self._browser.new_context(viewport={"width":self.config.viewport_width,"height":self.config.viewport_height})
++            self._context = await self._browser.new_context(
++                viewport={"width": self.config.viewport_width, "height": self.config.viewport_height}
++            )
              self._context.set_default_timeout(self.config.command_timeout_seconds * 1000)
              self._context.set_default_navigation_timeout(self.config.command_timeout_seconds * 1000)
              await self._context.new_page()
@@ -193,33 +208,36 @@ index 0be8dcd..7cb4d5e 100644
  
 diff --git a/northcua/agents/web/hardening.py b/northcua/agents/web/hardening.py
 new file mode 100644
-index 0000000..53a46f7
+index 0000000..2c91321
 --- /dev/null
 +++ b/northcua/agents/web/hardening.py
-@@ -0,0 +1,25 @@
+@@ -0,0 +1,28 @@
 +"""Coordinate contract and repeated-cycle checks without task-specific answers."""
++
 +from __future__ import annotations
 +import math
 +
++
 +def map_point(x: float, y: float, *, width: int, height: int, input_space: str, clamp: bool) -> tuple[float, float]:
-+    if not all(math.isfinite(v) for v in (x,y)) or width <= 0 or height <= 0:
++    if not all(math.isfinite(v) for v in (x, y)) or width <= 0 or height <= 0:
 +        raise ValueError("Non-finite point or invalid viewport")
 +    if input_space == "normalized_1000":
 +        x, y = round(x * width / 1000), round(y * height / 1000)
 +    elif input_space != "viewport_css":
 +        raise ValueError("Unknown Web point coordinate space")
 +    if clamp:
-+        x,y=max(0,min(width-1,x)),max(0,min(height-1,y))
++        x, y = max(0, min(width - 1, x)), max(0, min(height - 1, y))
 +    if not (0 <= x < width and 0 <= y < height):
 +        raise ValueError("point outside viewport")
-+    return x,y
++    return x, y
++
 +
 +def repeated_cycle(history: list[str], *, repeats: int = 3) -> bool:
 +    """Require repeated identical action+pre-observation cycles; not just repeated tools."""
-+    for period in (1,2,3):
-+        if len(history)>=period*repeats:
-+            window=history[-period*repeats:]
-+            if all(window[i:i+period]==window[:period] for i in range(0,len(window),period)):
++    for period in (1, 2, 3):
++        if len(history) >= period * repeats:
++            window = history[-period * repeats :]
++            if all(window[i : i + period] == window[:period] for i in range(0, len(window), period)):
 +                return True
 +    return False
 diff --git a/northcua/agents/web/mcp/descriptors.py b/northcua/agents/web/mcp/descriptors.py
@@ -254,7 +272,7 @@ index d0ef77f..bec7fa2 100644
      )
      + _POST_OBSERVATION_SUFFIX,
 diff --git a/northcua/agents/web/overlay/action_adapter.py b/northcua/agents/web/overlay/action_adapter.py
-index 534fc16..736165a 100644
+index 534fc16..cd95f92 100644
 --- a/northcua/agents/web/overlay/action_adapter.py
 +++ b/northcua/agents/web/overlay/action_adapter.py
 @@ -8,6 +8,7 @@ from dataclasses import dataclass
@@ -265,20 +283,31 @@ index 534fc16..736165a 100644
  from ..domain.actions import WebAgentActionType, WebScrollDirection, canonical_web_ref
  from ..domain.observations import WebBoundingBox, WebObservationContext, WebScreenshotMark, WebScreenshotObservation
  from .domain import WebActionOverlayPlan
-@@ -50,6 +51,16 @@ class WebActionOverlayAdapter:
+@@ -50,6 +51,27 @@ class WebActionOverlayAdapter:
          if not screenshot or not source_image_path:
              return None
          payload = dict(params or {})
 +        if observation.snapshot.raw.get("point_coordinate_input_space") == "normalized_1000":
 +            viewport = observation.snapshot.raw.get("viewport")
 +            if isinstance(viewport, Mapping) and action in {
-+                WebAgentActionType.CLICK_POINT, WebAgentActionType.DOUBLE_CLICK_POINT, WebAgentActionType.DRAG_POINT
++                WebAgentActionType.CLICK_POINT,
++                WebAgentActionType.DOUBLE_CLICK_POINT,
++                WebAgentActionType.DRAG_POINT,
 +            }:
-+                pairs = [("from_x","from_y"),("to_x","to_y")] if action == WebAgentActionType.DRAG_POINT else [("x","y")]
-+                for xkey,ykey in pairs:
-+                    payload[xkey],payload[ykey]=map_point(float(payload[xkey]),float(payload[ykey]),
-+                        width=int(viewport["width"]),height=int(viewport["height"]),
-+                        input_space="normalized_1000",clamp=True)
++                pairs = (
++                    [("from_x", "from_y"), ("to_x", "to_y")]
++                    if action == WebAgentActionType.DRAG_POINT
++                    else [("x", "y")]
++                )
++                for xkey, ykey in pairs:
++                    payload[xkey], payload[ykey] = map_point(
++                        float(payload[xkey]),
++                        float(payload[ykey]),
++                        width=int(viewport["width"]),
++                        height=int(viewport["height"]),
++                        input_space="normalized_1000",
++                        clamp=True,
++                    )
          command = self._command_for_action(action=action, params=payload, screenshot=screenshot)
          if command is None:
              return None
@@ -308,21 +337,23 @@ index ac2f812..c7ead59 100644
 +- When all values have been verified and the page shows the saved result, finish immediately. Do not alternate tabs to recheck values already confirmed.
 +- Never claim a saved result or recorded click sequence unless it appears in the latest visible page evidence. A successful click tool alone does not prove a target was hit.
 diff --git a/northcua/agents/web/runner/model_step.py b/northcua/agents/web/runner/model_step.py
-index 416c2a0..b5a1f13 100644
+index 416c2a0..c7f079d 100644
 --- a/northcua/agents/web/runner/model_step.py
 +++ b/northcua/agents/web/runner/model_step.py
-@@ -217,6 +217,9 @@ class WebAgentModelStepExecutor:
+@@ -217,6 +217,11 @@ class WebAgentModelStepExecutor:
  
      @staticmethod
      def _configure_agent_for_step(agent_config: AgentConfig) -> None:
 +        if not agent_config.system_prompt:
-+            agent_config.system_prompt = str(Path(__file__).resolve().parents[1] / "prompt/templates/web_agent_system.j2")
++            agent_config.system_prompt = str(
++                Path(__file__).resolve().parents[1] / "prompt/templates/web_agent_system.j2"
++            )
 +            agent_config.system_prompt_type = "jinja"
          stop_tools = set(agent_config.stop_tools or set())
          stop_tools.update(
              tool_ids_from_mcp_server(
 diff --git a/northcua/agents/web/runner/run_loop.py b/northcua/agents/web/runner/run_loop.py
-index b55fc45..d0db8ac 100644
+index b55fc45..732de6a 100644
 --- a/northcua/agents/web/runner/run_loop.py
 +++ b/northcua/agents/web/runner/run_loop.py
 @@ -3,12 +3,14 @@
@@ -366,97 +397,130 @@ index b55fc45..d0db8ac 100644
          artifact_step_index = session_step or step_index
          client = self.resource.require_client()
 +        if self.runtime_feedback:
-+            self.prior_messages.append(Message(role=Role.USER, content=[
-+                TextBlock(text="Runtime feedback: " + self.runtime_feedback)
-+            ]))
++            self.prior_messages.append(
++                Message(role=Role.USER, content=[TextBlock(text="Runtime feedback: " + self.runtime_feedback)])
++            )
 +            self._record_hardening_event(step_index, "feedback_delivered", self.runtime_feedback)
 +            self.runtime_feedback = ""
          observation = await self._current_observation()
          artifact_paths = await self.runner.artifact_persistence.persist_observation_artifacts(
              client=client,
-@@ -232,6 +246,26 @@ class _WebAgentLoopExecution:
+@@ -232,6 +246,41 @@ class _WebAgentLoopExecution:
          if not resolved_actions:
              final_answer = self._final_answer_from_step(step_result)
              if final_answer:
-+                selector=self.runner.app_config.web.completion_evidence_selector
-+                infeasible = TerminalDecisionPolicy().failure_reason_from_text(final_answer) == AgentTerminalReason.INFEASIBLE
++                selector = self.runner.app_config.web.completion_evidence_selector
++                infeasible = (
++                    TerminalDecisionPolicy().failure_reason_from_text(final_answer) == AgentTerminalReason.INFEASIBLE
++                )
 +                if selector and not infeasible:
 +                    evidence = await client.completion_evidence(selector)
-+                    with (Path(self.runner.artifact_store.root)/"completion_checks.jsonl").open("a") as stream:
-+                        stream.write(json.dumps({"step":step_index,**evidence})+"\n")
++                    with (Path(self.runner.artifact_store.root) / "completion_checks.jsonl").open("a") as stream:
++                        stream.write(json.dumps({"step": step_index, **evidence}) + "\n")
 +                    if not evidence["ok"]:
 +                        self.completion_rejections += 1
 +                        if self.completion_rejections > self.runner.app_config.web.completion_recovery_budget:
-+                            return self._stop_with_reason(context,step_record,WebTerminalStatus.VERIFICATION_FAILED,
-+                                "No visible completion evidence after bounded recovery.")
-+                        self.runtime_feedback = ("Your completion claim has no visible confirmation or receipt on the page. "
++                            return self._stop_with_reason(
++                                context,
++                                step_record,
++                                WebTerminalStatus.VERIFICATION_FAILED,
++                                "No visible completion evidence after bounded recovery.",
++                            )
++                        self.runtime_feedback = (
++                            "Your completion claim has no visible confirmation or receipt on the page. "
 +                            "Inspect the latest observation and correct any missing action. Do not invent confirmation. "
-+                            "If blocked, report the blocker rather than claiming success.")
++                            "If blocked, report the blocker rather than claiming success."
++                        )
 +                        self.prior_messages = self.runner.prompt_builder.append_step_history(
-+                            envelope=step_result.envelope,prior_messages=self.prior_messages,trace_state=step_result.trace_state)
-+                        self.current_observation=None
-+                        self.recent_post_action_observation=None
-+                        return AgentRuntimeStepOutcome(cursor=context.cursor,result=step_record,
-+                            terminal_decision=self.result.to_terminal_decision(),summary="Completion evidence missing; bounded recovery.")
++                            envelope=step_result.envelope,
++                            prior_messages=self.prior_messages,
++                            trace_state=step_result.trace_state,
++                        )
++                        self.current_observation = None
++                        self.recent_post_action_observation = None
++                        return AgentRuntimeStepOutcome(
++                            cursor=context.cursor,
++                            result=step_record,
++                            terminal_decision=self.result.to_terminal_decision(),
++                            summary="Completion evidence missing; bounded recovery.",
++                        )
                  return self._finish_final_answer(context, step_record, final_answer)
              return self._finish_missing_tool(context, step_record, step_result)
          self.recent_action_result = compact_tool_outputs(cast(list[ResolvedToolExecution], resolved_actions))
-@@ -261,6 +295,26 @@ class _WebAgentLoopExecution:
+@@ -261,6 +310,39 @@ class _WebAgentLoopExecution:
          )
          if errored_action is not None:
              return self._finish_tool_error(context, step_record, step_result, errored_action)
-+        retryable = next((action for action in resolved_actions if action.is_error and action.is_retryable_error),None)
++        retryable = next((action for action in resolved_actions if action.is_error and action.is_retryable_error), None)
 +        if retryable is not None:
 +            self.recoverable_error_steps += 1
-+            budget=self.runner.app_config.web.recovery_error_budget
++            budget = self.runner.app_config.web.recovery_error_budget
 +            if budget is not None and self.recoverable_error_steps > budget:
-+                return self._stop_with_reason(context,step_record,WebTerminalStatus.TOOL_ERROR,
-+                    "Correctable tool-error recovery budget exhausted.")
++                return self._stop_with_reason(
++                    context,
++                    step_record,
++                    WebTerminalStatus.TOOL_ERROR,
++                    "Correctable tool-error recovery budget exhausted.",
++                )
 +        if self.runner.app_config.web.loop_detection_enabled:
-+            signature=json.dumps([(a.tool_name,a.tool_input) for a in resolved_actions],sort_keys=True)+observation.snapshot.snapshot
++            signature = (
++                json.dumps([(a.tool_name, a.tool_input) for a in resolved_actions], sort_keys=True)
++                + observation.snapshot.snapshot
++            )
 +            self.cycle_history.append(hashlib.sha256(signature.encode()).hexdigest())
 +            if repeated_cycle(self.cycle_history):
 +                self.loop_warnings += 1
 +                self.cycle_history.clear()
-+                self._record_hardening_event(step_index,"repeated_cycle",str(self.loop_warnings))
++                self._record_hardening_event(step_index, "repeated_cycle", str(self.loop_warnings))
 +                if self.loop_warnings > 1:
-+                    return self._stop_with_reason(context,step_record,WebTerminalStatus.NO_PROGRESS,
-+                        "Repeated action/observation cycle continued after a recovery warning.")
-+                self.runtime_feedback = ("You repeated the same actions through the same page states without new progress. "
++                    return self._stop_with_reason(
++                        context,
++                        step_record,
++                        WebTerminalStatus.NO_PROGRESS,
++                        "Repeated action/observation cycle continued after a recovery warning.",
++                    )
++                self.runtime_feedback = (
++                    "You repeated the same actions through the same page states without new progress. "
 +                    "Review the saved confirmation and requested values once. Finish if verified; otherwise take one "
-+                    "specific corrective action. Stop alternating tabs or repeating already completed checks.")
++                    "specific corrective action. Stop alternating tabs or repeating already completed checks."
++                )
          return AgentRuntimeStepOutcome(
              cursor=context.cursor,
              result=step_record,
-@@ -395,6 +449,18 @@ class _WebAgentLoopExecution:
+@@ -395,6 +477,22 @@ class _WebAgentLoopExecution:
  
          return (self.runner._assistant_text_from_step(step_result) or step_result.response_text or "").strip()
  
-+    def _record_hardening_event(self,step,kind,detail):
-+        with (Path(self.runner.artifact_store.root)/"hardening_events.jsonl").open("a") as stream:
-+            stream.write(json.dumps({"step":step,"kind":kind,"detail":detail})+"\n")
++    def _record_hardening_event(self, step, kind, detail):
++        with (Path(self.runner.artifact_store.root) / "hardening_events.jsonl").open("a") as stream:
++            stream.write(json.dumps({"step": step, "kind": kind, "detail": detail}) + "\n")
 +
-+    def _stop_with_reason(self,context,step_record,reason,detail):
-+        self.result.success=False
-+        self.result.status=WebRunStatus.FAILED
-+        self.result.terminal_status=reason
-+        self.result.final_answer=detail
-+        return AgentRuntimeStepOutcome(cursor=context.cursor,result=step_record,
-+            terminal_decision=self.result.to_terminal_decision(),summary=detail)
++    def _stop_with_reason(self, context, step_record, reason, detail):
++        self.result.success = False
++        self.result.status = WebRunStatus.FAILED
++        self.result.terminal_status = reason
++        self.result.final_answer = detail
++        return AgentRuntimeStepOutcome(
++            cursor=context.cursor,
++            result=step_record,
++            terminal_decision=self.result.to_terminal_decision(),
++            summary=detail,
++        )
 +
      def _finish_final_answer(
          self,
          context: AgentRuntimeStepContext[object, object],
 diff --git a/northcua/core/config.py b/northcua/core/config.py
-index dae1aff..6b5dc2a 100644
+index dae1aff..157750c 100644
 --- a/northcua/core/config.py
 +++ b/northcua/core/config.py
-@@ -92,6 +92,13 @@ class WebPostActionSettleConfig(BaseModel):
+@@ -92,6 +92,14 @@ class WebPostActionSettleConfig(BaseModel):
      final_bbox_verify: bool = True
  
  
 +class WebPointCoordinatePolicyConfig(BaseModel):
 +    """Model-facing Web point policy. Ref actions are never scaled."""
++
 +    model_config = ConfigDict(extra="forbid")
 +    input_space: Literal["viewport_css", "normalized_1000"] = "viewport_css"
 +    clamp_to_bounds: bool = False
@@ -465,7 +529,7 @@ index dae1aff..6b5dc2a 100644
  class WebAgentConfig(BaseModel):
      """Generic web-agent runtime defaults.
  
-@@ -103,6 +110,13 @@ class WebAgentConfig(BaseModel):
+@@ -103,6 +111,13 @@ class WebAgentConfig(BaseModel):
  
      model_config = ConfigDict(extra="forbid")
  

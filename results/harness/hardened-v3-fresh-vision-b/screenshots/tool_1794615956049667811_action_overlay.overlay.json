@@ -1,0 +1,29 @@
+{
+  "kind": "action",
+  "source_image_path": "results/harness/hardened-v3-fresh-vision-b/screenshots/tool_1794615952893226728.png",
+  "output_path": "results/harness/hardened-v3-fresh-vision-b/screenshots/tool_1794615956049667811_action_overlay.png",
+  "metadata": {
+    "overlay_spec": {
+      "action_function": "click",
+      "render_mode": "click",
+      "badge_text": "",
+      "primary_point": {
+        "x": 1021,
+        "y": 475
+      },
+      "secondary_point": null,
+      "path_points": [],
+      "delta_x": 0,
+      "delta_y": 0,
+      "variant": "single",
+      "metadata": {
+        "arguments": {
+          "x": 1021,
+          "y": 475
+        }
+      }
+    },
+    "web_action": "click_point",
+    "source_observation_id": "post-click_point-1794615952848478097"
+  }
+}
