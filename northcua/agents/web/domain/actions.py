@@ -339,7 +339,7 @@ class WebFillRefParams(WebRefParams):
     text: str = Field(
         description=(
             "Replacement text to set in the referenced editable element. The value replaces existing content; "
-            "use this instead of a click/type sequence when a reliable input ref exists. Use web_type_text only "
+            "HTML date inputs require YYYY-MM-DD (ISO) values. Use this instead of a click/type sequence when a reliable input ref exists. Use web_type_text only "
             "when you intentionally need literal keystrokes into the currently focused element."
         ),
     )
@@ -402,26 +402,26 @@ class WebDragRefParams(BaseModel):
 class WebClickPointParams(BaseModel):
     """Arguments for ``web_click_point``.
 
-    Coordinates are CSS pixels relative to the current viewport top-left.
+    Coordinates follow the input space declared in the latest runtime observation.
     Document-scroll and screenshot-image coordinates are not accepted.
 
     Attributes:
-        x: Viewport-relative CSS x coordinate.
-        y: Viewport-relative CSS y coordinate.
+        x: Model-facing viewport x coordinate.
+        y: Model-facing viewport y coordinate.
         button: Mouse button to click.
     """
 
     x: float = Field(
         ge=0,
         description=(
-            "Current viewport CSS x coordinate from the viewport's top-left corner. Use only when the target has "
+            "Viewport x coordinate in the input space declared by the latest runtime observation. Use only when the target has "
             "no reliable numeric ref in the latest snapshot or direct SoM labels."
         ),
     )
     y: float = Field(
         ge=0,
         description=(
-            "Current viewport CSS y coordinate from the viewport's top-left corner. Use only when the target has "
+            "Viewport y coordinate in the input space declared by the latest runtime observation. Use only when the target has "
             "no reliable numeric ref in the latest snapshot or direct SoM labels."
         ),
     )
@@ -441,7 +441,7 @@ class WebDoubleClickPointParams(WebClickPointParams):
 class WebDragPointParams(BaseModel):
     """Arguments for ``web_drag_point``.
 
-    Coordinates are CSS pixels relative to the current viewport top-left. The
+    Coordinates follow the input space declared in the latest runtime observation. The
     action uses the left mouse button to align with desktop drag schemas.
 
     Attributes:

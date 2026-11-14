@@ -215,21 +215,21 @@ _DESCRIPTION_BY_TOOL_NAME = {
     )
     + _POST_OBSERVATION_SUFFIX,
     WebAgentToolName.CLICK_POINT.value: (
-        "Click current viewport CSS coordinates only when no reliable element ref exists, such as canvas, SVG, "
+        "Click coordinates in the input space declared by the latest runtime observation only when no reliable element ref exists, such as canvas, SVG, "
         "custom widgets, or visual-only targets. If the target has a stable numeric ref in the latest snapshot or SoM, "
         "use the ref click action instead. Coordinates come from the current viewport, not document-scroll or "
         "screenshot-image coordinates."
     )
     + _POST_OBSERVATION_SUFFIX,
     WebAgentToolName.DOUBLE_CLICK_POINT.value: (
-        "Double-click current viewport CSS coordinates only when no reliable element ref exists and the UI truly "
+        "Double-click coordinates in the input space declared by the latest runtime observation only when no reliable element ref exists and the UI truly "
         "requires a double click. If the target has a stable numeric ref, use the ref click action. Coordinates come from "
-        "the current viewport, not document-scroll or screenshot-image coordinates."
+        "the current viewport, not document-scroll coordinates."
     )
     + _POST_OBSERVATION_SUFFIX,
     WebAgentToolName.DRAG_POINT.value: (
-        "Drag from one current viewport CSS coordinate to another using the left mouse button. Use this only when "
-        "drag_ref is unavailable because the source or destination lacks a reliable numeric ref; coordinates are current "
+        "Drag between coordinates in the input space declared by the latest runtime observation using the left mouse button. Use this only when "
+        "drag_ref is unavailable because the source or destination lacks a reliable numeric ref; coordinates follow the current observation policy, with default "
         "viewport CSS pixels."
     )
     + _POST_OBSERVATION_SUFFIX,

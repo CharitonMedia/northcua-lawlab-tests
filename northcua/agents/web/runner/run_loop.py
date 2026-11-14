@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 import logging
+import json
+import hashlib
 from dataclasses import dataclass, field
 from pathlib import Path
 from time import time_ns
 from typing import TYPE_CHECKING, cast
 
-from nexau.core.messages import Message
+from nexau.core.messages import Message, Role, TextBlock
 
 from northcua.agentkernel.tools.surface import normalize_allowed_tool_names
 from northcua.agentkit.runtime import (
@@ -30,6 +32,7 @@ from northcua.core.terminal import AgentTerminalReason, TerminalDecisionPolicy
 from northcua.agentkernel.working_memory import WorkingMemoryStore
 
 from ..backend import WebActionBackend
+from ..hardening import repeated_cycle
 from ..domain.evaluation_artifacts import WebToolResultArtifact
 from ..domain.observations import WebObservationContext, WebScreenshotObservation
 from ..domain.results import WebAgentResult, WebRunStatus, WebStepRecord, WebTerminalStatus
@@ -116,6 +119,11 @@ class _WebAgentLoopExecution:
     prior_messages: list[Message]
     prior_visual_history_turns: list[WebPromptVisualHistoryTurn] = field(default_factory=list)
     visual_history_factory: WebPromptVisualHistoryFactory = field(default_factory=WebPromptVisualHistoryFactory)
+    runtime_feedback: str = ""
+    recoverable_error_steps: int = 0
+    completion_rejections: int = 0
+    cycle_history: list[str] = field(default_factory=list)
+    loop_warnings: int = 0
     recent_action_result: JsonObject | None = None
     current_observation: WebObservationContext | None = None
     recent_post_action_observation: WebObservationContext | None = None
@@ -137,6 +145,12 @@ class _WebAgentLoopExecution:
         session_step = context.cursor.session_step
         artifact_step_index = session_step or step_index
         client = self.resource.require_client()
+        if self.runtime_feedback:
+            self.prior_messages.append(Message(role=Role.USER, content=[
+                TextBlock(text="Runtime feedback: " + self.runtime_feedback)
+            ]))
+            self._record_hardening_event(step_index, "feedback_delivered", self.runtime_feedback)
+            self.runtime_feedback = ""
         observation = await self._current_observation()
         artifact_paths = await self.runner.artifact_persistence.persist_observation_artifacts(
             client=client,
@@ -232,6 +246,26 @@ class _WebAgentLoopExecution:
         if not resolved_actions:
             final_answer = self._final_answer_from_step(step_result)
             if final_answer:
+                selector=self.runner.app_config.web.completion_evidence_selector
+                infeasible = TerminalDecisionPolicy().failure_reason_from_text(final_answer) == AgentTerminalReason.INFEASIBLE
+                if selector and not infeasible:
+                    evidence = await client.completion_evidence(selector)
+                    with (Path(self.runner.artifact_store.root)/"completion_checks.jsonl").open("a") as stream:
+                        stream.write(json.dumps({"step":step_index,**evidence})+"\n")
+                    if not evidence["ok"]:
+                        self.completion_rejections += 1
+                        if self.completion_rejections > self.runner.app_config.web.completion_recovery_budget:
+                            return self._stop_with_reason(context,step_record,WebTerminalStatus.VERIFICATION_FAILED,
+                                "No visible completion evidence after bounded recovery.")
+                        self.runtime_feedback = ("Your completion claim has no visible confirmation or receipt on the page. "
+                            "Inspect the latest observation and correct any missing action. Do not invent confirmation. "
+                            "If blocked, report the blocker rather than claiming success.")
+                        self.prior_messages = self.runner.prompt_builder.append_step_history(
+                            envelope=step_result.envelope,prior_messages=self.prior_messages,trace_state=step_result.trace_state)
+                        self.current_observation=None
+                        self.recent_post_action_observation=None
+                        return AgentRuntimeStepOutcome(cursor=context.cursor,result=step_record,
+                            terminal_decision=self.result.to_terminal_decision(),summary="Completion evidence missing; bounded recovery.")
                 return self._finish_final_answer(context, step_record, final_answer)
             return self._finish_missing_tool(context, step_record, step_result)
         self.recent_action_result = compact_tool_outputs(cast(list[ResolvedToolExecution], resolved_actions))
@@ -261,6 +295,26 @@ class _WebAgentLoopExecution:
         )
         if errored_action is not None:
             return self._finish_tool_error(context, step_record, step_result, errored_action)
+        retryable = next((action for action in resolved_actions if action.is_error and action.is_retryable_error),None)
+        if retryable is not None:
+            self.recoverable_error_steps += 1
+            budget=self.runner.app_config.web.recovery_error_budget
+            if budget is not None and self.recoverable_error_steps > budget:
+                return self._stop_with_reason(context,step_record,WebTerminalStatus.TOOL_ERROR,
+                    "Correctable tool-error recovery budget exhausted.")
+        if self.runner.app_config.web.loop_detection_enabled:
+            signature=json.dumps([(a.tool_name,a.tool_input) for a in resolved_actions],sort_keys=True)+observation.snapshot.snapshot
+            self.cycle_history.append(hashlib.sha256(signature.encode()).hexdigest())
+            if repeated_cycle(self.cycle_history):
+                self.loop_warnings += 1
+                self.cycle_history.clear()
+                self._record_hardening_event(step_index,"repeated_cycle",str(self.loop_warnings))
+                if self.loop_warnings > 1:
+                    return self._stop_with_reason(context,step_record,WebTerminalStatus.NO_PROGRESS,
+                        "Repeated action/observation cycle continued after a recovery warning.")
+                self.runtime_feedback = ("You repeated the same actions through the same page states without new progress. "
+                    "Review the saved confirmation and requested values once. Finish if verified; otherwise take one "
+                    "specific corrective action. Stop alternating tabs or repeating already completed checks.")
         return AgentRuntimeStepOutcome(
             cursor=context.cursor,
             result=step_record,
@@ -394,6 +448,18 @@ class _WebAgentLoopExecution:
         """Return non-empty assistant final text for a no-tool terminal step."""
 
         return (self.runner._assistant_text_from_step(step_result) or step_result.response_text or "").strip()
+
+    def _record_hardening_event(self,step,kind,detail):
+        with (Path(self.runner.artifact_store.root)/"hardening_events.jsonl").open("a") as stream:
+            stream.write(json.dumps({"step":step,"kind":kind,"detail":detail})+"\n")
+
+    def _stop_with_reason(self,context,step_record,reason,detail):
+        self.result.success=False
+        self.result.status=WebRunStatus.FAILED
+        self.result.terminal_status=reason
+        self.result.final_answer=detail
+        return AgentRuntimeStepOutcome(cursor=context.cursor,result=step_record,
+            terminal_decision=self.result.to_terminal_decision(),summary=detail)
 
     def _finish_final_answer(
         self,

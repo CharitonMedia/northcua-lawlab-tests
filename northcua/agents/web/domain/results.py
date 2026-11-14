@@ -46,6 +46,8 @@ class WebTerminalStatus(str, Enum):
     TOOL_ERROR = "tool_error"
     MAX_STEPS = "max_steps"
     RUNTIME_ERROR = "runtime_error"
+    NO_PROGRESS = "no_progress"
+    VERIFICATION_FAILED = "verification_failed"
     INTERRUPTED = "interrupted"
 
 

@@ -5,6 +5,9 @@ from __future__ import annotations
 import asyncio
 import base64
 import re
+from datetime import date
+
+from ..hardening import map_point
 from collections.abc import Awaitable, Callable, Mapping
 from dataclasses import dataclass
 from typing import Any
@@ -141,6 +144,12 @@ class PlaywrightWebActionBackend:
         if not title:
             title = await self._safe_page_title(page)
         self._ref_targets_by_page[id(page)] = ref_map
+        viewport = page.viewport_size or _DEFAULT_VIEWPORT
+        space = self.config.coordinate_policy.input_space
+        snapshots.append(f"[Runtime point coordinate policy: {space}; current viewport {viewport['width']}x{viewport['height']}. Ref actions do not use coordinates.]")
+        date_refs = [e.ref_id for e in elements if e.attributes.get("type") == "date"]
+        if date_refs:
+            snapshots.append("[HTML date inputs " + ", ".join(date_refs) + " require YYYY-MM-DD values.]")
         return WebSnapshotObservation(
             url=url,
             title=title,
@@ -149,6 +158,8 @@ class PlaywrightWebActionBackend:
             elements=elements,
             raw={
                 "backend": "playwright",
+                "point_coordinate_input_space": space,
+                "viewport": viewport,
                 "url": url,
                 "title": title,
                 "frame_count": len(page.frames),
@@ -411,6 +422,17 @@ class PlaywrightWebActionBackend:
     async def _fill_ref(self, ref: str, text: str) -> dict[str, object]:
         locator = await self._locator_for_ref(ref)
         await self._preflight_ref_action(locator, ref=ref, action="fill_ref")
+        if await locator.get_attribute("type") == "date" and text:
+            try:
+                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", text):
+                    raise ValueError("Expected YYYY-MM-DD")
+                date.fromisoformat(text)
+            except ValueError as exc:
+                raise WebActionCommandError(
+                    "Invalid HTML date value; use YYYY-MM-DD.",
+                    code="invalid_date_format",
+                    hint="Correct the date to YYYY-MM-DD using the requested date, then retry this field. Do not guess a different date.",
+                ) from exc
         await locator.fill(text, timeout=self.config.command_timeout_seconds * 1000)
         return {"ref": self._canonical_ref(ref), "text_length": len(text)}
 
@@ -446,16 +468,18 @@ class PlaywrightWebActionBackend:
         click_count: int,
     ) -> dict[str, object]:
         async def operation() -> dict[str, object]:
-            await self._validate_point(x, y)
             page = await self._page()
-            await page.mouse.click(x, y, button=button.value, click_count=click_count)
-            return {"x": x, "y": y, "button": button.value, "click_count": click_count}
+            mapped_x, mapped_y = await self._map_point(x, y)
+            await page.mouse.click(mapped_x, mapped_y, button=button.value, click_count=click_count)
+            return {"x": mapped_x, "y": mapped_y, "model_point": {"x":x, "y":y},
+                    "input_space": self.config.coordinate_policy.input_space,
+                    "button": button.value, "click_count": click_count}
 
         return await self._run_and_activate_new_page(operation)
 
     async def _drag_point(self, from_x: float, from_y: float, to_x: float, to_y: float) -> dict[str, object]:
-        await self._validate_point(from_x, from_y)
-        await self._validate_point(to_x, to_y)
+        from_x, from_y = await self._map_point(from_x, from_y)
+        to_x, to_y = await self._map_point(to_x, to_y)
         page = await self._page()
         await page.mouse.move(from_x, from_y)
         await page.mouse.down()
@@ -952,6 +976,25 @@ class PlaywrightWebActionBackend:
         except Exception:
             pass
 
+    async def _map_point(self, x: float, y: float) -> tuple[float,float]:
+        page = await self._page()
+        viewport = page.viewport_size or await page.evaluate("({width:innerWidth,height:innerHeight})")
+        return map_point(x,y,width=viewport["width"],height=viewport["height"],
+                         input_space=self.config.coordinate_policy.input_space,
+                         clamp=self.config.coordinate_policy.clamp_to_bounds)
+
+    async def completion_evidence(self, selector: str) -> dict[str,object]:
+        """Read visible evidence only; never infer task values or mutate the page."""
+        page=await self._page()
+        targets=page.locator(selector)
+        evidence=[]
+        for i in range(await targets.count()):
+            node=targets.nth(i)
+            if await node.is_visible():
+                text=(await node.inner_text()).strip()
+                if text:evidence.append(text[:4000])
+        return {"ok":bool(evidence), "visible_evidence":evidence, "selector":selector}
+
     async def _validate_point(self, x: float, y: float) -> None:
         page = await self._page()
         viewport = page.viewport_size or _DEFAULT_VIEWPORT
@@ -989,7 +1032,7 @@ class PlaywrightWebActionBackend:
                     raise ValueError("browser_channel requires playwright_browser=chromium")
                 launch_options["channel"] = self.config.browser_channel
             self._browser = await launcher.launch(**launch_options)
-            self._context = await self._browser.new_context(viewport=_DEFAULT_VIEWPORT)
+            self._context = await self._browser.new_context(viewport={"width":self.config.viewport_width,"height":self.config.viewport_height})
             self._context.set_default_timeout(self.config.command_timeout_seconds * 1000)
             self._context.set_default_navigation_timeout(self.config.command_timeout_seconds * 1000)
             await self._context.new_page()

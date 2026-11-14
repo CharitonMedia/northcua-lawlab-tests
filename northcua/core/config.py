@@ -92,6 +92,13 @@ class WebPostActionSettleConfig(BaseModel):
     final_bbox_verify: bool = True
 
 
+class WebPointCoordinatePolicyConfig(BaseModel):
+    """Model-facing Web point policy. Ref actions are never scaled."""
+    model_config = ConfigDict(extra="forbid")
+    input_space: Literal["viewport_css", "normalized_1000"] = "viewport_css"
+    clamp_to_bounds: bool = False
+
+
 class WebAgentConfig(BaseModel):
     """Generic web-agent runtime defaults.
 
@@ -103,6 +110,13 @@ class WebAgentConfig(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
+    coordinate_policy: WebPointCoordinatePolicyConfig = Field(default_factory=WebPointCoordinatePolicyConfig)
+    viewport_width: int = Field(default=1280, ge=320)
+    viewport_height: int = Field(default=720, ge=240)
+    recovery_error_budget: int | None = Field(default=None, ge=0)
+    loop_detection_enabled: bool = False
+    completion_evidence_selector: str | None = None
+    completion_recovery_budget: int = Field(default=2, ge=0)
     playwright_browser: Literal["chromium", "firefox", "webkit"] = "chromium"
     browser_channel: Literal["chrome", "msedge"] | None = None
     browser_executable_path: str | None = None

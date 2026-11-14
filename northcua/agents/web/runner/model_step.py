@@ -217,6 +217,9 @@ class WebAgentModelStepExecutor:
 
     @staticmethod
     def _configure_agent_for_step(agent_config: AgentConfig) -> None:
+        if not agent_config.system_prompt:
+            agent_config.system_prompt = str(Path(__file__).resolve().parents[1] / "prompt/templates/web_agent_system.j2")
+            agent_config.system_prompt_type = "jinja"
         stop_tools = set(agent_config.stop_tools or set())
         stop_tools.update(
             tool_ids_from_mcp_server(

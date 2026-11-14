@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from northcua.agentkernel.actions import ActionCommandInfo
 from northcua.core.json_types import JsonObject
 
+from ..hardening import map_point
 from ..domain.actions import WebAgentActionType, WebScrollDirection, canonical_web_ref
 from ..domain.observations import WebBoundingBox, WebObservationContext, WebScreenshotMark, WebScreenshotObservation
 from .domain import WebActionOverlayPlan
@@ -50,6 +51,16 @@ class WebActionOverlayAdapter:
         if not screenshot or not source_image_path:
             return None
         payload = dict(params or {})
+        if observation.snapshot.raw.get("point_coordinate_input_space") == "normalized_1000":
+            viewport = observation.snapshot.raw.get("viewport")
+            if isinstance(viewport, Mapping) and action in {
+                WebAgentActionType.CLICK_POINT, WebAgentActionType.DOUBLE_CLICK_POINT, WebAgentActionType.DRAG_POINT
+            }:
+                pairs = [("from_x","from_y"),("to_x","to_y")] if action == WebAgentActionType.DRAG_POINT else [("x","y")]
+                for xkey,ykey in pairs:
+                    payload[xkey],payload[ykey]=map_point(float(payload[xkey]),float(payload[ykey]),
+                        width=int(viewport["width"]),height=int(viewport["height"]),
+                        input_space="normalized_1000",clamp=True)
         command = self._command_for_action(action=action, params=payload, screenshot=screenshot)
         if command is None:
             return None
