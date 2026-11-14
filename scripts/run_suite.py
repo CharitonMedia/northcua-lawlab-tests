@@ -15,7 +15,7 @@ CASES=[
 def main():
  lock=open(ROOT/".runtime/suite.lock","w")
  fcntl.flock(lock,fcntl.LOCK_EX)
- ap=argparse.ArgumentParser();ap.add_argument("--case");ap.add_argument("--limit",type=int,default=20);ap.add_argument("--tag",default="baseline");ap.add_argument("--iso-date-hint",action="store_true");args=ap.parse_args()
+ ap=argparse.ArgumentParser();ap.add_argument("--case");ap.add_argument("--limit",type=int,default=20);ap.add_argument("--tag",default="baseline");ap.add_argument("--iso-date-hint",action="store_true");ap.add_argument("--config",default="config/nano-q8/app.example.yaml");args=ap.parse_args()
  cases=[c for c in CASES if not args.case or c["id"]==args.case]
  for original in cases:
   case=dict(original)
@@ -25,7 +25,7 @@ def main():
   out.mkdir(parents=True);(out/"task.json").write_text(json.dumps(case,indent=2))
   (ROOT/".runtime/current-run").write_text(run)
   env=dict(os.environ,OPENAI_API_KEY="local-no-auth",NORTHCUA_VIDEO_DIR=str(out/"video"),PYTHONPATH=str(ROOT/"scripts/recording"))
-  cmd=[str(ROOT/"vendor/NorthCUA/.venv/bin/northcua"),"local","web","run","--app-config","config/nano-q8/app.example.yaml","--url","http://127.0.0.1:18878/"+case["task"]+"/"+run,"--query",case["prompt"],"--max-steps",str(args.limit),"--session-id",run,"--no-evaluate"]
+  cmd=[str(ROOT/"vendor/NorthCUA/.venv/bin/northcua"),"local","web","run","--app-config",args.config,"--url","http://127.0.0.1:18878/"+case["task"]+"/"+run,"--query",case["prompt"],"--max-steps",str(args.limit),"--session-id",run,"--no-evaluate"]
   started=time.time();rc=None;timeout=False
   with(out/"console.log").open("w")as f:
    try:rc=subprocess.run(cmd,cwd=ROOT,env=env,stdout=f,stderr=subprocess.STDOUT,timeout=600).returncode
