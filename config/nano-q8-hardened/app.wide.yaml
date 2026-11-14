@@ -1,0 +1,48 @@
+agent_config_path: agent.example.yaml
+web_agent_config_path: agent.web.example.yaml
+artifacts:
+  root_dir: results/harness
+websocket:
+  host: 127.0.0.1
+  port: 8765
+  runtime_mode: local
+execution:
+  max_agent_iterations_per_round: 30
+  enable_langfuse_tracer: false
+context_management:
+  mode: 'off'
+evaluation:
+  enabled: false
+  max_steps: 12
+  force_finalizer_after_steps: 8
+  round_timeout_seconds: 300
+  fail_open: true
+  tools:
+    allow_client_live_probe: false
+desktop:
+  backend: native
+  primary_screen_only: true
+  coordinate_policy:
+    input_space: image_pixels
+observation:
+  a11y:
+    enabled: false
+web:
+  max_steps: 30
+  headed: false
+  allow_localhost_urls: true
+  allow_private_network_urls: false
+  coordinate_policy:
+    input_space: normalized_1000
+    clamp_to_bounds: true
+  recovery_error_budget: 3
+  loop_detection_enabled: true
+  completion_evidence_selector: '[role="status"], #status'
+  completion_recovery_budget: 2
+  viewport_width: 1440
+  viewport_height: 900
+prompt:
+  history_window_rounds: 20
+  screenshot_window_images: 3
+  include_initial_observation_image: true
+  include_subsequent_observation_images: true

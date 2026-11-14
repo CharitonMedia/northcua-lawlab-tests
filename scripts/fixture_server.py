@@ -48,7 +48,10 @@ class Handler(BaseHTTPRequestHandler):
    p=ROOT/(path.rsplit("/",1)[-1]+".json");return self.send(200,p.read_bytes() if p.exists() else b"{}","application/json")
   kind=path.strip("/").split("/")[0]
   if kind not in PAGES:return self.send(404,b"Not found","text/plain")
-  html='<!doctype html><html><head><meta charset="utf-8"><title>NorthCUA '+kind+' test</title><style>'+STYLE+'</style></head><body>'+PAGES[kind]+'<p id="receipt" role="status"></p><script>'+(SCRIPT if kind!="vision" else "")+'</script></body></html>'
+  body=PAGES[kind]
+  if kind=='vision' and 'vision-b' in path:
+   body=body.replace('x:300,y:330','x:800,y:330').replace('x:700,y:330','x:200,y:330')
+  html='<!doctype html><html><head><meta charset="utf-8"><title>NorthCUA '+kind+' test</title><style>'+STYLE+'</style></head><body>'+body+'<p id="receipt" role="status"></p><script>'+(SCRIPT if kind!="vision" else "")+'</script></body></html>'
   self.send(200,html.encode(),"text/html")
  def do_POST(self):
   run=self.path.rsplit("/",1)[-1]
