@@ -146,7 +146,9 @@ class PlaywrightWebActionBackend:
         self._ref_targets_by_page[id(page)] = ref_map
         viewport = page.viewport_size or _DEFAULT_VIEWPORT
         space = self.config.coordinate_policy.input_space
-        snapshots.append(f"[Runtime point coordinate policy: {space}; current viewport {viewport['width']}x{viewport['height']}. Ref actions do not use coordinates.]")
+        snapshots.append(
+            f"[Runtime point coordinate policy: {space}; current viewport {viewport['width']}x{viewport['height']}. Ref actions do not use coordinates.]"
+        )
         date_refs = [e.ref_id for e in elements if e.attributes.get("type") == "date"]
         if date_refs:
             snapshots.append("[HTML date inputs " + ", ".join(date_refs) + " require YYYY-MM-DD values.]")
@@ -471,9 +473,14 @@ class PlaywrightWebActionBackend:
             page = await self._page()
             mapped_x, mapped_y = await self._map_point(x, y)
             await page.mouse.click(mapped_x, mapped_y, button=button.value, click_count=click_count)
-            return {"x": mapped_x, "y": mapped_y, "model_point": {"x":x, "y":y},
-                    "input_space": self.config.coordinate_policy.input_space,
-                    "button": button.value, "click_count": click_count}
+            return {
+                "x": mapped_x,
+                "y": mapped_y,
+                "model_point": {"x": x, "y": y},
+                "input_space": self.config.coordinate_policy.input_space,
+                "button": button.value,
+                "click_count": click_count,
+            }
 
         return await self._run_and_activate_new_page(operation)
 
@@ -976,24 +983,30 @@ class PlaywrightWebActionBackend:
         except Exception:
             pass
 
-    async def _map_point(self, x: float, y: float) -> tuple[float,float]:
+    async def _map_point(self, x: float, y: float) -> tuple[float, float]:
         page = await self._page()
         viewport = page.viewport_size or await page.evaluate("({width:innerWidth,height:innerHeight})")
-        return map_point(x,y,width=viewport["width"],height=viewport["height"],
-                         input_space=self.config.coordinate_policy.input_space,
-                         clamp=self.config.coordinate_policy.clamp_to_bounds)
+        return map_point(
+            x,
+            y,
+            width=viewport["width"],
+            height=viewport["height"],
+            input_space=self.config.coordinate_policy.input_space,
+            clamp=self.config.coordinate_policy.clamp_to_bounds,
+        )
 
-    async def completion_evidence(self, selector: str) -> dict[str,object]:
+    async def completion_evidence(self, selector: str) -> dict[str, object]:
         """Read visible evidence only; never infer task values or mutate the page."""
-        page=await self._page()
-        targets=page.locator(selector)
-        evidence=[]
+        page = await self._page()
+        targets = page.locator(selector)
+        evidence = []
         for i in range(await targets.count()):
-            node=targets.nth(i)
+            node = targets.nth(i)
             if await node.is_visible():
-                text=(await node.inner_text()).strip()
-                if text:evidence.append(text[:4000])
-        return {"ok":bool(evidence), "visible_evidence":evidence, "selector":selector}
+                text = (await node.inner_text()).strip()
+                if text:
+                    evidence.append(text[:4000])
+        return {"ok": bool(evidence), "visible_evidence": evidence, "selector": selector}
 
     async def _validate_point(self, x: float, y: float) -> None:
         page = await self._page()
@@ -1032,7 +1045,9 @@ class PlaywrightWebActionBackend:
                     raise ValueError("browser_channel requires playwright_browser=chromium")
                 launch_options["channel"] = self.config.browser_channel
             self._browser = await launcher.launch(**launch_options)
-            self._context = await self._browser.new_context(viewport={"width":self.config.viewport_width,"height":self.config.viewport_height})
+            self._context = await self._browser.new_context(
+                viewport={"width": self.config.viewport_width, "height": self.config.viewport_height}
+            )
             self._context.set_default_timeout(self.config.command_timeout_seconds * 1000)
             self._context.set_default_navigation_timeout(self.config.command_timeout_seconds * 1000)
             await self._context.new_page()

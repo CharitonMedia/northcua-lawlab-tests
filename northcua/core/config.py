@@ -94,6 +94,7 @@ class WebPostActionSettleConfig(BaseModel):
 
 class WebPointCoordinatePolicyConfig(BaseModel):
     """Model-facing Web point policy. Ref actions are never scaled."""
+
     model_config = ConfigDict(extra="forbid")
     input_space: Literal["viewport_css", "normalized_1000"] = "viewport_css"
     clamp_to_bounds: bool = False

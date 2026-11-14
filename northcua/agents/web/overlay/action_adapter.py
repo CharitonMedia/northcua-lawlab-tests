@@ -54,13 +54,24 @@ class WebActionOverlayAdapter:
         if observation.snapshot.raw.get("point_coordinate_input_space") == "normalized_1000":
             viewport = observation.snapshot.raw.get("viewport")
             if isinstance(viewport, Mapping) and action in {
-                WebAgentActionType.CLICK_POINT, WebAgentActionType.DOUBLE_CLICK_POINT, WebAgentActionType.DRAG_POINT
+                WebAgentActionType.CLICK_POINT,
+                WebAgentActionType.DOUBLE_CLICK_POINT,
+                WebAgentActionType.DRAG_POINT,
             }:
-                pairs = [("from_x","from_y"),("to_x","to_y")] if action == WebAgentActionType.DRAG_POINT else [("x","y")]
-                for xkey,ykey in pairs:
-                    payload[xkey],payload[ykey]=map_point(float(payload[xkey]),float(payload[ykey]),
-                        width=int(viewport["width"]),height=int(viewport["height"]),
-                        input_space="normalized_1000",clamp=True)
+                pairs = (
+                    [("from_x", "from_y"), ("to_x", "to_y")]
+                    if action == WebAgentActionType.DRAG_POINT
+                    else [("x", "y")]
+                )
+                for xkey, ykey in pairs:
+                    payload[xkey], payload[ykey] = map_point(
+                        float(payload[xkey]),
+                        float(payload[ykey]),
+                        width=int(viewport["width"]),
+                        height=int(viewport["height"]),
+                        input_space="normalized_1000",
+                        clamp=True,
+                    )
         command = self._command_for_action(action=action, params=payload, screenshot=screenshot)
         if command is None:
             return None
