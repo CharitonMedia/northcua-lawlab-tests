@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply the experiment's narrow, opt-in harness patch to the pinned source."""
+"""Historical V1 generator. Use the published final patch for reproduction."""
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 V=ROOT/"vendor/NorthCUA"

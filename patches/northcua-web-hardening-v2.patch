@@ -1,0 +1,467 @@
+diff --git a/northcua/agents/web/backend/playwright.py b/northcua/agents/web/backend/playwright.py
+index 81807ed..ec40f73 100644
+--- a/northcua/agents/web/backend/playwright.py
++++ b/northcua/agents/web/backend/playwright.py
+@@ -5,6 +5,9 @@ from __future__ import annotations
+ import asyncio
+ import base64
+ import re
++from datetime import date
++
++from ..hardening import map_point
+ from collections.abc import Awaitable, Callable, Mapping
+ from dataclasses import dataclass
+ from typing import Any
+@@ -141,6 +144,12 @@ class PlaywrightWebActionBackend:
+         if not title:
+             title = await self._safe_page_title(page)
+         self._ref_targets_by_page[id(page)] = ref_map
++        viewport = page.viewport_size or _DEFAULT_VIEWPORT
++        space = self.config.coordinate_policy.input_space
++        snapshots.append(f"[Runtime point coordinate policy: {space}; current viewport {viewport['width']}x{viewport['height']}. Ref actions do not use coordinates.]")
++        date_refs = [e.ref_id for e in elements if e.attributes.get("type") == "date"]
++        if date_refs:
++            snapshots.append("[HTML date inputs " + ", ".join(date_refs) + " require YYYY-MM-DD values.]")
+         return WebSnapshotObservation(
+             url=url,
+             title=title,
+@@ -149,6 +158,8 @@ class PlaywrightWebActionBackend:
+             elements=elements,
+             raw={
+                 "backend": "playwright",
++                "point_coordinate_input_space": space,
++                "viewport": viewport,
+                 "url": url,
+                 "title": title,
+                 "frame_count": len(page.frames),
+@@ -411,6 +422,17 @@ class PlaywrightWebActionBackend:
+     async def _fill_ref(self, ref: str, text: str) -> dict[str, object]:
+         locator = await self._locator_for_ref(ref)
+         await self._preflight_ref_action(locator, ref=ref, action="fill_ref")
++        if await locator.get_attribute("type") == "date" and text:
++            try:
++                if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", text):
++                    raise ValueError("Expected YYYY-MM-DD")
++                date.fromisoformat(text)
++            except ValueError as exc:
++                raise WebActionCommandError(
++                    "Invalid HTML date value; use YYYY-MM-DD.",
++                    code="invalid_date_format",
++                    hint="Correct the date to YYYY-MM-DD using the requested date, then retry this field. Do not guess a different date.",
++                ) from exc
+         await locator.fill(text, timeout=self.config.command_timeout_seconds * 1000)
+         return {"ref": self._canonical_ref(ref), "text_length": len(text)}
+ 
+@@ -446,16 +468,18 @@ class PlaywrightWebActionBackend:
+         click_count: int,
+     ) -> dict[str, object]:
+         async def operation() -> dict[str, object]:
+-            await self._validate_point(x, y)
+             page = await self._page()
+-            await page.mouse.click(x, y, button=button.value, click_count=click_count)
+-            return {"x": x, "y": y, "button": button.value, "click_count": click_count}
++            mapped_x, mapped_y = await self._map_point(x, y)
++            await page.mouse.click(mapped_x, mapped_y, button=button.value, click_count=click_count)
++            return {"x": mapped_x, "y": mapped_y, "model_point": {"x":x, "y":y},
++                    "input_space": self.config.coordinate_policy.input_space,
++                    "button": button.value, "click_count": click_count}
+ 
+         return await self._run_and_activate_new_page(operation)
+ 
+     async def _drag_point(self, from_x: float, from_y: float, to_x: float, to_y: float) -> dict[str, object]:
+-        await self._validate_point(from_x, from_y)
+-        await self._validate_point(to_x, to_y)
++        from_x, from_y = await self._map_point(from_x, from_y)
++        to_x, to_y = await self._map_point(to_x, to_y)
+         page = await self._page()
+         await page.mouse.move(from_x, from_y)
+         await page.mouse.down()
+@@ -952,6 +976,25 @@ class PlaywrightWebActionBackend:
+         except Exception:
+             pass
+ 
++    async def _map_point(self, x: float, y: float) -> tuple[float,float]:
++        page = await self._page()
++        viewport = page.viewport_size or await page.evaluate("({width:innerWidth,height:innerHeight})")
++        return map_point(x,y,width=viewport["width"],height=viewport["height"],
++                         input_space=self.config.coordinate_policy.input_space,
++                         clamp=self.config.coordinate_policy.clamp_to_bounds)
++
++    async def completion_evidence(self, selector: str) -> dict[str,object]:
++        """Read visible evidence only; never infer task values or mutate the page."""
++        page=await self._page()
++        targets=page.locator(selector)
++        evidence=[]
++        for i in range(await targets.count()):
++            node=targets.nth(i)
++            if await node.is_visible():
++                text=(await node.inner_text()).strip()
++                if text:evidence.append(text[:4000])
++        return {"ok":bool(evidence), "visible_evidence":evidence, "selector":selector}
++
+     async def _validate_point(self, x: float, y: float) -> None:
+         page = await self._page()
+         viewport = page.viewport_size or _DEFAULT_VIEWPORT
+@@ -989,7 +1032,7 @@ class PlaywrightWebActionBackend:
+                     raise ValueError("browser_channel requires playwright_browser=chromium")
+                 launch_options["channel"] = self.config.browser_channel
+             self._browser = await launcher.launch(**launch_options)
+-            self._context = await self._browser.new_context(viewport=_DEFAULT_VIEWPORT)
++            self._context = await self._browser.new_context(viewport={"width":self.config.viewport_width,"height":self.config.viewport_height})
+             self._context.set_default_timeout(self.config.command_timeout_seconds * 1000)
+             self._context.set_default_navigation_timeout(self.config.command_timeout_seconds * 1000)
+             await self._context.new_page()
+diff --git a/northcua/agents/web/backend/protocol.py b/northcua/agents/web/backend/protocol.py
+index a1fa4dd..f072b5b 100644
+--- a/northcua/agents/web/backend/protocol.py
++++ b/northcua/agents/web/backend/protocol.py
+@@ -29,6 +29,8 @@ class WebActionBackend(Protocol):
+ 
+     async def fill_ref(self, ref: str, text: str) -> WebActionCommandResult: ...
+ 
++    async def completion_evidence(self, selector: str) -> dict[str, object]: ...
++
+     async def select_option_ref(self, ref: str, values: list[str]) -> WebActionCommandResult: ...
+ 
+     async def check_ref(self, ref: str) -> WebActionCommandResult: ...
+diff --git a/northcua/agents/web/domain/actions.py b/northcua/agents/web/domain/actions.py
+index 8fb9031..b88c353 100644
+--- a/northcua/agents/web/domain/actions.py
++++ b/northcua/agents/web/domain/actions.py
+@@ -339,7 +339,7 @@ class WebFillRefParams(WebRefParams):
+     text: str = Field(
+         description=(
+             "Replacement text to set in the referenced editable element. The value replaces existing content; "
+-            "use this instead of a click/type sequence when a reliable input ref exists. Use web_type_text only "
++            "HTML date inputs require YYYY-MM-DD (ISO) values. Use this instead of a click/type sequence when a reliable input ref exists. Use web_type_text only "
+             "when you intentionally need literal keystrokes into the currently focused element."
+         ),
+     )
+@@ -402,26 +402,26 @@ class WebDragRefParams(BaseModel):
+ class WebClickPointParams(BaseModel):
+     """Arguments for ``web_click_point``.
+ 
+-    Coordinates are CSS pixels relative to the current viewport top-left.
++    Coordinates follow the input space declared in the latest runtime observation.
+     Document-scroll and screenshot-image coordinates are not accepted.
+ 
+     Attributes:
+-        x: Viewport-relative CSS x coordinate.
+-        y: Viewport-relative CSS y coordinate.
++        x: Model-facing viewport x coordinate.
++        y: Model-facing viewport y coordinate.
+         button: Mouse button to click.
+     """
+ 
+     x: float = Field(
+         ge=0,
+         description=(
+-            "Current viewport CSS x coordinate from the viewport's top-left corner. Use only when the target has "
++            "Viewport x coordinate in the input space declared by the latest runtime observation. Use only when the target has "
+             "no reliable numeric ref in the latest snapshot or direct SoM labels."
+         ),
+     )
+     y: float = Field(
+         ge=0,
+         description=(
+-            "Current viewport CSS y coordinate from the viewport's top-left corner. Use only when the target has "
++            "Viewport y coordinate in the input space declared by the latest runtime observation. Use only when the target has "
+             "no reliable numeric ref in the latest snapshot or direct SoM labels."
+         ),
+     )
+@@ -441,7 +441,7 @@ class WebDoubleClickPointParams(WebClickPointParams):
+ class WebDragPointParams(BaseModel):
+     """Arguments for ``web_drag_point``.
+ 
+-    Coordinates are CSS pixels relative to the current viewport top-left. The
++    Coordinates follow the input space declared in the latest runtime observation. The
+     action uses the left mouse button to align with desktop drag schemas.
+ 
+     Attributes:
+diff --git a/northcua/agents/web/domain/results.py b/northcua/agents/web/domain/results.py
+index 0be8dcd..7cb4d5e 100644
+--- a/northcua/agents/web/domain/results.py
++++ b/northcua/agents/web/domain/results.py
+@@ -46,6 +46,8 @@ class WebTerminalStatus(str, Enum):
+     TOOL_ERROR = "tool_error"
+     MAX_STEPS = "max_steps"
+     RUNTIME_ERROR = "runtime_error"
++    NO_PROGRESS = "no_progress"
++    VERIFICATION_FAILED = "verification_failed"
+     INTERRUPTED = "interrupted"
+ 
+ 
+diff --git a/northcua/agents/web/hardening.py b/northcua/agents/web/hardening.py
+new file mode 100644
+index 0000000..53a46f7
+--- /dev/null
++++ b/northcua/agents/web/hardening.py
+@@ -0,0 +1,25 @@
++"""Coordinate contract and repeated-cycle checks without task-specific answers."""
++from __future__ import annotations
++import math
++
++def map_point(x: float, y: float, *, width: int, height: int, input_space: str, clamp: bool) -> tuple[float, float]:
++    if not all(math.isfinite(v) for v in (x,y)) or width <= 0 or height <= 0:
++        raise ValueError("Non-finite point or invalid viewport")
++    if input_space == "normalized_1000":
++        x, y = round(x * width / 1000), round(y * height / 1000)
++    elif input_space != "viewport_css":
++        raise ValueError("Unknown Web point coordinate space")
++    if clamp:
++        x,y=max(0,min(width-1,x)),max(0,min(height-1,y))
++    if not (0 <= x < width and 0 <= y < height):
++        raise ValueError("point outside viewport")
++    return x,y
++
++def repeated_cycle(history: list[str], *, repeats: int = 3) -> bool:
++    """Require repeated identical action+pre-observation cycles; not just repeated tools."""
++    for period in (1,2,3):
++        if len(history)>=period*repeats:
++            window=history[-period*repeats:]
++            if all(window[i:i+period]==window[:period] for i in range(0,len(window),period)):
++                return True
++    return False
+diff --git a/northcua/agents/web/mcp/descriptors.py b/northcua/agents/web/mcp/descriptors.py
+index d0ef77f..bec7fa2 100644
+--- a/northcua/agents/web/mcp/descriptors.py
++++ b/northcua/agents/web/mcp/descriptors.py
+@@ -215,21 +215,21 @@ _DESCRIPTION_BY_TOOL_NAME = {
+     )
+     + _POST_OBSERVATION_SUFFIX,
+     WebAgentToolName.CLICK_POINT.value: (
+-        "Click current viewport CSS coordinates only when no reliable element ref exists, such as canvas, SVG, "
++        "Click coordinates in the input space declared by the latest runtime observation only when no reliable element ref exists, such as canvas, SVG, "
+         "custom widgets, or visual-only targets. If the target has a stable numeric ref in the latest snapshot or SoM, "
+         "use the ref click action instead. Coordinates come from the current viewport, not document-scroll or "
+         "screenshot-image coordinates."
+     )
+     + _POST_OBSERVATION_SUFFIX,
+     WebAgentToolName.DOUBLE_CLICK_POINT.value: (
+-        "Double-click current viewport CSS coordinates only when no reliable element ref exists and the UI truly "
++        "Double-click coordinates in the input space declared by the latest runtime observation only when no reliable element ref exists and the UI truly "
+         "requires a double click. If the target has a stable numeric ref, use the ref click action. Coordinates come from "
+-        "the current viewport, not document-scroll or screenshot-image coordinates."
++        "the current viewport, not document-scroll coordinates."
+     )
+     + _POST_OBSERVATION_SUFFIX,
+     WebAgentToolName.DRAG_POINT.value: (
+-        "Drag from one current viewport CSS coordinate to another using the left mouse button. Use this only when "
+-        "drag_ref is unavailable because the source or destination lacks a reliable numeric ref; coordinates are current "
++        "Drag between coordinates in the input space declared by the latest runtime observation using the left mouse button. Use this only when "
++        "drag_ref is unavailable because the source or destination lacks a reliable numeric ref; coordinates follow the current observation policy, with default "
+         "viewport CSS pixels."
+     )
+     + _POST_OBSERVATION_SUFFIX,
+diff --git a/northcua/agents/web/overlay/action_adapter.py b/northcua/agents/web/overlay/action_adapter.py
+index 534fc16..736165a 100644
+--- a/northcua/agents/web/overlay/action_adapter.py
++++ b/northcua/agents/web/overlay/action_adapter.py
+@@ -8,6 +8,7 @@ from dataclasses import dataclass
+ from northcua.agentkernel.actions import ActionCommandInfo
+ from northcua.core.json_types import JsonObject
+ 
++from ..hardening import map_point
+ from ..domain.actions import WebAgentActionType, WebScrollDirection, canonical_web_ref
+ from ..domain.observations import WebBoundingBox, WebObservationContext, WebScreenshotMark, WebScreenshotObservation
+ from .domain import WebActionOverlayPlan
+@@ -50,6 +51,16 @@ class WebActionOverlayAdapter:
+         if not screenshot or not source_image_path:
+             return None
+         payload = dict(params or {})
++        if observation.snapshot.raw.get("point_coordinate_input_space") == "normalized_1000":
++            viewport = observation.snapshot.raw.get("viewport")
++            if isinstance(viewport, Mapping) and action in {
++                WebAgentActionType.CLICK_POINT, WebAgentActionType.DOUBLE_CLICK_POINT, WebAgentActionType.DRAG_POINT
++            }:
++                pairs = [("from_x","from_y"),("to_x","to_y")] if action == WebAgentActionType.DRAG_POINT else [("x","y")]
++                for xkey,ykey in pairs:
++                    payload[xkey],payload[ykey]=map_point(float(payload[xkey]),float(payload[ykey]),
++                        width=int(viewport["width"]),height=int(viewport["height"]),
++                        input_space="normalized_1000",clamp=True)
+         command = self._command_for_action(action=action, params=payload, screenshot=screenshot)
+         if command is None:
+             return None
+diff --git a/northcua/agents/web/prompt/templates/web_agent_system.j2 b/northcua/agents/web/prompt/templates/web_agent_system.j2
+index ac2f812..c7ead59 100644
+--- a/northcua/agents/web/prompt/templates/web_agent_system.j2
++++ b/northcua/agents/web/prompt/templates/web_agent_system.j2
+@@ -71,8 +71,8 @@ Observation and screenshot semantics:
+ 
+ Screenshot and coordinate semantics:
+ - Every screenshot captures only the current viewport. Full-page capture is unavailable; inspect long pages viewport by viewport with `web_scroll`.
+-- Point coordinates are CSS pixels relative to the current viewport top-left: x increases to the right and y increases downward.
+-- Screenshot image pixel dimensions may be reported in metadata for visual inspection, but point actions still use current viewport CSS coordinates, not document-scroll or scaled image-pixel coordinates.
++- Use the point-coordinate policy in the latest observation. normalized_1000 means x and y range from 0 to 1000 across the viewport; emit these directly and let the backend convert once. viewport_css means CSS pixels. Ref actions never need scaling.
++- Screenshot dimensions may be reported for visual inspection. Point actions follow the configured model-facing input space; the backend converts to viewport CSS pixels exactly once.
+ - Use an annotated screenshot when visual layout matters: it draws direct numeric Set-of-Mark ref labels over visible interactive elements and returns bbox metadata in the viewport CSS coordinate frame.
+ - Prefer the matching ref action after inspecting SoM refs. Use a marked element's bbox center as a point fallback only when the visual target has no reliable semantic ref.
+ - Do not use browser-window-local, document-scroll, or screenshot-pixel coordinates for point actions unless the tool explicitly says so.
+@@ -93,3 +93,9 @@ Response rules:
+ - If no action is required, answer directly without tool calls.
+ - Do not ask the user for clarification. Act with the available tools and report concrete infeasibility only for environment/task-precondition gaps.
+ - Default to one tool call per response so each browser mutation is followed by a fresh snapshot before the next decision.
++
++Reliable form input and stopping:
++- For HTML date inputs, supply YYYY-MM-DD values even when the control visually uses a local date format.
++- Verify every requested value once after saving/reopening. Keep a checklist of which values are already verified.
++- When all values have been verified and the page shows the saved result, finish immediately. Do not alternate tabs to recheck values already confirmed.
++- Never claim a saved result or recorded click sequence unless it appears in the latest visible page evidence. A successful click tool alone does not prove a target was hit.
+diff --git a/northcua/agents/web/runner/run_loop.py b/northcua/agents/web/runner/run_loop.py
+index b55fc45..d0db8ac 100644
+--- a/northcua/agents/web/runner/run_loop.py
++++ b/northcua/agents/web/runner/run_loop.py
+@@ -3,12 +3,14 @@
+ from __future__ import annotations
+ 
+ import logging
++import json
++import hashlib
+ from dataclasses import dataclass, field
+ from pathlib import Path
+ from time import time_ns
+ from typing import TYPE_CHECKING, cast
+ 
+-from nexau.core.messages import Message
++from nexau.core.messages import Message, Role, TextBlock
+ 
+ from northcua.agentkernel.tools.surface import normalize_allowed_tool_names
+ from northcua.agentkit.runtime import (
+@@ -30,6 +32,7 @@ from northcua.core.terminal import AgentTerminalReason, TerminalDecisionPolicy
+ from northcua.agentkernel.working_memory import WorkingMemoryStore
+ 
+ from ..backend import WebActionBackend
++from ..hardening import repeated_cycle
+ from ..domain.evaluation_artifacts import WebToolResultArtifact
+ from ..domain.observations import WebObservationContext, WebScreenshotObservation
+ from ..domain.results import WebAgentResult, WebRunStatus, WebStepRecord, WebTerminalStatus
+@@ -116,6 +119,11 @@ class _WebAgentLoopExecution:
+     prior_messages: list[Message]
+     prior_visual_history_turns: list[WebPromptVisualHistoryTurn] = field(default_factory=list)
+     visual_history_factory: WebPromptVisualHistoryFactory = field(default_factory=WebPromptVisualHistoryFactory)
++    runtime_feedback: str = ""
++    recoverable_error_steps: int = 0
++    completion_rejections: int = 0
++    cycle_history: list[str] = field(default_factory=list)
++    loop_warnings: int = 0
+     recent_action_result: JsonObject | None = None
+     current_observation: WebObservationContext | None = None
+     recent_post_action_observation: WebObservationContext | None = None
+@@ -137,6 +145,12 @@ class _WebAgentLoopExecution:
+         session_step = context.cursor.session_step
+         artifact_step_index = session_step or step_index
+         client = self.resource.require_client()
++        if self.runtime_feedback:
++            self.prior_messages.append(Message(role=Role.USER, content=[
++                TextBlock(text="Runtime feedback: " + self.runtime_feedback)
++            ]))
++            self._record_hardening_event(step_index, "feedback_delivered", self.runtime_feedback)
++            self.runtime_feedback = ""
+         observation = await self._current_observation()
+         artifact_paths = await self.runner.artifact_persistence.persist_observation_artifacts(
+             client=client,
+@@ -232,6 +246,26 @@ class _WebAgentLoopExecution:
+         if not resolved_actions:
+             final_answer = self._final_answer_from_step(step_result)
+             if final_answer:
++                selector=self.runner.app_config.web.completion_evidence_selector
++                infeasible = TerminalDecisionPolicy().failure_reason_from_text(final_answer) == AgentTerminalReason.INFEASIBLE
++                if selector and not infeasible:
++                    evidence = await client.completion_evidence(selector)
++                    with (Path(self.runner.artifact_store.root)/"completion_checks.jsonl").open("a") as stream:
++                        stream.write(json.dumps({"step":step_index,**evidence})+"\n")
++                    if not evidence["ok"]:
++                        self.completion_rejections += 1
++                        if self.completion_rejections > self.runner.app_config.web.completion_recovery_budget:
++                            return self._stop_with_reason(context,step_record,WebTerminalStatus.VERIFICATION_FAILED,
++                                "No visible completion evidence after bounded recovery.")
++                        self.runtime_feedback = ("Your completion claim has no visible confirmation or receipt on the page. "
++                            "Inspect the latest observation and correct any missing action. Do not invent confirmation. "
++                            "If blocked, report the blocker rather than claiming success.")
++                        self.prior_messages = self.runner.prompt_builder.append_step_history(
++                            envelope=step_result.envelope,prior_messages=self.prior_messages,trace_state=step_result.trace_state)
++                        self.current_observation=None
++                        self.recent_post_action_observation=None
++                        return AgentRuntimeStepOutcome(cursor=context.cursor,result=step_record,
++                            terminal_decision=self.result.to_terminal_decision(),summary="Completion evidence missing; bounded recovery.")
+                 return self._finish_final_answer(context, step_record, final_answer)
+             return self._finish_missing_tool(context, step_record, step_result)
+         self.recent_action_result = compact_tool_outputs(cast(list[ResolvedToolExecution], resolved_actions))
+@@ -261,6 +295,26 @@ class _WebAgentLoopExecution:
+         )
+         if errored_action is not None:
+             return self._finish_tool_error(context, step_record, step_result, errored_action)
++        retryable = next((action for action in resolved_actions if action.is_error and action.is_retryable_error),None)
++        if retryable is not None:
++            self.recoverable_error_steps += 1
++            budget=self.runner.app_config.web.recovery_error_budget
++            if budget is not None and self.recoverable_error_steps > budget:
++                return self._stop_with_reason(context,step_record,WebTerminalStatus.TOOL_ERROR,
++                    "Correctable tool-error recovery budget exhausted.")
++        if self.runner.app_config.web.loop_detection_enabled:
++            signature=json.dumps([(a.tool_name,a.tool_input) for a in resolved_actions],sort_keys=True)+observation.snapshot.snapshot
++            self.cycle_history.append(hashlib.sha256(signature.encode()).hexdigest())
++            if repeated_cycle(self.cycle_history):
++                self.loop_warnings += 1
++                self.cycle_history.clear()
++                self._record_hardening_event(step_index,"repeated_cycle",str(self.loop_warnings))
++                if self.loop_warnings > 1:
++                    return self._stop_with_reason(context,step_record,WebTerminalStatus.NO_PROGRESS,
++                        "Repeated action/observation cycle continued after a recovery warning.")
++                self.runtime_feedback = ("You repeated the same actions through the same page states without new progress. "
++                    "Review the saved confirmation and requested values once. Finish if verified; otherwise take one "
++                    "specific corrective action. Stop alternating tabs or repeating already completed checks.")
+         return AgentRuntimeStepOutcome(
+             cursor=context.cursor,
+             result=step_record,
+@@ -395,6 +449,18 @@ class _WebAgentLoopExecution:
+ 
+         return (self.runner._assistant_text_from_step(step_result) or step_result.response_text or "").strip()
+ 
++    def _record_hardening_event(self,step,kind,detail):
++        with (Path(self.runner.artifact_store.root)/"hardening_events.jsonl").open("a") as stream:
++            stream.write(json.dumps({"step":step,"kind":kind,"detail":detail})+"\n")
++
++    def _stop_with_reason(self,context,step_record,reason,detail):
++        self.result.success=False
++        self.result.status=WebRunStatus.FAILED
++        self.result.terminal_status=reason
++        self.result.final_answer=detail
++        return AgentRuntimeStepOutcome(cursor=context.cursor,result=step_record,
++            terminal_decision=self.result.to_terminal_decision(),summary=detail)
++
+     def _finish_final_answer(
+         self,
+         context: AgentRuntimeStepContext[object, object],
+diff --git a/northcua/core/config.py b/northcua/core/config.py
+index dae1aff..6b5dc2a 100644
+--- a/northcua/core/config.py
++++ b/northcua/core/config.py
+@@ -92,6 +92,13 @@ class WebPostActionSettleConfig(BaseModel):
+     final_bbox_verify: bool = True
+ 
+ 
++class WebPointCoordinatePolicyConfig(BaseModel):
++    """Model-facing Web point policy. Ref actions are never scaled."""
++    model_config = ConfigDict(extra="forbid")
++    input_space: Literal["viewport_css", "normalized_1000"] = "viewport_css"
++    clamp_to_bounds: bool = False
++
++
+ class WebAgentConfig(BaseModel):
+     """Generic web-agent runtime defaults.
+ 
+@@ -103,6 +110,13 @@ class WebAgentConfig(BaseModel):
+ 
+     model_config = ConfigDict(extra="forbid")
+ 
++    coordinate_policy: WebPointCoordinatePolicyConfig = Field(default_factory=WebPointCoordinatePolicyConfig)
++    viewport_width: int = Field(default=1280, ge=320)
++    viewport_height: int = Field(default=720, ge=240)
++    recovery_error_budget: int | None = Field(default=None, ge=0)
++    loop_detection_enabled: bool = False
++    completion_evidence_selector: str | None = None
++    completion_recovery_budget: int = Field(default=2, ge=0)
+     playwright_browser: Literal["chromium", "firefox", "webkit"] = "chromium"
+     browser_channel: Literal["chrome", "msedge"] | None = None
+     browser_executable_path: str | None = None

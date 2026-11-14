@@ -307,6 +307,20 @@ index ac2f812..c7ead59 100644
 +- Verify every requested value once after saving/reopening. Keep a checklist of which values are already verified.
 +- When all values have been verified and the page shows the saved result, finish immediately. Do not alternate tabs to recheck values already confirmed.
 +- Never claim a saved result or recorded click sequence unless it appears in the latest visible page evidence. A successful click tool alone does not prove a target was hit.
+diff --git a/northcua/agents/web/runner/model_step.py b/northcua/agents/web/runner/model_step.py
+index 416c2a0..b5a1f13 100644
+--- a/northcua/agents/web/runner/model_step.py
++++ b/northcua/agents/web/runner/model_step.py
+@@ -217,6 +217,9 @@ class WebAgentModelStepExecutor:
+ 
+     @staticmethod
+     def _configure_agent_for_step(agent_config: AgentConfig) -> None:
++        if not agent_config.system_prompt:
++            agent_config.system_prompt = str(Path(__file__).resolve().parents[1] / "prompt/templates/web_agent_system.j2")
++            agent_config.system_prompt_type = "jinja"
+         stop_tools = set(agent_config.stop_tools or set())
+         stop_tools.update(
+             tool_ids_from_mcp_server(
 diff --git a/northcua/agents/web/runner/run_loop.py b/northcua/agents/web/runner/run_loop.py
 index b55fc45..d0db8ac 100644
 --- a/northcua/agents/web/runner/run_loop.py
